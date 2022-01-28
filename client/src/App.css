@@ -1,0 +1,15 @@
+.spinner {
+    text-align: center;
+    margin: auto;
+}
+
+.floatingButton{
+    height: 40px;
+    width: 50px;
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    bottom: 15px;
+    left: 25px;
+    z-index: 1;
+ }

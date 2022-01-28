@@ -1,0 +1,2377 @@
+[{
+  "_id": {
+    "$oid": "6194c1c76a97c091d7f9a311"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΣΟΥΒΛΑΚΙ ΧΟΙΡΙΝΟ ",
+  "description": "",
+  "price": "3.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6194c25e6a97c091d7f9a3ae"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΠΑΝΣΕΤΑ ΧΟΙΡΙΝΗ",
+  "description": "",
+  "price": "3.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6194c2846a97c091d7f9a3bc"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΜΠΡΙΖΟΛΑΚΙΑ ΛΑΙΜΟΥ ΧΟΙΡΙΝΑ",
+  "description": "",
+  "price": "3.40",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "6194c3586a97c091d7f9a3cf"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΜΠΡΙΖΟΛΑ ΧΟΙΡΙΝΗ",
+  "description": "",
+  "price": "3.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6195efd04c6444fed627c1ba"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΓΥΡΟΣ ΧΟΙΡΙΝΟΣ",
+  "description": "",
+  "price": "3.30",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640101173/Items/usmazybhba04fckf1byj.jpg",
+      "filename": "Items/usmazybhba04fckf1byj",
+      "_id": {
+        "$oid": "61c1f535620839101e2a4ace"
+      }
+    }
+  ],
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "6195f0434c6444fed627c1c8"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΣΟΥΒΛΑΚΙ ΚΟΤΟΠΟΥΛΟ",
+  "description": "ΜΠΟΥΤΙ ΚΟΤΟΠΟΥΛΟ",
+  "price": "3.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6195f0a74c6444fed627c1d6"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΦΙΛΕΤΟ ΚΟΤΟΠΟΥΛΟ",
+  "description": "ΣΤΗΘΟΣ ΚΟΤΟΠΟΥΛΟ",
+  "price": "3.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6195f1064c6444fed627c20c"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΣΝΙΤΣΕΛ ΚΟΤΟΠΟΥΛΟ",
+  "description": "",
+  "price": "3.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6195f1344c6444fed627c21a"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΓΥΡΟΣ ΚΟΤΟΠΟΥΛΟ",
+  "description": "",
+  "price": "3.00",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640101148/Items/sqbiuaudo6vejls2yws8.jpg",
+      "filename": "Items/sqbiuaudo6vejls2yws8",
+      "_id": {
+        "$oid": "61c1f51c620839101e2a4aae"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6195f1514c6444fed627c228"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΜΠΙΦΤΕΚΙ",
+  "description": "",
+  "price": "3.30",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640101193/Items/uvedqficwktpqtuiteci.jpg",
+      "filename": "Items/uvedqficwktpqtuiteci",
+      "_id": {
+        "$oid": "61c1f549620839101e2a4aef"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6195f1a84c6444fed627c236"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΜΠΙΦΤΕΚΙ ΓΕΜΙΣΤΟ",
+  "description": "",
+  "price": "3.00",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640101218/Items/ulbdpzmw1trcrnnstbjb.jpg",
+      "filename": "Items/ulbdpzmw1trcrnnstbjb",
+      "_id": {
+        "$oid": "61c1f562620839101e2a4b11"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6195f1d24c6444fed627c244"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΣΟΥΤΖΟΥΚΑΚΙΑ",
+  "description": "",
+  "price": "3.30",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6195f1ed4c6444fed627c252"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΛΟΥΚΑΝΙΚΟ ΧΩΡΙΑΤΙΚΟ",
+  "description": "",
+  "price": "2.90",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640101124/Items/wsindkxm9fdldlv921b9.png",
+      "filename": "Items/wsindkxm9fdldlv921b9",
+      "_id": {
+        "$oid": "61c1f504620839101e2a4a8f"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6195f85a4c6444fed627c43c"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΤΣΙΠΟΥΡΑ ΣΧΑΡΑΣ",
+  "description": "",
+  "price": "5.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195f8784c6444fed627c44a"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΛΑΥΡΑΚΙ ΣΧΑΡΑΣ",
+  "description": "",
+  "price": "5.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195f8b94c6444fed627c458"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΜΑΓΙΑΤΙΚΟ",
+  "description": "Ανάλογα με την διαθεσιμότητα του προμηθευτή",
+  "price": "11.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6195f8e74c6444fed627c478"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΓΑΡΙΔΕΣ ΣΧΑΡΑΣ",
+  "description": "",
+  "price": "6.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195f96e4c6444fed627c486"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΚΑΛΑΜΑΡΙ XL ΣΧΑΡΑΣ",
+  "description": "",
+  "price": "4.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195fab54c6444fed627c494"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΚΑΛΑΜΑΡΙ XL ΓΕΜΙΣΤΟ",
+  "description": "ΣΤΟ ΦΟΥΡΝΟ ΜΕ ΦΕΤΑ, ΠΙΠΕΡΙΑ ΠΡΑΣΙΝΗ & ΚΟΚΚΙΝΗ ΚΑΙ ΤΥΡΟΚΑΥΤΕΡΗ.",
+  "price": "5.40",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6195fba14c6444fed627c4c9"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΚΑΛΑΜΑΡΑΚΙΑ ΡΟΔΕΛΑ ΠΑΝΕ ΤΗΓ",
+  "description": "ΚΑΤΕΨΥΓΜΕΝΟ ΠΡΟΙΟΝ",
+  "price": "3.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6195ff684c6444fed627c4f4"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΣΑΡΔΕΛΑ ΠΑΝΕ ΤΗΓΑΝ",
+  "description": "ΚΑΤΕΨΥΓΜΕΝΟ ΠΡΟΙΟΝ",
+  "price": "3.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6195ffb74c6444fed627c512"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΘΑΛΑΣΣΙΝΑ",
+  "name": "ΓΑΥΡΟ ΠΑΝΕ ΤΗΓΑΝ",
+  "description": "ΚΑΤΕΨΥΓΜΕΝΟ ΠΡΟΙΟΝ",
+  "price": "3.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6195fff34c6444fed627c52f"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΟΡΕΚΤΙΚΑ",
+  "name": "ΤΥΡΙ ΦΕΤΑ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6196000f4c6444fed627c53d"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΟΡΕΚΤΙΚΑ",
+  "name": "ΑΛΟΙΦΕΣ ΔΙΑΦΟΡΕΣ",
+  "description": "",
+  "price": "0.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619600294c6444fed627c54b"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΟΡΕΚΤΙΚΑ",
+  "name": "ΤΥΡΟΚΡΟΚΕΤΕΣ",
+  "description": "",
+  "price": "1.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "6196004b4c6444fed627c559"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΟΡΕΚΤΙΚΑ",
+  "name": "ΚΑΣΕΡΟΚΡΟΚΕΤΕΣ",
+  "description": "",
+  "price": "1.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "619600d34c6444fed627c5b6"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΟΡΕΚΤΙΚΑ",
+  "name": "ΚΟΛΟΚΥΘΟΚΕΦΤΕΔΕΣ",
+  "description": "",
+  "price": "1.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "619600e94c6444fed627c5c4"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΟΡΕΚΤΙΚΑ",
+  "name": "ΦΑΛΑΦΕΛ",
+  "description": "",
+  "price": "1.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "6196142ebb0dcafb77359b2e"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΟΡΕΚΤΙΚΑ",
+  "name": "ΚΟΤΟΜΑΚΑΡΟΝΑΔΑ",
+  "description": "",
+  "price": "2.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "619614f9bb0dcafb77359b4c"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΣΑΛΑΤΕΣ",
+  "name": "CEASARS",
+  "description": "",
+  "price": "2.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61961501bb0dcafb77359b5a"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΣΑΛΑΤΕΣ",
+  "name": "CHEF",
+  "description": "",
+  "price": "2.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61961597bb0dcafb77359b78"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΣΑΛΑΤΕΣ",
+  "name": "ΡΟΚΑ-ΜΑΡΟΥΛΙ, ΠΑΡΜΕΖΑΝΑ & ΛΙΑΣΤΗ ΝΤΟΜΑΤΑ",
+  "description": "",
+  "price": "2.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "619615e8bb0dcafb77359bac"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΣΑΛΑΤΕΣ",
+  "name": "ΜΑΡΟΥΛΙ",
+  "description": "",
+  "price": "1.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61961625bb0dcafb77359bba"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΣΑΛΑΤΕΣ",
+  "name": "ΜΠΡΟΚΟΛΟ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61961636bb0dcafb77359bc8"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΣΑΛΑΤΕΣ",
+  "name": "ΚΟΥΝΟΥΠΙΔΙ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a8c1f2ed4272fc4a9227c9"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΕΜΦΙΑΛΩΜΕΝΑ ΝΕΡΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c202ed4272fc4a9227d6"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΑΝΑΨΥΚΤΙΚΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c211ed4272fc4a9227e3"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ICE TEA",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c22aed4272fc4a9227f0"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΡΟΦΗΜΑΤΑ ΚΑΦΕ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c264ed4272fc4a92280a"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ENERGY DRINKS",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c27ced4272fc4a922817"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΜΠΥΡΕΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c288ed4272fc4a922824"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΚΡΑΣΙΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c29aed4272fc4a922831"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΟΥΖΑ - ΤΣΙΠΟΥΡΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c2b4ed4272fc4a92283e"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΑΛΚΟΟΛΟΥΧΑ ΠΟΤΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c2c5ed4272fc4a92284b"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΛΙΚΕΡ - ΚΟΝΙΑΚ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c327ed4272fc4a92285d"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΚΑΒΑ",
+  "name": "ΧΥΜΟΙ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c350ed4272fc4a92286a"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΚΑΤΕΨΥΓΜΕΝΑ ΤΡΟΦΙΜΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c36ced4272fc4a922877"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΤΥΡΙΑ - ΑΛΑΝΤΙΚΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c38fed4272fc4a922884"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΔΙΑΦΟΡΑ ΕΙΔΗ ΨΥΓΕΙΟΥ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61a8c404ed4272fc4a9228e3"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΣΑΛΑΤΕΣ - ΑΛΟΙΦΕΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a8c421ed4272fc4a9228fe"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΠΑΓΩΤΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c44ded4272fc4a922918"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΓΑΛΑΤΑ, ΡΟΦΗΜΑΤΑ & ΧΥΜΟΙ ΨΥΓΕΙΟΥ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61a8c46eed4272fc4a922925"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΕΙΔΗ ΔΙΑΤΡΟΦΗΣ - ΝΗΣΤΙΣΙΜΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a8c48eed4272fc4a922932"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΚΡΕΜΕΣ - ΓΛΥΚΙΣΜΑΤΑ - ΖΕΛΕ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a939a415a5762676fc7eb8"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΖΥΜΑΡΙΚΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a939ba15a5762676fc7ec5"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΡΥΖΙ - ΟΣΠΡΙΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a939df15a5762676fc7ed2"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΛΑΔΙ - ΛΕΜΟΝΙ - ΞΥΔΙ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a939f515a5762676fc7edf"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΕΙΔΗ ΖΑΧΑΡΟΠΛΑΣΤΙΚΗΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93a0515a5762676fc7eec"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΚΟΝΣΕΡΒΕΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93a2715a5762676fc7ef9"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΑΛΑΤΙ - ΠΙΠΕΡΙ - ΜΠΑΧΑΡΙΚΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93a3f15a5762676fc7f06"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΣΑΛΤΣΕΣ - ΜΟΓΙΟΝΕΖΕΣ - ΤΟΜΑΤΟΕΙΔΗ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a93a5515a5762676fc7f13"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΑΡΤΟΣΚΕΥΑΣΜΑΤΑ - ΦΡΥΓΑΝΙΕΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a93aa815a5762676fc7f2a"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΕΙΔΗ ΕΠΑΛΕΙΨΗΣ (ΜΕΛΙ - ΜΑΡΜΕΛΑΔΕΣ - ΜΕΡΕΝΤΑ)",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a93add15a5762676fc7f45"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΚΥΒΟΙ - ΖΩΜΟΙ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93aef15a5762676fc7f52"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΑΥΓΑ, ΒΟΥΤΗΡΑ, ΝΩΠΕΣ ΖΥΜΕΣ & ΖΩΜΟΙ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a93b0d15a5762676fc7f5f"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΔΗΜΗΤΡΙΑΚΑ & ΜΠΑΡΕΣ ΔΙΑΦΟΡΕΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93b5615a5762676fc7f84"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΣΟΚΟΛΑΤΟΕΙΔΗ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93b6a15a5762676fc7f91"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΞΗΡΟΙ ΚΑΡΠΟΙ & ΣΝΑΚΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a93bbf15a5762676fc7fb6"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΑΝΔΡΙΚΗ ΦΡΟΝΤΙΔΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93bf815a5762676fc7fc3"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΓΥΝΑΙΚΕΙΑ ΦΡΟΝΤΙΔΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93c1315a5762676fc7fd0"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΠΕΡΙΠΟΙΗΣΗ ΜΑΛΛΙΩΝ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93c3715a5762676fc7fdd"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΠΡΟΣΩΠΙΚΗ ΠΕΡΙΠΟΙΗΣΗ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93c5015a5762676fc7fea"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΥΓΙΕΙΝΗ ΣΤΟΜΑΤΟΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93c6115a5762676fc7ff7"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΥΓΙΕΙΝΗ ΣΩΜΑΤΟΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93ca015a5762676fc8004"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΜΩΡΟΜΑΝΤΗΛΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93cbc15a5762676fc8011"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΥΓΙΕΙΝΗ - ΟΜΟΡΦΙΑ",
+  "name": "ΒΡΕΦΙΚΗ ΥΓΙΕΙΝΗ & ΦΡΟΝΤΙΔΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93cdb15a5762676fc801e"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΑΠΟΡΡΥΠΑΝΤΙΚΑ ΠΙΑΤΩΝ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93cf815a5762676fc802b"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΑΞΕΣΟΥΑΡ ΚΑΘΑΡΙΣΜΟΥ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93d1515a5762676fc8038"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΑΠΟΡΡΥΠΑΝΤΙΚΑ ΡΟΥΧΩΝ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93d3615a5762676fc8045"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΑΠΟΡΡΥΠΑΝΤΙΚΑ ΧΕΡΙΩΝ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93d5915a5762676fc8052"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΑΠΟΡΡΥΠΑΝΤΙΚΑ ΣΠΙΤΙΟΥ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93d7b15a5762676fc805f"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΑΠΟΣΜΗΤΙΚΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93dca15a5762676fc806c"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΚΑΘΑΡΙΣΤΙΚΑ ΓΕΝΙΚΗΣ ΧΡΗΣΗΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93de115a5762676fc8079"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΕΙΔΗ ΚΟΥΖΙΝΑΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93df515a5762676fc8086"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΔΙΑΦΟΡΑ ΕΙΔΗ ΣΠΙΤΙΟΥ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93e6015a5762676fc8098"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΧΑΡΤΙ ΚΟΥΖΙΝΑΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93e7215a5762676fc80a5"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΧΑΡΤΙ ΥΓΕΙΑΣ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a93edc15a5762676fc80b2"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΣΠΙΤΙ - ΚΑΘΑΡΙΣΤΙΚΑ - ΧΑΡΤΙΚΑ",
+  "name": "ΧΑΡΤΟΠΕΤΣΕΤΕΣ - ΧΑΡΤΟΜΑΝΤΗΛΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61a9406f15a5762676fc80ec"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΓΙΑΟΥΡΤΙΑ, ΚΡΕΜΕΣ ΓΑΛΑΚΤΟΣ & ΕΠΙΔΟΡΠΙΑ ΨΥΓΕΙΟΥ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a940c715a5762676fc811e"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΤΥΡΟΚΟΜΙΚΑ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a9418415a5762676fc8139"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΨΥΓΕΙΟ - ΚΑΤΑΨΥΞΗ",
+  "name": "ΟΡΕΚΤΙΚΑ & DELICATESSEN",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a9420715a5762676fc8154"
+  },
+  "category": "Πρατήριο",
+  "subcategory": "ΤΡΟΦΙΜΑ",
+  "name": "ΜΠΙΣΚΟΤΑ, ΣΟΚΟΛΑΤΕΣ & ΖΑΧΑΡΩΔΗ",
+  "description": "",
+  "price": "",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa841a7ed949a88a70dd06"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΝΕΡΟ 500 ml",
+  "description": "",
+  "price": "0.15",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa84517ed949a88a70dd13"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΝΕΡΟ 1,5 lt",
+  "description": "",
+  "price": "0.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa84b67ed949a88a70dd20"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "SPRITE 330 ml",
+  "description": "",
+  "price": "0.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa84e37ed949a88a70dd2d"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "COCA COLA 330 ml",
+  "description": "",
+  "price": "0.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa85527ed949a88a70dd4a"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": " COCA COLA LIGHT 330 ml ",
+  "description": "",
+  "price": "0.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa85697ed949a88a70dd57"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": " COCA COLA ZERO 330 ml ",
+  "description": "",
+  "price": "0.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa859c7ed949a88a70dd64"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΛΕΜΟΝΑΔΑ FANTA 330 ml",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa85c87ed949a88a70dd71"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΠΟΡΤΟΚΑΛΑΔΑ FANTA 330 ml",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa85fd7ed949a88a70dd7e"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΤΣΑΪ LIRTON 330 ml",
+  "description": "",
+  "price": "0.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa86567ed949a88a70ddac"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΧΥΜΟΙ ΗΒΗ ΔΙΑΦΟΡΕΣ ΓΕΥΣΕΙΣ 250 ml ",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa86877ed949a88a70ddb9"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΑΜΙΤΑ ΜΟΤΙΟΝ 330 ml",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa86d07ed949a88a70ddc6"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "LIFE FREE 330 ml",
+  "description": "",
+  "price": "0.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa875c7ed949a88a70ddd3"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "SCHWEPPES ΔΙΑΦΟΡΕΣ ΓΕΥΣΕΙΣ 330 ml",
+  "description": "",
+  "price": "0.70",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa87d17ed949a88a70ddee"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "PEPSI COLA 330 ml",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa88757ed949a88a70ddfb"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "PEPSI TWIST 330 ml",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa88cc7ed949a88a70de08"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "7UP 330 ml",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa890c7ed949a88a70de15"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "MONSTERS ΔΙΑΦΟΡΕΣ ΓΕΥΣΕΙΣ 500 ml",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8cc17ed949a88a70de22"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΠΟΡΤΟΚΑΛΑΔΑ ΗΒΗ 330 ml",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8cdf7ed949a88a70de2f"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΛΕΜΟΝΑΔΑ ΗΒΗ 330 ml",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8d057ed949a88a70de3c"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΣΟΔΑ ΗΒΗ 330 ml",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8d1d7ed949a88a70de49"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΣΟΔΑ ΛΕΜΟΝΙ ΗΒΗ 330 ml",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8da27ed949a88a70de60"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΚΡΟΥΑΣΑ BUENO ",
+  "description": "",
+  "price": "0.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8dc17ed949a88a70de6d"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΚΡΟΥΑΣΑΝ ΠΡΑΛΙΝΑ",
+  "description": "",
+  "price": "0.90",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8e607ed949a88a70de7a"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΓΚΟΥΝΤΑ, ΓΑΛΟΠΟΥΛΑ ΣΕ ΚΡΟΥΑΣΑΝ",
+  "description": "- ΚΡΥΑ ΣΑΝΤΟΥΙΤΣ",
+  "price": "1.30",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "61aa8f807ed949a88a70dea4"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΦΙΛΕΤΟ ΚΟΤΟΠΟΥΛΟ ΠΑΝΕ ΣΕ ΨΩΜΙ",
+  "description": "- ΚΡΥΑ ΣΑΝΤΟΥΙΤΣ",
+  "price": "1.30",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa8fb37ed949a88a70deb1"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΦΙΛΕΤΟ ΚΟΤΟΠΟΥΛΟ ΠΑΝΕ ΣΕ ΑΡΑΒΙΚΗ ΠΙΤΑ",
+  "description": "- ΚΡΥΑ ΣΑΝΤΟΥΙΤΣ",
+  "price": "1.30",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa90047ed949a88a70decc"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΤΥΡΟΠΙΤΑ",
+  "description": "ΣΦΟΛΙΑΤΑ",
+  "price": "1.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa90267ed949a88a70ded9"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΛΟΥΚΑΝΙΚΟΠΙΤΑ",
+  "description": "ΣΦΟΛΙΑΤΑ",
+  "price": "1.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa90417ed949a88a70dee6"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΠΙΡΟΣΚΙ ΠΑΤΑΤΑΣ",
+  "description": "",
+  "price": "1.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa90837ed949a88a70def8"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΖΑΜΠΟΝΟΤΥΡΟΠΙΤΑ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa90a27ed949a88a70df05"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΜΠΟΥΓΑΤΣΑ ΚΡΕΜΑ",
+  "description": "",
+  "price": "1.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa90bd7ed949a88a70df12"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΣΠΑΝΑΚΟΤΥΡΟΠΙΤΑ",
+  "description": "",
+  "price": "1.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa90d37ed949a88a70df1f"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΠΕΪΝΙΡΛΙ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61aa91a97ed949a88a70df4c"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΠΙΤΣΑ ΑΤΟΜΙΚΗ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa91d97ed949a88a70df59"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΝΤΟΝΑΤΣ",
+  "description": "",
+  "price": "1.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa91f57ed949a88a70df66"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΤΟΥΛΟΥΜΠΑ",
+  "description": "",
+  "price": "1.15",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa92387ed949a88a70df73"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΡΟΞ",
+  "description": "",
+  "price": "1.15",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa92c47ed949a88a70df87"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΕΛΛΗΝΙΚΟΣ ΚΑΦΕΣ ΜΟΝΟΣ",
+  "description": "",
+  "price": "0.40",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640080394/Items/traikyhnlbbi3h1bpjhq.jpg",
+      "filename": "Items/traikyhnlbbi3h1bpjhq",
+      "_id": {
+        "$oid": "61c1a40ae0ce78debda4fc5f"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa92df7ed949a88a70df94"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΕΛΛΗΝΙΚΟΣ ΚΑΦΕΣ ΔΙΠΛΟΣ",
+  "description": "",
+  "price": "0.60",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640080491/Items/iqw8tu4wfnwdcbrlpzni.jpg",
+      "filename": "Items/iqw8tu4wfnwdcbrlpzni",
+      "_id": {
+        "$oid": "61c1a46be0ce78debda4fc85"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa93257ed949a88a70dfa1"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΣΤΙΓΜΙΑΙΟΣ ΖΕΣΤΟΣ (ΝΕΣ)",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640080937/Items/qt4tryx83anw2nahsxjs.jpg",
+      "filename": "Items/qt4tryx83anw2nahsxjs",
+      "_id": {
+        "$oid": "61c1a62ae0ce78debda4fd15"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa93477ed949a88a70dfae"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΣΤΙΓΜΙΑΙΟΣ ΚΡΥΟΣ (ΦΡΑΠΕΣ)",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640081088/Items/zizsrskpbrwkjahptmpf.jpg",
+      "filename": "Items/zizsrskpbrwkjahptmpf",
+      "_id": {
+        "$oid": "61c1a6c1e0ce78debda4fd41"
+      }
+    }
+  ],
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "61aa93ad7ed949a88a70dfbb"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO ΜΟΝΟΣ",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640086757/Items/fab1bphyugffipitripn.jpg",
+      "filename": "Items/fab1bphyugffipitripn",
+      "_id": {
+        "$oid": "61c1bce6cec7f4a2f1619ae2"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa93cc7ed949a88a70dfc8"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO ΔΙΠΛΟΣ",
+  "description": "",
+  "price": "0.80",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640087462/Items/hicbigm1dyi79zx75tux.webp",
+      "filename": "Items/hicbigm1dyi79zx75tux",
+      "_id": {
+        "$oid": "61c1bfa6cec7f4a2f1619ca2"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa93f27ed949a88a70dfd5"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO DECAFEINE",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa94267ed949a88a70dfe2"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "FREDO ESPRESSO ",
+  "description": "",
+  "price": "0.80",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640088744/Items/ujientkzw5xkxjh93cgs.jpg",
+      "filename": "Items/ujientkzw5xkxjh93cgs",
+      "_id": {
+        "$oid": "61c1c4a8cec7f4a2f1619d10"
+      }
+    },
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640090258/Items/kjhmjqviqzxj631mdziv.jpg",
+      "filename": "Items/kjhmjqviqzxj631mdziv",
+      "_id": {
+        "$oid": "61c1ca93cec7f4a2f1619d48"
+      }
+    }
+  ],
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "61aa94527ed949a88a70dfef"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "FREDO ESPRESSO DECEFEINE",
+  "description": "",
+  "price": "0.80",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa949c7ed949a88a70e00f"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "CAPUCCINO ΜΟΝΟ",
+  "description": "",
+  "price": "0.80",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640086610/Items/thmx73cvz0nzuzdj3evd.jpg",
+      "filename": "Items/thmx73cvz0nzuzdj3evd",
+      "_id": {
+        "$oid": "61c1bc53cec7f4a2f1619a60"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa94b87ed949a88a70e01c"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "CAPUCCINO ΔΙΠΛΟ",
+  "description": "",
+  "price": "1.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa950f7ed949a88a70e02f"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "CAPUCCINO DECAFEINE ΜΟΝΟ",
+  "description": "",
+  "price": "0.80",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa95397ed949a88a70e03c"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "CAPUCCINO DECAFEINE ΔΙΠΛΟ",
+  "description": "",
+  "price": "1.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa956a7ed949a88a70e049"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "FREDO CAPUCCINO DECAFEINE",
+  "description": "",
+  "price": "1.10",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61aa95877ed949a88a70e056"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "FREDO CAPUCCINO",
+  "description": "",
+  "price": "1.10",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640093381/Items/vwoyri8w5fq2rn00kk9y.jpg",
+      "filename": "Items/vwoyri8w5fq2rn00kk9y",
+      "_id": {
+        "$oid": "61c1d6c5620839101e2a4586"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61aa95be7ed949a88a70e063"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΣΟΚΟΛΑΤΑ",
+  "description": "ΖΕΣΤΗ ή ΚΡΥΑ",
+  "price": "1.10",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640087066/Items/wnxzsdk5ecsocqttwncq.jpg",
+      "filename": "Items/wnxzsdk5ecsocqttwncq",
+      "_id": {
+        "$oid": "61c1be1acec7f4a2f1619be1"
+      }
+    },
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640087123/Items/tbanfjobc6jinyucgafv.jpg",
+      "filename": "Items/tbanfjobc6jinyucgafv",
+      "_id": {
+        "$oid": "61c1be54cec7f4a2f1619c36"
+      }
+    }
+  ],
+  "__v": 11
+},{
+  "_id": {
+    "$oid": "61ab4472700a1d14880c211b"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO ΜΑΚΙΑΤΟ ΜΟΝΟ",
+  "description": "",
+  "price": "0.70",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640086827/Items/r5hlfzgmji8wdbbbs2sl.jpg",
+      "filename": "Items/r5hlfzgmji8wdbbbs2sl",
+      "_id": {
+        "$oid": "61c1bd2ccec7f4a2f1619b19"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61ab449c700a1d14880c2136"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": " ESPRESSO ΜΑΚΙΑΤΟ ΔΙΠΛΟ",
+  "description": "",
+  "price": "1.00",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61ab4503700a1d14880c2151"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO AMERICANO ΜΟΝΟ",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640086675/Items/frlcegvbympv3x3pesx7.jpg",
+      "filename": "Items/frlcegvbympv3x3pesx7",
+      "_id": {
+        "$oid": "61c1bc93cec7f4a2f1619a99"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61ab4518700a1d14880c215e"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO AMERICANO ΔΙΠΛΟ",
+  "description": "",
+  "price": "0.80",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61ab4599700a1d14880c216b"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "MOCACCINO",
+  "description": "ESPRESSO & ΣΟΚΟΛΑΤΑ",
+  "price": "1.30",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640087181/Items/fymtssjjhzwqy6dddoq1.jpg",
+      "filename": "Items/fymtssjjhzwqy6dddoq1",
+      "_id": {
+        "$oid": "61c1be8ecec7f4a2f1619c58"
+      }
+    },
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640087207/Items/rtzf25nurbssbs5wytlj.jpg",
+      "filename": "Items/rtzf25nurbssbs5wytlj",
+      "_id": {
+        "$oid": "61c1bea8cec7f4a2f1619c7e"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61ab47ae700a1d14880c2178"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO LUNGO ΜΟΝΟ",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ab47be700a1d14880c2185"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ESPRESSO LUNGO ΔΙΠΛΟ",
+  "description": "",
+  "price": "0.80",
+  "deleteImages": [],
+  "Image": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c17dee9ed04a619e62be4a"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΚΡΕΑΤΙΚΑ ΣΧΑΡΑΣ",
+  "name": "ΧΟΙΡΙΝΗ ΣΠΑΛΟΜΠΡΙΖΟΛΑ",
+  "description": "Η σπαλομπριζόλα βρίσκεται στην πάνω πλευρά του ζώου, από το μέρος της ράχης που βρίσκεται πίσω από την σπάλα. Θα την δείτε να αναφέρεται και ως \"σταβλίσια χοιρινή μπριζόλα\", γνωστή για το ενδομυϊκό της λίπος, το οποίο την κάνει πιο ζουμερή και νόστιμη.",
+  "price": "5.90",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640086535/Items/scv5qwzthkdm5mscnung.png",
+      "filename": "Items/scv5qwzthkdm5mscnung",
+      "_id": {
+        "$oid": "61c1bc08cec7f4a2f1619a24"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61c198a7e0ce78debda4fac9"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΓΛΥΚΑ",
+  "name": "ΣΥΡΟΠΙΑΣΤΑ ΔΙΑΦΟΡΑ",
+  "description": "Μπακλαβάς, Κανταΐφι, Εκμέκ Κανταΐφι, Ραβανί, Σαραγλί, Καρυδόπιτα, Κιουνεφέ, Σάμαλι, Καζάντιπι, Σεκέρ Παρέ, ",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640078151/Items/lwi8iqwcikjtx6dhew3x.jpg",
+      "filename": "Items/lwi8iqwcikjtx6dhew3x",
+      "_id": {
+        "$oid": "61c19b48e0ce78debda4fadb"
+      }
+    },
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640078193/Items/mnofo3sb7hcaqfknixm6.jpg",
+      "filename": "Items/mnofo3sb7hcaqfknixm6",
+      "_id": {
+        "$oid": "61c19b71e0ce78debda4faf6"
+      }
+    }
+  ],
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "61c19dbfe0ce78debda4fb52"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΓΛΥΚΑ",
+  "name": "ΠΑΣΤΕΣ ΔΙΑΦΟΡΕΣ",
+  "description": "Σοκολατίνα, Λευκή, Αμυγδάλου, Black forest, Πάστα τρούφας, πάστα Καραμέλα, ",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640078783/Items/pdduxwetv1vo3hwgotcl.jpg",
+      "filename": "Items/pdduxwetv1vo3hwgotcl",
+      "_id": {
+        "$oid": "61c19dbfe0ce78debda4fb53"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61c1a029e0ce78debda4fba7"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΓΛΥΚΑ",
+  "name": "ΠΡΟΦΙΤΕΡΟΛ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640079400/Items/cguzvlxqngdpczzulvze.jpg",
+      "filename": "Items/cguzvlxqngdpczzulvze",
+      "_id": {
+        "$oid": "61c1a029e0ce78debda4fba8"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1a04de0ce78debda4fbb9"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΓΛΥΚΑ",
+  "name": "ΜΙΛΦΕΪΓ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640079437/Items/hsx0hcgfl9dleukbfirx.jpg",
+      "filename": "Items/hsx0hcgfl9dleukbfirx",
+      "_id": {
+        "$oid": "61c1a04de0ce78debda4fbba"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1a0dae0ce78debda4fbd6"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΓΛΥΚΑ",
+  "name": "ΚΟΚ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640079577/Items/kozmunevk16cceeqi7b9.jpg",
+      "filename": "Items/kozmunevk16cceeqi7b9",
+      "_id": {
+        "$oid": "61c1a0dae0ce78debda4fbd7"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1a172e0ce78debda4fbea"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΓΛΥΚΑ",
+  "name": "ΚΟΡΝΕ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640079730/Items/rajieo1rbfxtkz1up7be.jpg",
+      "filename": "Items/rajieo1rbfxtkz1up7be",
+      "_id": {
+        "$oid": "61c1a172e0ce78debda4fbeb"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1a213e0ce78debda4fc0b"
+  },
+  "category": "Εστιατόριο",
+  "subcategory": "ΓΛΥΚΑ",
+  "name": "ΤΡΙΓΩΝΟ ΠΑΝΟΡΑΜΑΤΟΣ",
+  "description": "",
+  "price": "1.20",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640079891/Items/mkpxfqre1yzyk5myotdz.jpg",
+      "filename": "Items/mkpxfqre1yzyk5myotdz",
+      "_id": {
+        "$oid": "61c1a213e0ce78debda4fc0c"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1d5c4620839101e2a4478"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΤΣΑΪ ΖΕΣΤΟ ΔΙΑΦΟΡΕΣ ΓΕΥΣΕΙΣ",
+  "description": " Fruit and berry, Bergamot and lemon, Orange and ginger, Lemon, Vanilla ",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640093123/Items/b5kmu7jjlendg9f2lmls.jpg",
+      "filename": "Items/b5kmu7jjlendg9f2lmls",
+      "_id": {
+        "$oid": "61c1d5c4620839101e2a4479"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1d632620839101e2a450e"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΧΑΜΟΜΙΛΙ ΖΕΣΤΟ",
+  "description": "",
+  "price": "0.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640093233/Items/e6pdoqqlllvwkvmq3grh.jpg",
+      "filename": "Items/e6pdoqqlllvwkvmq3grh",
+      "_id": {
+        "$oid": "61c1d632620839101e2a450f"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1d809620839101e2a45b4"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΜΠΑΜΠΑΤΖΙΜ ΜΕ ΓΛΥΚΑΝΙΣΟ",
+  "description": "",
+  "price": "4.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640093705/Items/nokgrsumoqjitvoy6rnl.jpg",
+      "filename": "Items/nokgrsumoqjitvoy6rnl",
+      "_id": {
+        "$oid": "61c1d809620839101e2a45b5"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1d829620839101e2a45d5"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΜΠΑΜΠΑΤΖΙΜ ΧΩΡΙΣ ΓΛΥΚΑΝΙΣΟ",
+  "description": "",
+  "price": "4.50",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640093736/Items/ff4ety6rjd1rcab118wh.jpg",
+      "filename": "Items/ff4ety6rjd1rcab118wh",
+      "_id": {
+        "$oid": "61c1d829620839101e2a45d6"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1dc82620839101e2a4638"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "ΚΑΤΩΓΙ ΑΒΕΡΩΦ ΕΡΥΘΡΟ 750ml",
+  "description": "Γευσιγνωσία: Διαυγές κόκκινο χρώμα με αρώματα κόκκινων και μαύρων φρούτων και νότες μπαχαρικών. Στο στόμα ευχάριστο και απαλό, με μαλακές τανίνες.\r\nΣυνοδεύει: Συνοδεύει μαγειρευτά, μακαρονάδες με κόκκινες σάλτσες, αλλαντικά.",
+  "price": "",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640094850/Items/kqzladzo5bg8javt7y9l.jpg",
+      "filename": "Items/kqzladzo5bg8javt7y9l",
+      "_id": {
+        "$oid": "61c1dc82620839101e2a4639"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1dd82620839101e2a4662"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": " ΚΑΤΩΓΙ ΑΒΕΡΩΦ ΛΕΥΚΟ 750ml ",
+  "description": "Χρώμα ελαφρύ αχυροκίτρινο. Ο ευχάριστος νεανικός χαρακτήρας του Κατώγι Αβέρωφ Λευκός εκφράζει αρώματα φρούτων και λουλουδιών, και συνδυάζει τη δροσερή οξύτητα και την καλοδομημένη αίσθηση στο στόμα. Ένα κρασί που συνοδεύει ζυμαρικά με λευκές σάλτσες, θαλασσινά, πουλερικά, όπως κοτόπουλο και γαλοπούλα, αλλά και λιπαρά ψάρια.",
+  "price": "",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640095105/Items/ich2u0rnfoivsp0hoygy.png",
+      "filename": "Items/ich2u0rnfoivsp0hoygy",
+      "_id": {
+        "$oid": "61c1dd82620839101e2a4663"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61c1e1f8620839101e2a46df"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "Lazaridi Nico ΡΗΓΑΣ ΚΟΥΠΑ Ερυθρό 750ml",
+  "description": "Το Nico Lazaridi Ρήγας Κούπα είναι ένας υπέροχος ερυθρός οίνος με ρουμπινί χρώμα και πορφυρές ανταύγειες από δύο εξαιρετικές ποικιλίες, το κοσμοπολίτικο Merlot και το γηγενές Ξινόμαυρο. Στη μύτη, έντονα αρώματα κόκκινων φρούτων όπως κεράσι, βατόμουρο και δαμάσκηνο δένουν αρμονικά με το φυτικό χαρακτήρα και τις νύξεις ντομάτας. Στο στόμα, οι γοητευτικές τανίνες και η δροσερή οξύτητα μας ξυπνούν τις αισθήσεις και η αρωματική επίγευση μας ταξιδεύει.\r\nΠίνεται ευχάριστα για τα επόμενα 2-3 χρόνια από τον τρύγο.",
+  "price": "",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640096248/Items/qo77mrkbp7dscmoghidr.jpg",
+      "filename": "Items/qo77mrkbp7dscmoghidr",
+      "_id": {
+        "$oid": "61c1e1f8620839101e2a46e0"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61c1e2d6620839101e2a4729"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "Lazaridi Nico Ντάμα Κούπα Λευκός 750ml",
+  "description": "Ντάμα Κούπα, η βασίλισσα της καρδιάς σας, ένα προϊόν που προσθέτει αξία στην καθημερινότητα μας χωρίς να είναι επιτηδευμένο. Λαμπερό λευκοκίτρινο χρώμα. Ευγενική μύτη που χαρακτηρίζεται από λευκόσαρκα φρούτα και διακριτικά αρώματα ανοιξιάτικων λουλουδιών. Φίνα δομή και ιδιαίτερος χαρακτήρας που εκπλήσσουν ευχάριστα. Δροσερή αρωματική επίγευση. Συνοδεύει ευχάριστα πιάτα Μεσογειακής κουζίνας, ψάρια, θαλασσινά, ζυμαρικά και πράσινες σαλάτες.",
+  "price": "",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640096470/Items/ssrueffdqgirwfzwlvda.png",
+      "filename": "Items/ssrueffdqgirwfzwlvda",
+      "_id": {
+        "$oid": "61c1e2d6620839101e2a472a"
+      }
+    }
+  ],
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61c1e5fd620839101e2a47c9"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "GOLDEN LEGEND ΝΕΜΕΑΣ ΡΟΔΙΤΗΣ ΣΑΒΒΑΤΙΑΝΟ Λευκός ξηρός 750ML",
+  "description": "Οίνος Λευκός ξηρός, ποικιλίας Ροδίτης - Σαββατιανός από το Συνεταιρισμό Νεμέας.\r\nΤα βασικά χαρακτηριστικά που έχουν σχεδόν όλα τα λευκά κρασιά είναι τα αρώματα εσπεριδοειδών και λευκών φρούτων,  η έντονη οξύτητα και η δροσιστική γεύση. Ταιριάζουν με ελαφριά φαγητά όπως τα θαλασσινά και τα λευκά κρέατα.\r\nΙδανική θερμοκρασία σερβιρίσματος 10 βαθμούς.\r\n",
+  "price": "",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640097277/Items/f0zwhtlf3aebiigcouy4.jpg",
+      "filename": "Items/f0zwhtlf3aebiigcouy4",
+      "_id": {
+        "$oid": "61c1e5fd620839101e2a47ca"
+      }
+    }
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "61c1e7fd620839101e2a4801"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "GOLDEN LEGEND ΝΕΜΕΑΣ ΑΓΙΩΡΓΙΤΙΚΟ ΡΟΖΕ 750ML",
+  "description": "Από την πολυδύναμη ποικιλία του Αγιωργίτικου, μετά από ειδική οινοποίηση σε χαμηλές θερμοκρασίες, παράγουμε το Golden Legend Ροζέ, ένα κρασί με εξαιρετικό άρωμα και γεύση. Χαρείτε το δίπλα σε μαγειρευτά ή λαδερά πιάτα της ελληνικής κουζίνας.\r\nΈνα κρασί με ελκυστικό άρωμα, από την ποικιλία Αγιωργίτικο. Αρώματα κυρίως κόκκινων φρούτων, με αυτά της φράουλας και του κερασιού να πρωταγωνιστούν, συνθέτουν το αρωματικό του προφίλ. Δροσερό και απολαυστικό στο στόμα.",
+  "price": "",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640097788/Items/fncssetcuw2gaoweahjs.jpg",
+      "filename": "Items/fncssetcuw2gaoweahjs",
+      "_id": {
+        "$oid": "61c1e7fd620839101e2a4802"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c1e973620839101e2a4851"
+  },
+  "category": "Κυλικείο",
+  "subcategory": "ΚΑΦΕΔΕΣ - ΡΟΦΗΜΑΤΑ",
+  "name": "GOLDEN LEGEND ΝΕΜΕΑΣ ΑΓΙΩΡΓΙΤΙΚΟ Ερυθρός 750ML",
+  "description": "Φρέσκος ερυθρός οίνος από την ποικιλία Αγιωργίτικο με έντονα αρώματα βιολέτας, κερασιού, βύσσινου, φραγκοστάφυλου και γλυκόριζας. Το σώμα είναι ελαφρύ προς μέτριο, με ισορροπημένη οξύτητα και ήπιες τανίνες. Έχει ισορροπημένο τελείωμα με μακρά προς μέτρια επίγευση και συνοδεύει άριστα ζυμαρικά, κοτόπουλο, χοιρινό, ποικιλία τυριών και αλλαντικών. Σερβίρεται στους 16-18 °C.",
+  "price": "",
+  "deleteImages": [],
+  "Image": [
+    {
+      "url": "https://res.cloudinary.com/kaay/image/upload/v1640098163/Items/ub05px1y9aqpatef1cul.jpg",
+      "filename": "Items/ub05px1y9aqpatef1cul",
+      "_id": {
+        "$oid": "61c1e973620839101e2a4852"
+      }
+    }
+  ],
+  "__v": 1
+}]

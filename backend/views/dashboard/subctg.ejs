@@ -1,0 +1,39 @@
+<%- include('../partials/dashboard/header') %> 
+<%- include('../partials/flash') %>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Πίνακας Υπό-Κατηγοριών - <%= currentUser.role %> </h5>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ονομασία</th>
+                        <th>Εγκατάσταση</th>
+                        <th>Περιγραφή</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (subcategory of subcategories) { %>
+                    <tr class="trow" onclick="location.href='/subcategories/edit/<%=subcategory._id%>'" style="cursor:pointer">
+                        <a href="/subcategories/edit/<%=subcategory._id%>">
+                            <div>
+                                <td style="width: 30%;"><%=subcategory.name%></a></td>
+                                <td style="width: 10%;"><%=subcategory.category%></a></td>
+                                <td style="width: 60%;" ><%=subcategory.description%></td>
+                            </div>
+                         </a>
+                    </tr>
+                    <%}%>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<tr >
+
+
+<%- include('../partials/dashboard/footer') %> 

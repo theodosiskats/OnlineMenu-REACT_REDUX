@@ -1,0 +1,91 @@
+<%- include('partials/frontend/header') %> 
+<%- include('partials/flash') %> 
+
+<% if(currentUser){ %> 
+	<div data-v-fa46a63c="" class="d-flex align-items-baseline flex-wrap mb-5" style="cursor: pointer;"><i data-v-fa46a63c="" class="fas fa-arrow-right mr-3"></i>
+		<a href="/dash">Panel Διαχείρισης</a>
+	</div>
+<% } %>
+
+	<!---->
+<% var i=0; %> 
+<% for (category of categories) { 	%>
+	<% if (i===0) {%> 
+		<div class="row"> 
+	<%}%>
+		<div class="col-md-6" style="cursor: pointer;">
+			<a href="show/<%= category._id %>">
+				<div class="card cardbodycustom" style="min-height: 100px;">
+					<div class="card-body p-0">
+						<div class="d-flex flex-row align-items-center">
+							<div class="flex-grow-1 flex-shrink-1 p-3">
+								<div class="text-dark font-weight-bolder font-size-h3 mb-1"><%= category.name %></div>
+								<div class="text-dark-75"><%= category.description %></div>
+							</div>
+							<div class="flex-grow-3 flex-shrink-0">
+								<div class="iconsettings symbol symbol-120 d-block image-no-svg">
+									<% if(category.Image.length > 0) { %>
+										<img src="<%= category.Image[0].url %> " alt="/img/altimg.png" class="cardicon v-lazy-image v-lazy-image-loaded">
+									<% } else {%> <img src="/img/altimg.png" class="iconimage v-lazy-image v-lazy-image-loaded"> <% } %> 
+									<!---->
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</a><br>
+		</div>
+	<% i++; %> 
+	<%if (i===2) { %> 
+	</div>
+		<% i=0;} %>	
+	<% } %>
+	
+<!-- Πίνακας Ανακοινώσεων -->
+	
+<div class="col-md-12 pb-5 py-0">
+	<hr>
+</div>
+
+<div class="col-md-12 pb-5 py-0"><h3><b>
+	<p style="text-align: center;">Ανακοινώσεις</p></b></h3>
+</div>
+
+<% for (publicfile of publicfiledb) {%>
+<div class="col-md-6 pb-5 py-0">
+	<div class="card">
+		<div class="card-body p-0">
+			<div class="d-flex flex-row align-items-center">
+				<div class="flex-grow-1 flex-shrink-1 p-3">
+					<h4><b><%= publicfile.name %></b></h4><hr>
+					<div class="text-dark-75" style="padding: 5px;">
+						<p class="card-text">Για να δείτε το αρχείο πατήστε <a class="badge badge-success text-wrap" <%if (publicfile.myFile.length > 0) {%>  href="<%= publicfile.myFile[0].url %> <% } %>  ">εδώ</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% } %>
+
+
+<% for (announcement of announcements) {%>
+<div class="col-md-6 pb-5 py-0" style="border: 10px;">
+	<div class="card">
+		<div class="card-body p-0">
+			<div class="d-flex flex-row align-items-center">
+				<div class="flex-grow-1 flex-shrink-1 p-3">
+						<h4><b><%= announcement.title %></b></h4>
+					<hr>
+					<div class="text-dark-75" style="padding: 5px;">
+						<p class="card-text" style="white-space: pre-wrap"><%= announcement.content %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% } %>
+
+
+<%- include('partials/frontend/footer') %> 

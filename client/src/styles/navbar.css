@@ -1,0 +1,168 @@
+[data-theme=lofi] *:where(.btnHamburger) {
+  border-color: var(--border-color) !important;
+  --tw-border-opacity: 1 !important;
+  --tw-text-opacity: 1 !important;
+  --tw-shadow: 0 0 0 1px var(--border-color) !important;
+}
+.btnHamburger {
+  border-color: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: .15s;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  border-radius: var(--rounded-btnHamburger, .5rem);
+  height: 3rem/* 48px */;
+  font-size: .875rem/* 14px */;
+  line-height: 1.25rem/* 20px */;
+  line-height: 1em;
+  padding-left: 1rem/* 16px */;
+  padding-right: 1rem/* 16px */;
+  min-height: 3rem/* 48px */;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-transform: var(--btnHamburger-text-case, uppercase);
+  border-width: var(--border-btnHamburger, 1px);
+  -webkit-animation: button-pop var(--animation-btnHamburger, .25s) ease-out;
+  animation: button-pop var(--animation-btnHamburger, .25s) ease-out;
+  --tw-bg-opacity: 1;
+  --tw-border-opacity: 1;
+  --tw-text-opacity: 1;
+}
+.btnHamburger:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.btnHamburger-disabled,.btnHamburger[disabled] {
+  pointer-events: none;
+  --tw-bg-opacity: 1;
+  --tw-bg-opacity: 0.2;
+  --tw-border-opacity: 0;
+  --tw-text-opacity: 1;
+  --tw-text-opacity: 0.2;
+  color: hsla(var(--bc) / var(--tw-text-opacity, 1));
+}
+.btnHamburger.loading,.btnHamburger.loading:hover {
+  pointer-events: none;
+}
+.btnHamburger.loading,.btnHamburger.loading:hover {
+  pointer-events: none;
+}
+.btnHamburger.loading:before {
+  border-radius: 9999px;
+  border-width: 2px;
+  height: 1rem/* 16px */;
+  margin-right: .5rem/* 8px */;
+  width: 1rem/* 16px */;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  content: "";
+  border-color: transparent currentColor currentColor transparent;
+}
+@media (prefers-reduced-motion:reduce) {
+  .btnHamburger.loading:before {
+    -webkit-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+  }
+}
+.btnHamburger-group>input[type=radio].btnHamburger {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.btnHamburger-group>input[type=radio].btnHamburger:before {
+  content: attr(data-title);
+}
+.btnHamburger .badge {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--b1) / var(--tw-bg-opacity, 1));
+  border-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsla(var(--bc) / var(--tw-text-opacity, 1));
+}
+.btnHamburger .badge-outline {
+  background-color: transparent;
+  --tw-border-opacity: 1;
+  border-color: hsla(var(--b2) / var(--tw-border-opacity, 1));
+  --tw-text-opacity: 1;
+  color: hsla(var(--b2) / var(--tw-text-opacity, 1));
+}
+.btnHamburger:active:focus,.btnHamburger:active:hover {
+  -webkit-animation: none;
+  animation: none;
+  transform: scale( var(--btnHamburger-focus-scale, .95) );
+}
+.btnHamburger:active:focus,.btnHamburger:active:hover {
+  -webkit-animation: none;
+  animation: none;
+  transform: scale( var(--btnHamburger-focus-scale, .95) );
+}
+.btnHamburger-active,.btnHamburger:hover {
+  --tw-bg-opacity: 1;
+}
+.btnHamburger:focus-visible {
+  box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--nf));
+}
+.btnHamburger.glass.btnHamburger-active,.btnHamburger.glass:hover {
+  --glass-opacity: 25%;
+  --glass-border-opacity: 15%;
+}
+.btnHamburger.glass.btnHamburger-active,.btnHamburger.glass:hover {
+  --glass-opacity: 25%;
+  --glass-border-opacity: 15%;
+}
+.btnHamburger.glass:focus-visible {
+  box-shadow: 0 0 0 2px currentColor;
+}
+.btnHamburger.loading.btnHamburger-circle:before,.btnHamburger.loading.btnHamburger-square:before {
+  margin-right: 0;
+}
+.btnHamburger.loading.btnHamburger-circle:before,.btnHamburger.loading.btnHamburger-square:before {
+  margin-right: 0;
+}
+.btnHamburger.loading.btnHamburger-lg:before,.btnHamburger.loading.btnHamburger-xl:before {
+  height: 1.25rem/* 20px */;
+  width: 1.25rem/* 20px */;
+}
+.btnHamburger.loading.btnHamburger-lg:before,.btnHamburger.loading.btnHamburger-xl:before {
+  height: 1.25rem/* 20px */;
+  width: 1.25rem/* 20px */;
+}
+.btnHamburger.loading.btnHamburger-sm:before,.btnHamburger.loading.btnHamburger-xs:before {
+  height: .75rem/* 12px */;
+  width: .75rem/* 12px */;
+}
+.btnHamburger.loading.btnHamburger-sm:before,.btnHamburger.loading.btnHamburger-xs:before {
+  height: .75rem/* 12px */;
+  width: .75rem/* 12px */;
+}
+.btnHamburger-group>.btnHamburger-active,.btnHamburger-group>input[type=radio]:checked.btnHamburger {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--p) / var(--tw-bg-opacity, 1));
+  --tw-border-opacity: 1;
+  border-color: hsla(var(--p) / var(--tw-border-opacity, 1));
+  --tw-text-opacity: 1;
+  color: hsla(var(--pc) / var(--tw-text-opacity, 1));
+}
+.btnHamburger-group>.btnHamburger-active:focus-visible,.btnHamburger-group>input[type=radio]:checked.btnHamburger:focus-visible {
+  box-shadow: 0 0 0 2px hsl(var(--b1)), 0 0 0 4px hsl(var(--p));
+}
+.btnHamburger-group>.btnHamburger:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+.btnHamburger-group>.btnHamburger:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

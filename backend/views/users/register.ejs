@@ -1,0 +1,51 @@
+<%- include('../partials/dashboard/header') %> 
+<%- include('../partials/flash') %>
+    <div class="card-body">
+        <h5 class="card-title">Register</h5>
+        <form class="col-md-6 offset-md-3 needs-validation validated-form" action="/register" method="POST" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input required class="form-control" type="text" id="username" name="username" autocomplete="false" required autofocus>
+                <div class="invalid-feedback">
+                    Παρακαλώ εισάγετε όνομα χρήστη με λατινικού χαρακτήρες.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Κωδικός</label>
+                <input class="form-control" type="text" id="password" name="password" autocomplete="false" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <div class="invalid-feedback">
+                    Παρακαλώ εισάγετε κωδικό πρόσβασης.
+                    <div class="col-8" id="pswrequirements">
+                        <h5>Ο κωδικός πρέπει να περιέχει τα ακόλουθα:</h5>
+                        <li id="letter" class="invalid">Ενα <b>πεζό</b> χαρακτήρα</li>
+                        <li id="capital" class="invalid">Eνα <b>κεφαλαίο</b> χαρακτήρα</li>
+                        <li id="number" class="invalid">Ενα <b>αριθμό</b></li>
+                        <li id="number" class="invalid">Ενα <b>ειδικό</b> χαρακτήρα (!,@,#,$,%)</li>
+                        <li id="length" class="invalid">Τουλάχιστον <b>8 χαρακτήρες</b></li>
+                        <li id="length" class="invalid">Δεκτοί γίνονται μόνο <b>Αγγλικοί/Λατινικοί</b> χαρακτήρες</li>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="name">Όνομα</label>
+                <input class="form-control" type="text" id="name" name="name" autocomplete="false" required>
+                <div class="invalid-feedback">
+                    Παρακαλώ εισάγετε όνομα χρήστη στα ελληνικά.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="role">Ρόλος</label>
+                <select class="select2 form-control custom-select" id="role" name="role">
+                    <option value="Admin">Διαχειριστής Συστήματος</option>
+                    <option value="Moderator">Moderator</option>
+                </select>                            
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>  
+            <button class="btn btn-success btn-block">Εγγραφή Χρήστη</button>
+        </form>
+        </div>
+
+
+<%- include('../partials/dashboard/footer') %> 

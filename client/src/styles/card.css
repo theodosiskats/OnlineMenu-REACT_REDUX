@@ -1,0 +1,79 @@
+/* Custom Card Body for frontPage */
+.card-body-custom {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: var(--padding-card, 1rem);
+}
+.card.image-full>.card-body-custom {
+  position: relative;
+  --tw-text-opacity: 1;
+  color: hsla(var(--nc) / var(--tw-text-opacity, 1));
+  z-index: 20;
+}
+.card.compact .card-body-custom {
+  font-size: .875rem/* 14px */;
+  line-height: 1.25rem/* 20px */;
+  padding: 1rem/* 16px */;
+}
+
+.glassCustom {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Card custom size */
+@media (min-width: 1024px) {
+  .lg\:min-h-card {
+    min-height: 7.5rem/* 64px */;
+  }
+}
+
+/* Glass Effect */
+/* .btn.glasscustom.btn-active,.btn.glasscustom:hover {
+  --glasscustom-opacity: 25%;
+  --glasscustom-border-opacity: 15%;
+}
+.btn.glasscustom.btn-active,.btn.glasscustom:hover {
+  --glasscustom-opacity: 25%;
+  --glasscustom-border-opacity: 15%;
+}
+.btn.glasscustom:focus-visible {
+  box-shadow: 0 0 0 2px currentColor;
+}
+.drawer-toggle:focus-visible~.drawer-content .drawer-button.glasscustom {
+  box-shadow: 0 0 0 2px currentColor;
+}
+.glasscustom,.glasscustom.btn-active,.glasscustom:hover {
+  border: none;
+  -webkit-backdrop-filter: blur(var(--glasscustom-blur, 40px));
+  backdrop-filter: blur(var(--glasscustom-blur, 40px));
+  background-color: transparent;
+  background-image: linear-gradient(135deg, rgb(255 255 255 / var(--glasscustom-opacity, 30%)), transparent),
+    linear-gradient(var(--glasscustom-reflex-degree, 100deg), rgb(255 255 255 / var(--glasscustom-reflex-opacity, 10%)) 25%, transparent 0);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glasscustom-border-opacity, 10%)) inset, 0 0 0 2px rgba(0, 0, 0, .05);
+  text-shadow: 0 1px rgb(0 0 0 / var(--glasscustom-text-shadow-opacity, 5%));
+}
+.glasscustom,.glasscustom.btn-active,.glasscustom:hover {
+  border: none;
+  -webkit-backdrop-filter: blur(var(--glasscustom-blur, 40px));
+  backdrop-filter: blur(var(--glasscustom-blur, 40px));
+  background-color: transparent;
+  background-image: linear-gradient(135deg, rgb(255 255 255 / var(--glasscustom-opacity, 30%)), transparent),
+    linear-gradient(var(--glasscustom-reflex-degree, 100deg), rgb(255 255 255 / var(--glasscustom-reflex-opacity, 10%)) 25%, transparent 0);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glasscustom-border-opacity, 10%)) inset, 0 0 0 2px rgba(0, 0, 0, .05);
+  text-shadow: 0 1px rgb(0 0 0 / var(--glasscustom-text-shadow-opacity, 5%));
+}
+.glasscustom,.glasscustom.btn-active,.glasscustom:hover {
+  border: none;
+  -webkit-backdrop-filter: blur(var(--glasscustom-blur, 40px));
+  backdrop-filter: blur(var(--glasscustom-blur, 40px));
+  background-color: transparent;
+  background-image: linear-gradient(135deg, rgb(255 255 255 / var(--glasscustom-opacity, 30%)), transparent),
+    linear-gradient(var(--glasscustom-reflex-degree, 100deg), rgb(255 255 255 / var(--glasscustom-reflex-opacity, 10%)) 25%, transparent 0);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glasscustom-border-opacity, 10%)) inset, 0 0 0 2px rgba(0, 0, 0, .05);
+  text-shadow: 0 1px rgb(0 0 0 / var(--glasscustom-text-shadow-opacity, 5%));
+} */
