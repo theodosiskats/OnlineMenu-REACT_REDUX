@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
-import CatalogueSubcategory from '../components/frontPage/CatalogueSubcategory'
+import CatalogueSubcategory from './CatalogueSubcategory'
 import BeatLoader from 'react-spinners/BeatLoader'
+
+// TODO - Move this file to components
 
 function Catalogue(props) {
   const urlCategoryNameParams = useParams()
@@ -31,7 +33,7 @@ function Catalogue(props) {
       //   <h4>{error}</h4>
       ) : (
         <>
-        <div className='pt-3 grid lg:grid-cols-2 xl:grid-cols-2'>
+        <div className='pt-3 grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-1'>
           {subcategories.map((subcategory) => (
             <CatalogueSubcategory
               key={subcategory._id}

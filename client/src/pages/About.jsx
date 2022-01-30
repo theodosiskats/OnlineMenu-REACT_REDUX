@@ -1,7 +1,7 @@
 function About() {
   return (
     <>
-      <h1 className='text-6xl mb-4'>Github Finder</h1>
+      <h1 className='text-6xl mb-4'>AuraOnline Menu App</h1>
       <p className='mb-4 text-2xl font-light'>
         Εφαρμογή ηλεκτρονικού μενού για καφετέριες, εστιατόρια, μπαρ και κάθε είδους κατάστημα εστίασης.
         <a href="">

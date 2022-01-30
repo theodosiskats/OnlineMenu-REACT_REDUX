@@ -5,7 +5,7 @@ function CatalogueProduct({ product }) {
         <div className='grid grid-cols-8'>
           <div className='col-span-1 lg:col-span-2 xl:col-span-2 my-auto ml-0 place-self-start'>
             {/* TODO - Adjust image size and enlarge it */}
-            <a href='#my-modal'>
+            <a href={`#product-image-modal${product._id}`}>
               <img
                 src={product.Image[0] ? product.Image[0].url : ''}
                 className='rounded-md shadow-lg max-h-20 lg:max-h-30 xl:max-h-120 -ml-4'
@@ -31,7 +31,7 @@ function CatalogueProduct({ product }) {
         </div>
       </div>
 
-      <div id='my-modal' className='modal'>
+      <div id={`product-image-modal${product._id}`} className='modal'>
         <div className='modal-box'>
           <img
             src={product.Image[0] ? product.Image[0].url : ''}

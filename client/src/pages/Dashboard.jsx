@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DashNavBar from '../components/layout/dashboard/DashNavBar';
 import DashHeader from '../components/layout/dashboard/DashHeader';
 import DashIndex from './DashIndex';
-import NotFound from './DashNotFound';
+import NotFound from './NotFound';
 
 function Dashboard() {
   return (
@@ -16,7 +16,7 @@ function Dashboard() {
         <DashHeader />
         <Routes>
           <Route path='' element={<DashIndex />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound root={'/dashboard'} />} />
         </Routes>
       </div>
     </div>

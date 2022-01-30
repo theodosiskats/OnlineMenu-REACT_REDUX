@@ -4,8 +4,8 @@ import Footer from "../components/layout/frontpages/Footer";
 import Navbar from "../components/layout/frontpages/Navbar";
 import Home from "./Home";
 import About from "./About";
-import Catalogue from "./Catalogue";
 import NotFound from "./NotFound";
+import Catalogue from '../components/frontPage/Catalogue'
 
 function Frontpage() {
   return (
@@ -18,7 +18,7 @@ function Frontpage() {
             <Route path="/" element={<Home />} />
             <Route path="/About" element={<About />} />
             <Route path="/Catalogue/:category" element={<Catalogue />} />
-            <Route path="/notfound" element={<NotFound />} />
+            <Route path="/notfound" element={<NotFound root={'frontpage'} />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </main>
