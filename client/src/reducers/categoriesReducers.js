@@ -16,3 +16,12 @@ export const categoriesListReducer = (state = { loading: true, categories: [], e
       return state
   }
 }
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
