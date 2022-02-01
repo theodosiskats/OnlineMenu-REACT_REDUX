@@ -14,9 +14,7 @@ function App() {
         </Routes>
       </Router>
     </>
-
-    /* <Route path="/dashboard" element={<Dashboard />} />
-     */
+// TODO - fix blank page after reload
   )
 }
 
