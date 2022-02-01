@@ -174,7 +174,11 @@ app.listen(port, () => {
     (date.getMinutes() < 10 ? "0" : "") +
     date.getMinutes()
   )
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
+  if(process.env.NODE_ENV !== 'production') {
+    console.log(`Server running in developement mode on port ${port}`)
+  } else {
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
+  }
 })
 
 // TODO - Add error handler
