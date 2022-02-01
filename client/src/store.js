@@ -7,14 +7,16 @@ import { categoriesListReducer } from './reducers/categoriesReducers'
 import { productsListReducer } from './reducers/productsReducer'
 import { subcategoriesListReducer } from './reducers/subcategoriesReducers'
 
-const persistConfig = {
-  key: 'root',
-  storage,
-}
+// TODO - fix persistor
+
+// const persistConfig = {
+//   key: 'root',
+//   storage,
+// }
 
 const reducer = combineReducers({ categoriesList: categoriesListReducer, subcategoriesList: subcategoriesListReducer, productsList: productsListReducer  })
 
-const persistedReducer = persistReducer(persistConfig, reducer)
+// const persistedReducer = persistReducer(persistConfig, reducer)
 
 const initialState = {}
 
@@ -23,11 +25,13 @@ const middleware = [thunk]
 const store = createStore(
   reducer,
   initialState,
+  // persistedReducer,
   composeWithDevTools(applyMiddleware(...middleware))
 )
 
-export default () => {
-  let store = createStore(persistedReducer)
-  let persistor = persistStore(store)
-  return { store, persistor }
-}
+// export default () => {
+//   let persistor = persistStore(store)
+//   return { store, persistor }
+// }
+
+export default store
