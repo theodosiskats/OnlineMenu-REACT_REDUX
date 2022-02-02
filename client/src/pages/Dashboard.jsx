@@ -15,8 +15,8 @@ function Dashboard() {
       <div className="col-span-12">
         <DashHeader />
         <Routes>
-          <Route path='' element={<DashIndex />} />
-          <Route path="/*" element={<NotFound root={'/dashboard'} />} />
+          <Route exact path='' element={<DashIndex />} />
+          <Route exact path="/*" element={<NotFound root={'/dashboard'} />} />
         </Routes>
       </div>
     </div>

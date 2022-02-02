@@ -15,11 +15,11 @@ function Frontpage() {
 
         <main className="container mx-auto px-3 pb-12">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Catalogue/:category" element={<Catalogue />} />
-            <Route path="/notfound" element={<NotFound root={'frontpage'} />} />
-            <Route path="/*" element={<NotFound />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/About" element={<About />} />
+            <Route exact path="/Catalogue/:category" element={<Catalogue />} />
+            <Route exact path="/notfound" element={<NotFound root={'frontpage'} />} />
+            <Route exact path="/*" element={<NotFound />} />
           </Routes>
         </main>
 
