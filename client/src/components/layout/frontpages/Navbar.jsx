@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import '../../../styles/navbar.css'
 import { listCategories } from '../../../actions/categoriesActions'
 
+//TODO - make dropdown work with useRef instead of state 
+
 function Navbar({ title }) {
   // Add context to retrieve categories for dropdown menu
   const dispatch = useDispatch()
