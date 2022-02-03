@@ -1,27 +1,14 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { listSubcategories } from '../../redux/subcategories/subcategoriesActions'
-import { listProducts } from '../../redux/products/productsActions'
-import CatalogueSubcategory from './CatalogueSubcategory'
+import { listSubcategories } from '../../../redux/subcategories/subcategoriesActions'
+import { listProducts } from '../../../redux/products/productsActions'
+import CatalogueSubcategory from '../components/CatalogueSubcategory'
 import BeatLoader from 'react-spinners/BeatLoader'
 
-// TODO - Move this file to components
-
-function Catalogue(props) {
+function Catalogue() {
   const urlCategoryNameParams = useParams()
   const categoryName = urlCategoryNameParams.category
-  // const [catalogue, setCatalogue] = useState([])
-  // const [loading, setloading] = useState(true)
-
-  // useEffect(() => {
-  //   // const fetchCatalogue = async () => {
-  //   //   const { data } = await axios.get(`/api/front/show/${categoryName}`)
-  //   //   setCatalogue(data)
-  //   //   setloading(false)
-  //   // }
-  //   // fetchCatalogue()
-  // }, [])
 
   const dispatch = useDispatch()
   const subcategoriesList = useSelector((state) => state.subcategoriesList)

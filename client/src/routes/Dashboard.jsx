@@ -2,8 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DashNavBar from '../components/layout/dashboard/DashNavBar';
 import DashHeader from '../components/layout/dashboard/DashHeader';
-import DashIndex from './DashIndex';
-import NotFound from './NotFound';
+import DashIndex from '../components/dashboard/pages/Index';
+import NotFound from '../components/frontpage/pages/NotFound';
 
 function Dashboard() {
   return (

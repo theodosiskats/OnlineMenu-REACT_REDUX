@@ -1,7 +1,7 @@
 import React from 'react'
-import CategoryList from '../components/frontpage/CategoryList'
-import Alert from '../components/shared/Alert'
-import InfoButton from '../components/shared/InfoButton'
+import CategoryList from '../components/CategoryList'
+import Alert from '../../shared/Alert'
+import InfoButton from '../../shared/InfoButton'
 
 function Home() {
   return (

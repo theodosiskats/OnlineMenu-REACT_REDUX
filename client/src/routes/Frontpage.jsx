@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Footer from "../components/layout/frontpages/Footer";
-import Navbar from "../components/layout/frontpages/Navbar";
-import Catalogue from '../components/frontpage/Catalogue'
-import Home from "./Home";
-import About from "./About";
-import NotFound from "./NotFound";
+import Footer from "../components/layout/frontpage/Footer";
+import Navbar from "../components/layout/frontpage/Navbar";
+import Catalogue from '../components/frontpage/pages/Catalogue'
+import Home from "../components/frontpage/pages/Home";
+import About from "../components/frontpage/pages/About";
+import NotFound from "../components/frontpage/pages/NotFound";
 
 function Frontpage() {
   return (
