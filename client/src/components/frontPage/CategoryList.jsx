@@ -1,7 +1,7 @@
 import CategoryCard from './CategoryCard'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listCategories } from '../../actions/categoriesActions'
+import { listCategories } from '../../redux/categories/categoriesActions'
 import BeatLoader from 'react-spinners/BeatLoader'
 
 function CategoryList() {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import '../../../styles/navbar.css'
-import { listCategories } from '../../../actions/categoriesActions'
+import { listCategories } from '../../../redux/categories/categoriesActions'
 
 //TODO - make dropdown work with useRef instead of state 
 

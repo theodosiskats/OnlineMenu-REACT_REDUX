@@ -1,5 +1,5 @@
 import React from 'react'
-import CategoryList from '../components/frontPage/CategoryList'
+import CategoryList from '../components/frontpage/CategoryList'
 import Alert from '../components/shared/Alert'
 import InfoButton from '../components/shared/InfoButton'
 

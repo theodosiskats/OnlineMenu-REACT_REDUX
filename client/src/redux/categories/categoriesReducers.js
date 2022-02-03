@@ -2,7 +2,7 @@ import {
   CATEGORIES_LIST_REQUEST,
   CATEGORIES_LIST_SUCCESS,
   CATEGORIES_LIST_FAIL,
-} from '../constants/categoriesConstants'
+} from './categoriesConstants'
 
 export const categoriesListReducer = (
   state = { loading: true, categories: [], error: {} },

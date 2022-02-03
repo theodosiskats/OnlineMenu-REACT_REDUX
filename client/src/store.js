@@ -3,9 +3,9 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { categoriesListReducer } from './reducers/categoriesReducers'
-import { productsListReducer } from './reducers/productsReducer'
-import { subcategoriesListReducer } from './reducers/subcategoriesReducers'
+import { categoriesListReducer } from './redux/categories/categoriesReducers'
+import { productsListReducer } from './redux/products/productsReducer'
+import { subcategoriesListReducer } from './redux/subcategories/subcategoriesReducers'
 
 // TODO - fix persistor
 

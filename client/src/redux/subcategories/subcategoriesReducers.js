@@ -5,7 +5,7 @@ import {
   SUBCATEGORIES_LIST_BY_CATEGORY_REQUEST,
   SUBCATEGORIES_LIST_BY_CATEGORY_SUCCESS,
   SUBCATEGORIES_LIST_BY_CATEGORY_FAIL,
-} from '../constants/subcategoriesConstants'
+} from './subcategoriesConstants'
 
 export const subcategoriesListReducer = (
   state = { loading: true, subcategories: [], error: {} },

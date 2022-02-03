@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { listSubcategories } from '../../actions/subcategoriesActions'
-import { listProducts } from '../../actions/productsActions'
+import { listSubcategories } from '../../redux/subcategories/subcategoriesActions'
+import { listProducts } from '../../redux/products/productsActions'
 import CatalogueSubcategory from './CatalogueSubcategory'
 import BeatLoader from 'react-spinners/BeatLoader'
 

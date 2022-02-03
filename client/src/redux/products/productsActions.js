@@ -6,7 +6,7 @@ import {
   PRODUCTS_LIST_BY_CATEGORY_REQUEST,
   PRODUCTS_LIST_BY_CATEGORY_SUCCESS,
   PRODUCTS_LIST_BY_CATEGORY_FAIL
-} from '../constants/productsConstants'
+} from './productsConstants'
 
 export const listProducts = (category) => async (dispatch) => {
   try {
