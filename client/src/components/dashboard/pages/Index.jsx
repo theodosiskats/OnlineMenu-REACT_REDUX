@@ -2,7 +2,7 @@ import React from 'react'
 
 function DashIndex() {
   return <div>
-helo?
+henlo? is this CHIMken? 
   </div>
 }
 

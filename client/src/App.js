@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 import './styles/fontawesome/all.css'
 import Dashboard from './routes/Dashboard'
-import Frontpage from './routes/Frontpage'
+import Frontpage from './routes/Frontpages'
 
 function App() {
   return (

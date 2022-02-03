@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashNavBar from '../components/layout/dashboard/DashNavBar';
 import DashHeader from '../components/layout/dashboard/DashHeader';
-import DashIndex from '../components/dashboard/pages/Index';
+import Index from '../components/dashboard/pages/Index';
 import NotFound from '../components/frontpage/pages/NotFound';
 
 function Dashboard() {
@@ -15,7 +15,7 @@ function Dashboard() {
       <div className="col-span-12">
         <DashHeader />
         <Routes>
-          <Route exact path='' element={<DashIndex />} />
+          <Route exact path='/' element={<Index />} />
           <Route exact path="/*" element={<NotFound root={'/dashboard'} />} />
         </Routes>
       </div>
