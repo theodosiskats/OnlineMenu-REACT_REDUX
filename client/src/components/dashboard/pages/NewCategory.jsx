@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { SiPhotobucket } from 'react-icons/si'
 import Upload from '../../shared/Upload'
+import '../../../styles/uploadButton.css'
 
 function NewCategory() {
   const [name, setName] = useState('')
@@ -79,10 +80,14 @@ function NewCategory() {
               id='contained-button-file'
             />
             <label htmlFor='contained-button-file'>
-              <Upload/>
+              <Upload />
             </label>
+            <div className='upload-btn-wrapper'>
+              <button className='btn-upload'>Upload a file</button>
+              <input type='file' name='myfile' />
+            </div>
 
-            <button class='btn btn-outline btn-neutral w-3/12 place-self-end mt-4'>
+            <button className='btn btn-outline btn-neutral w-3/12 place-self-end mt-4'>
               Δημιουργία
             </button>
           </form>
