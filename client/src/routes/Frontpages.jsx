@@ -18,7 +18,7 @@ function Frontpage() {
             <Route exact path="" element={<Home />} />
             <Route exact path="About" element={<About />} />
             <Route exact path="Catalogue/:category" element={<Catalogue />} />
-            <Route exact path="notfound" element={<NotFound root={'frontpage'} />} />
+            <Route exact path="notfound" element={<NotFound root={'/frontpage'} />} />
             <Route exact path="*" element={<NotFound />} />
           </Routes>
         </main>

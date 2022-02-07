@@ -5,6 +5,8 @@ import { FaBackward, FaUsers, FaUtensils, FaPlus, FaHome } from 'react-icons/fa'
 import { FiUser, FiUserPlus, FiUsers, FiUserCheck } from 'react-icons/fi'
 import { BsBarChartSteps } from 'react-icons/bs'
 
+// TODO - fix screen scaling for navbar hide and header width when navbar hides
+
 function NavBar({ children }) {
   return (
     <>
@@ -94,7 +96,7 @@ function NavBar({ children }) {
                 </li>
                 <li>
                   <NavLink
-                    to='/dashboard/'
+                    to='/dashboard/NewCategory'
                     className={(navData) =>
                       navData.isActive
                         ? 'flex items-center pl-6 p-2 space-x-3 rounded-md font-semibold'
