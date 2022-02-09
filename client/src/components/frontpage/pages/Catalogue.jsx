@@ -4,7 +4,8 @@ import { Link, useParams } from 'react-router-dom'
 import { listSubcategories } from '../../../redux/subcategories/subcategoriesActions'
 import { listProducts } from '../../../redux/products/productsActions'
 import CatalogueSubcategory from '../components/CatalogueSubcategory'
-import BeatLoader from 'react-spinners/BeatLoader'
+import Spinner from 'react-bootstrap/Spinner'
+
 
 function Catalogue() {
   const urlCategoryNameParams = useParams()
@@ -28,8 +29,10 @@ function Catalogue() {
     <>
       {loading || loadingSub ? (
         <div className='spinner'>
-          <BeatLoader color={'#1a73e881'}/>
-        </div>
+        <Spinner animation='border' role='status'>
+          <span className='visually-hidden'>Loading...</span>
+        </Spinner>
+      </div>
       ) : error ? (
         <h4>{error}</h4>
       ) : (

@@ -2,7 +2,7 @@ import CategoryCard from './CategoryCard'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listCategories } from '../../../redux/categories/categoriesActions'
-import BeatLoader from 'react-spinners/BeatLoader'
+import Spinner from 'react-bootstrap/Spinner'
 
 function CategoryList() {
   const dispatch = useDispatch()
@@ -19,7 +19,9 @@ function CategoryList() {
 
       {loading ? (
         <div className='spinner'>
-          <BeatLoader color={'#1a73e881'} />
+          <Spinner animation='border' role='status'>
+            <span className='visually-hidden'>Loading...</span>
+          </Spinner>
         </div>
       ) : error ? (
         <h3>{error}</h3>

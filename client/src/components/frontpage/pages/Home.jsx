@@ -6,6 +6,7 @@ import InfoButton from '../../shared/InfoButton'
 function Home() {
   return (
     <>
+    
       <Alert variant={'warning'} floating={'floating'}>
         Αυτή είναι μία ειδοποίηση που κλείνει επιτελους!
       </Alert>

@@ -4,6 +4,7 @@ import './styles/fontawesome/all.css'
 import Dashboard from './routes/Dashboard'
 import Frontpage from './routes/Frontpages'
 
+
 function App() {
   return (
     <>
@@ -14,7 +15,7 @@ function App() {
         </Routes>
       </Router>
     </>
-// TODO - fix blank page after reload
+    // TODO - fix blank page after reload
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "../components/layout/frontpage/Footer";
-import Navbar from "../components/layout/frontpage/Navbar";
+import Navbar from "../components/layout/frontpage/NavbarFront";
 import Catalogue from '../components/frontpage/pages/Catalogue'
 import Home from "../components/frontpage/pages/Home";
 import About from "../components/frontpage/pages/About";

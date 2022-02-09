@@ -1,8 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { SiPhotobucket } from 'react-icons/si'
 import { IoMdCloudUpload } from 'react-icons/io'
-import Upload from '../../shared/Upload'
 import '../../../styles/uploadButton.css'
 
 function NewCategory() {

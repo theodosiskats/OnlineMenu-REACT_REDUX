@@ -9,26 +9,9 @@ function Footer() {
     //     <p>Copyright &copy; {footerYear} All rights reserved</p>
     //   </div>
     // </footer>
-
-    <footer className="items-center align-middle p-4 footer bg-neutral text-neutral-content grid grid-rows-2 grid-flow-col gap-1">
-
-      <div className="mx-auto grid-flow-col">
-        <i className="fab fa-slack-hash text-2xl"></i>
-        <p>Copyright &copy; {footerYear} All rights reserved</p>
-      </div>
-
-      <div className="mx-auto grid-flow-col gap-6">
-        <a href={twitterURL}>
-          <i className="fab fa-twitter text-2xl"></i>
-        </a>
-        <a href={facebookURL}>
-          <i className="fab fa-facebook-f text-2xl"></i>
-        </a>
-        <a>
-          <i className="fab fa-youtube text-2xl"></i>
-        </a>
-      </div>
-      
+    // TODO - make better footer responsive to page changes and min height screen size
+    <footer className="footer">
+      <p>Copyright &copy; {footerYear} All rights reserved</p>
     </footer>
   );
 }

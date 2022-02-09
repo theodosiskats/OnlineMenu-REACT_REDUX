@@ -517,3 +517,82 @@
   </div>
 </div>
 </div> */}
+
+
+
+infobutton
+
+import PropTypes from 'prop-types'
+import Popover from 'react-bootstrap/Popover'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Button from 'react-bootstrap/Button'
+
+function InfoButton({ title, text, placement }) {
+  return (
+    // TODO - bring it closer to the parent component
+
+    // TODO - bring it closer to the parent component
+
+
+
+<OverlayTrigger
+trigger="click"
+key={placement}
+placement={placement}
+overlay={
+  <Popover id={`popover-positioned-${placement}`}>
+  <Popover.Header as='h3'>{title}</Popover.Header>
+  <Popover.Body>
+    <strong>Holy guacamole!</strong> Check this info.
+  </Popover.Body>
+</Popover>
+}
+>
+<Button variant="secondary">Popover on {placement}</Button>
+</OverlayTrigger>
+  )
+}
+
+InfoButton.defaultProps = {
+  title: 'Helper',
+  text: 'Helping Information goes here',
+  placement: 'right',
+}
+
+InfoButton.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string,
+  placement: PropTypes.string,
+}
+
+export default InfoButton
+
+
+function CategoryCard({category}) {
+  return (
+    <>
+      <div className="py-2 px-2 max-w-2xl mx-auto my-auto min-h-full min-w-full">
+          <div className="card glassCustom shadow-lg">
+            <Link to={`/Catalogue/${category.name}`}>
+              <div className="card-body-custom lg:min-h-card">
+                <div className="grid grid-cols-6">
+                  <div className="col-span-4 justify-start my-auto">
+                    <h2 className="lg:text-2lg md:text-lg sm:text-md font-bold ">{category.name}</h2> 
+                    <p className="text-sm">{category.description ? category.description : ''}</p>
+                  </div>
+                  <div className="col-span-2 my-auto pl-4 place-self-end">
+                    <img
+                      src={category.Image[0] ? category.Image[0].url : ''}
+                      className="rounded-lg shadow-lg max-h-20"
+                      alt=''
+                    />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+      </div>
+      
+    </>
+  );
+}
