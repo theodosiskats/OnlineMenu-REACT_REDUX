@@ -1,13 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 import { SiPhotobucket } from 'react-icons/si'
+import { IoMdCloudUpload } from 'react-icons/io'
 import Upload from '../../shared/Upload'
 import '../../../styles/uploadButton.css'
 
 function NewCategory() {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
-  const [photo, setPhoto] = useState({})
+  const [image, setImage] = useState()
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -19,7 +20,7 @@ function NewCategory() {
     <div>
       <h1>Δημιουργία νέας κατηγορίας</h1>
 
-      <div className='card shadow-lg w-auto mx-auto'>
+      <div className='card shadow-xl w-auto mx-auto'>
         <div className='card-body p-12'>
           <h2 className='card-title'>Νέα Κατηγορία</h2>
 
@@ -47,47 +48,28 @@ function NewCategory() {
               type='text'
               placeholder='Όνομα κατηγορίας'
               className='input input-bordered'
+              name='description'
+              id='description'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
 
-            <label class='label'>
-              <span class='label-text'>
-                Φωτογραφία <span className='text-slate-500'>(Προαιρετικό)</span>
-              </span>
-            </label>
-            <label htmlFor='uploadImageButton' class='input-group'>
-              <span>Email</span>
-              <input
-                type='file'
-                placeholder='info@site.com'
-                class='input input-bordered'
-              />
-            </label>
-
-            <input
-              accept='image/*'
-              id='icon-button-file'
-              type='file'
-              style={{ display: 'none' }}
-            />
-            <label htmlFor='icon-button-file'>
-              <button>UPLOAD</button>
-            </label>
-
-            <input
-              type='file'
-              accept='image/*'
-              style={{ display: 'none' }}
-              id='contained-button-file'
-            />
-            <label htmlFor='contained-button-file'>
-              <Upload />
-            </label>
-            <div className='upload-btn-wrapper'>
-              <button className='btn-upload'>Upload a file</button>
-              <input type='file' name='myfile' />
+            <div className='btn btn-outline w-fit mt-4 h-fit p-2'>
+              <IoMdCloudUpload style={{ width: '2.5em', height: '2em' }} />
+              <label className='cursor-pointer'>
+                <span className='pl-4'>Προσθήκη φωτογραφίας</span>
+                <input
+                  type='file'
+                  className='hidden'
+                  name='image'
+                  id='image'
+                  value={Image}
+                  onChange={(e) => setImage(e.target.files[0])}
+                />
+              </label>
             </div>
 
-            <button className='btn btn-outline btn-neutral w-3/12 place-self-end mt-4'>
+            <button className='btn btn-outline btn btn-outline w-fit mt-4 h-fit p-2 place-self-end'>
               Δημιουργία
             </button>
           </form>
