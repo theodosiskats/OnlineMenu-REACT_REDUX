@@ -24,8 +24,7 @@ import ListSubheader from '@mui/material/ListSubheader'
 import ListItemButton from '@mui/material/ListItemButton'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
-import Home from '@mui/icons-material/Home'
-import FilterList from '@mui/icons-material/FilterList'
+import ArrowBackIosNew from '@mui/icons-material/ArrowBackIosNew'
 
 const drawerWidth = 240
 
@@ -34,6 +33,8 @@ const drawerWidth = 240
 function NavBar(props) {
   const { window } = props
   const [mobileOpen, setMobileOpen] = useState(false)
+  // TODO - change appbar title depending on the category clicked
+  const [title, setTitle] = useState()
 
   // TODO - need to make this generate from the menuItems.items and not hardcoded
   const [open, setOpen] = useState({
@@ -41,11 +42,12 @@ function NavBar(props) {
     categories: true,
     subcategories: true,
     products: true,
-    other: true
+    auth: true,
+    other: false,
   })
 
   const handleClick = (id) => {
-    setOpen(prevState => ({...prevState, [id]: !prevState[id]}))
+    setOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }))
   }
 
   // const handleClick = (id) => {
@@ -90,7 +92,7 @@ function NavBar(props) {
             //     {item.subheader}
             //   </ListSubheader>
             // }
-            >
+          >
             <ListItemButton onClick={() => handleClick(item.id)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.title} />
@@ -99,18 +101,26 @@ function NavBar(props) {
             <Collapse in={open[item.id]} timeout='auto' unmountOnExit>
               <List component='div' disablePadding>
                 {item.children.map((children) => (
-                  <ListItemButton onClick={handleDrawerToggle} key={children.id} sx={{ pl: 4 }}>
+                  <ListItemButton
+                    onClick={handleDrawerToggle}
+                    key={children.id}
+                    sx={{ pl: 4 }}>
                     <ListItemIcon>{children.icon}</ListItemIcon>
                     <ListItemText primary={children.title} />
                   </ListItemButton>
                 ))}
               </List>
             </Collapse>
-          
           </List>
           <Divider />
         </>
       ))}
+      <Link style={{textDecoration: 'none', color: '#202020'}} to='/'>
+        <ListItemButton>
+          <ListItemIcon><ArrowBackIosNew/></ListItemIcon>
+          <ListItemText primary='Πίσω στους καταλόγους' />
+        </ListItemButton>
+      </Link>
     </div>
   )
 

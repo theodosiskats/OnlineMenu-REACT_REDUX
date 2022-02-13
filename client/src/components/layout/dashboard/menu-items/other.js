@@ -1,33 +1,24 @@
 // assets
+import SettingsEthernet from '@mui/icons-material/SettingsEthernet'
+import Info from '@mui/icons-material/Info'
 
-// constant
-const icons = { };
-
-// ==============================|| SAMPLE PAGE & DOCUMENTATION MENU ITEMS ||============================== //
+// ==============================|| other MENU ITEMS ||============================== //
 
 const other = {
-    id: 'other',
-    title: 'Κατηγορίες',
-    type: 'group',
-    children: [
-        {
-            id: 'sample-page',
-            title: 'Sample Page',
-            type: 'item',
-            url: '/sample-page',
-            icon: '',
-            breadcrumbs: false
-        },
-        {
-            id: 'documentation',
-            title: 'Documentation',
-            type: 'item',
-            url: 'https://codedthemes.gitbook.io/berry/',
-            icon: '',
-            external: true,
-            target: true
-        }
-    ]
-};
+  id: 'other',
+  title: 'Λοιπά',
+  type: 'group',
+  icon: <SettingsEthernet/>,
+  subheader: 'Test',
+  children: [
+    {
+      id: 'appifno',
+      title: 'Πληροφορίες εφαρμογής',
+      type: 'item',
+      url: '/info/',
+      icon: <Info/>,
+    }
+  ],
+}
 
-export default other;
+export default other
