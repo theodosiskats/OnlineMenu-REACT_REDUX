@@ -1,51 +1,42 @@
+import React from 'react'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import Divider from '@mui/material/Divider'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import Avatar from '@mui/material/Avatar'
+import Typography from '@mui/material/Typography'
+
 function CatalogueProduct({ product }) {
   return (
     <>
-      <div className='border-t-2 border-b-2 card-body-custom lg:min-h-card'>
-        <div className='grid grid-cols-8'>
-          <div className='col-span-1 lg:col-span-2 xl:col-span-2 my-auto ml-0 place-self-start'>
-            {/* TODO - Adjust image size and enlarge it */}
-            <a href={`#product-image-modal${product._id}`}>
-              <img
-                src={product.Image[0] ? product.Image[0].url : ''}
-                className='rounded-md shadow-lg max-h-20 lg:max-h-30 xl:max-h-120 -ml-4'
-                alt=''
-                fluid='true'
-                style={{ objectFit: 'contain' }}
-              />
-            </a>
-          </div>
-          <div className='col-span-5 lg:col-span-4 xl:col-span-4 justify-start mt-0'>
-            <h1 className='font-bold text-sm lg:text-lg xl:text-xl'>
-              {product.name}
-            </h1>
-            <p className='text-2xs lg:text-lg xl:text-xl'>
-              {product.description ? product.description : ''}
-            </p>
-          </div>
-          <div className='col-span-2 place-self-end my-auto'>
-            <h1 style={{ fontSize: '1rem' }} className='font-bold '>
-              {product.price} €
-            </h1>
-          </div>
-        </div>
-      </div>
-
-      <div id={`product-image-modal${product._id}`} className='modal'>
-        <div className='modal-box'>
-          <img
-            src={product.Image[0] ? product.Image[0].url : ''}
-            alt=''
-            fluid='true'
-            style={{ objectFit: 'contain' }}
+      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+        <ListItem alignItems='flex-start' key={product._id}>
+          <ListItemAvatar>
+            <Avatar
+              alt='Remy Sharp'
+              src={product.Image[0] ? product.Image[0].url : ''}
+            />
+          </ListItemAvatar>
+          <ListItemText
+            primary={product.name}
+            secondary={
+              <React.Fragment>
+                {/* <Typography
+                  sx={{ display: 'inline' }}
+                  component='span'
+                  variant='body2'
+                  color='text.primary'>
+                  {product.name}
+                </Typography> */}
+                {product.description}
+              </React.Fragment>
+            }
           />
-          <div className='modal-action'>
-            <a href='#' className='btn'>
-              Close
-            </a>
-          </div>
-        </div>
-      </div>
+          <Divider variant='inset'/>
+        </ListItem>
+      </List>
+ 
     </>
   )
 }

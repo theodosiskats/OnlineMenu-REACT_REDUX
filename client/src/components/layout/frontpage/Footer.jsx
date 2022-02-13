@@ -1,19 +1,16 @@
-function Footer() {
-  const footerYear = new Date().getFullYear();
-  const facebookURL = "https://facebook.com";
-  const twitterURL = "https://twitter.com/theodosiskats";
+import { RestoreIcon,FavoriteIcon,LocationOnIcon } from '@mui/icons-material'
 
-  return (
-    // <footer classNameName='footer p-5 bg-gray-700 text-primary-content footer-center'>
-    //   <div>
-    //     <p>Copyright &copy; {footerYear} All rights reserved</p>
-    //   </div>
-    // </footer>
-    // TODO - make better footer responsive to page changes and min height screen size
-    <footer className="footer">
-      <p>Copyright &copy; {footerYear} All rights reserved</p>
-    </footer>
-  );
+function Footer() {
+  const footerYear = new Date().getFullYear()
+  const facebookURL = 'https://facebook.com'
+  const twitterURL = 'https://twitter.com/theodosiskats'
+
+  // TODO - fix footer
+  // <BottomNavigation style={{marginBottom: '0%'}}>
+  //   <p>Copyright &copy; {footerYear} All rights reserved</p>
+  // </BottomNavigation>
+  return (<></>
+  )
 }
 
-export default Footer;
+export default Footer

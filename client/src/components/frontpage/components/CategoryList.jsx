@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listCategories } from '../../../redux/categories/categoriesActions'
 import Spinner from 'react-bootstrap/Spinner'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 
 function CategoryList() {
   const dispatch = useDispatch()
@@ -26,10 +28,19 @@ function CategoryList() {
       ) : error ? (
         <h3>{error}</h3>
       ) : (
-        <div className='grid lg:grid-cols-2 xl:grid-cols-3'>
-          {categories.map((category) => (
-            <CategoryCard key={category._id} category={category} />
-          ))}
+        <div style={{padding: '10px', paddingTop: '10px'}}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid             container
+              rowSpacing={1}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+              >
+              {categories.map((category) => (
+                <Grid item xs={12} sm={12} md={12} lg={6} xl={4}>
+                  <CategoryCard key={category._id} category={category} />
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
         </div>
       )}
     </>

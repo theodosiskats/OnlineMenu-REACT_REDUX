@@ -1,13 +1,26 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-// import '../../../styles/navbar.css'
 import { listCategories } from '../../../redux/categories/categoriesActions'
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+
+
+// MUI
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import MenuIcon from '@mui/icons-material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import ClickAwayListener from '@mui/material/ClickAwayListener'
+import Grow from '@mui/material/Grow'
+import Paper from '@mui/material/Paper'
+import Popper from '@mui/material/Popper'
+import MenuList from '@mui/material/MenuList'
+import Stack from '@mui/material/Stack'
 
 //TODO - make dropdown work with useRef instead of state
 
@@ -16,25 +29,47 @@ function NavbarFront({ title }) {
   const dispatch = useDispatch()
   const categoriesList = useSelector((state) => state.categoriesList)
   const { categories } = categoriesList
-  const navigate = useNavigate()
+
+  // Dropdown state
+
+  const [open, setOpen] = React.useState(false)
+  const anchorRef = React.useRef(null)
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen)
+  }
+
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return
+    }
+    setOpen(false)
+  }
+
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault()
+      setOpen(false)
+    } else if (event.key === 'Escape') {
+      setOpen(false)
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open)
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus()
+    }
+
+    prevOpen.current = open
+  }, [open])
+
+  // End Dropdown state
 
   useEffect(() => {
     dispatch(listCategories())
-  }, [dispatch])
-
-  // Show/Hide dropdown menu
-  const [menuDisplay, setmenuDisplay] = useState(true)
-  const [displayMenu, setdisplayMenu] = useState('')
-
-  const showMenu = () => {
-    setmenuDisplay(!menuDisplay)
-    if (menuDisplay) {
-      setdisplayMenu('')
-    } else {
-      setdisplayMenu('none')
-    }
-    return displayMenu
-  }
+  }, [])
 
   return (
     //         <Link to='/' className="btn btn-ghost btn-sm rounded-btn">Home</Link>
@@ -44,39 +79,70 @@ function NavbarFront({ title }) {
     //Other bg colors for navbar bg-[#5ca9b0] bg-[#1a73e8] or bg-neutral-focus
     //
 
-
     <>
-      <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-        <Container>
-          <Navbar.Brand as={Link} to="/">{title}</Navbar.Brand>
-          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-          <Navbar.Collapse id='responsive-navbar-nav'>
-            <Nav className='me-auto'>
-              <Nav.Link as={Link} to='/about'>About</Nav.Link>
-              <Nav.Link as={Link} to='#pricing'>Pricing</Nav.Link>
-              <NavDropdown title='Dropdown' id='collasible-nav-dropdown'>
-                <NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
-                <NavDropdown.Item href='#action/3.2'>
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href='#action/3.3'>
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href='#action/3.4'>
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Nav>
-              <Nav.Link href='#deets'>More deets</Nav.Link>
-              <Nav.Link eventKey={2} href='/dashboard'>
-                Dashboard
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position='static'>
+          <Toolbar>
+            <Stack direction='row' spacing={2}>
+              <div>
+                <Button
+                  ref={anchorRef}
+                  id='composition-button'
+                  aria-controls={open ? 'composition-menu' : undefined}
+                  aria-expanded={open ? 'true' : undefined}
+                  aria-haspopup='true'
+                  onClick={handleToggle}>
+                  <MenuIcon style={{color: 'white'}}/>
+                </Button>
+                <Popper
+                  open={open}
+                  anchorEl={anchorRef.current}
+                  role={undefined}
+                  placement='bottom-start'
+                  transition
+                  disablePortal>
+                  {({ TransitionProps, placement }) => (
+                    <Grow
+                      {...TransitionProps}
+                      style={{
+                        transformOrigin:
+                          placement === 'bottom-start'
+                            ? 'left top'
+                            : 'left bottom',
+                      }}>
+                      <Paper>
+                        <ClickAwayListener onClickAway={handleClose}>
+                          <MenuList
+                            autoFocusItem={open}
+                            id='composition-menu'
+                            aria-labelledby='composition-button'
+                            onKeyDown={handleListKeyDown}>
+                            <MenuItem onClick={handleClose}>Profile</MenuItem>
+                            <MenuItem onClick={handleClose}>
+                              My account
+                            </MenuItem>
+                            <MenuItem onClick={handleClose}>Logout</MenuItem>
+                          </MenuList>
+                        </ClickAwayListener>
+                      </Paper>
+                    </Grow>
+                  )}
+                </Popper>
+              </div>
+            </Stack>
+            <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+              {title}
+            </Typography>
+            <Button
+              as={Link}
+              to='/dashboard'
+              color='inherit'
+              style={{ textDecoration: 'none' }}>
+              Dashboard
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
     </>
   )
 }
