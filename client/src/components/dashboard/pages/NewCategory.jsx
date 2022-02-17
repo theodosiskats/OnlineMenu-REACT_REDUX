@@ -1,80 +1,127 @@
-import React from 'react'
 import { useState } from 'react'
-import { IoMdCloudUpload } from 'react-icons/io'
-import '../../../styles/uploadButton.css'
+import Box from '@mui/material/Box'
+import Input from '@mui/material/Input'
+import InputLabel from '@mui/material/InputLabel'
+import InputAdornment from '@mui/material/InputAdornment'
+import FormHelperText from '@mui/material/FormHelperText'
+import FormControl from '@mui/material/FormControl'
+import TextField from '@mui/material/TextField'
+import MenuItem from '@mui/material/MenuItem'
+import Grid from '@mui/material/Grid'
+import Button from '@mui/material/Button'
 
-function NewCategory() {
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [image, setImage] = useState()
+{
+  /* TODO - load subcategories here from api */
+}
+{
+  /* {currencies.map((option) => (
+<option key={option.value} value={option.value}>
+  {option.label}
+</option>
+))} */
+}
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    console.log('new category:', category)
-    dispatch(createCategory({ name, description }))
+export default function NewCategory() {
+  const [values, setValues] = useState({
+    category: 'category1',
+    subcategory: 'subcategory1',
+    name: '',
+    price: '5',
+    password: '',
+    weight: '',
+    weightRange: '',
+  })
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value })
   }
 
   return (
-    <div>
-      <h1>Δημιουργία νέας κατηγορίας</h1>
-
-      <div className='card shadow-xl w-auto mx-auto'>
-        <div className='card-body p-12'>
-          <h2 className='card-title'>Νέα Κατηγορία</h2>
-
-          <form className='form-control' onSubmit={onSubmit}>
-            <label htmlFor='name' className='label'>
-              <span className='label-text'>Όνομα</span>
-            </label>
-            <input
-              type='text'
-              placeholder='Όνομα κατηγορίας'
-              className='input input-bordered'
-              name='name'
-              id='name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+    <Box
+      sx={{
+        m: 4,
+      }}>
+      <div>
+        <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
+          <Grid container spacing={4}>
+            <Grid fullWidth item xs={6}>
+              <TextField
+                fullWidth
+                id='category'
+                select
+                label='Κατηγορία'
+                value={values.category}
+                onChange={handleChange('category')}
+                helperText='Επιλέξτε κατηγορία'
+                variant='standard'>
+                <MenuItem key={'category1'} value={'category1'}>
+                  {'category1'}
+                </MenuItem>
+                <MenuItem key={'category2'} value={'category2'}>
+                  {'category2'}
+                </MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                id='subcategory'
+                select
+                label='Υποκατηγορία'
+                value={values.subcategory}
+                onChange={handleChange('subcategory')}
+                helperText='Επιλέξτε υποκατηγορία'
+                variant='standard'>
+                <MenuItem key={'subcategory1'} value={'subcategory1'}>
+                  {'subcategory1'}
+                </MenuItem>
+                <MenuItem key={'subcategory2'} value={'subcategory2'}>
+                  {'subcategory2'}
+                </MenuItem>
+              </TextField>
+            </Grid>
+          </Grid>
+          <FormControl fullWitdh sx={{ mt: 2 }} variant='standard'>
+            <InputLabel htmlFor='standard-adornment-price'>
+              Τιμή (Προαιρετικό)
+            </InputLabel>
+            <Input
+              id='standard-adornment-price'
+              value={values.price}
+              onChange={handleChange('price')}
+              startAdornment={
+                <InputAdornment position='start'>€</InputAdornment>
+              }
             />
+          </FormControl>
 
-            {/* TODO - add onChange check if the category already exist or onSubmit */}
-            <label htmlFor='description' className='label'>
-              <span className='label-text'>
-                Περιγραφή <span className='text-slate-500'>(Προαιρετικό)</span>
-              </span>
-            </label>
-            <input
-              type='text'
-              placeholder='Όνομα κατηγορίας'
-              className='input input-bordered'
-              name='description'
+          <FormControl fullWitdh sx={{ mt: 2 }} variant='standard'>
+            <TextField
               id='description'
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              label='Περιγραφή (Προαιρετικό)'
+              multiline
+              rows={2}
+              defaultValue=''
+              variant='standard'
             />
+          </FormControl>
+        </FormControl>
 
-            <div className='btn btn-outline w-fit mt-4 h-fit p-2'>
-              <IoMdCloudUpload style={{ width: '2.5em', height: '2em' }} />
-              <label className='cursor-pointer'>
-                <span className='pl-4'>Προσθήκη φωτογραφίας</span>
-                <input
-                  type='file'
-                  className='hidden'
-                  name='image'
-                  id='image'
-                  value={Image}
-                  onChange={(e) => setImage(e.target.files[0])}
-                />
-              </label>
-            </div>
-
-            <button className='btn btn-outline btn btn-outline w-fit mt-4 h-fit p-2 place-self-end'>
-              Δημιουργία
-            </button>
-          </form>
-        </div>
+        <FormControl sx={{ mt: 5 }} variant='standard'>
+          <input
+            accept='image/*'
+            style={{ display: 'none' }}
+            id='upload-photo'
+            multiple
+            type='file'
+          />
+          <label htmlFor='upload-photo'>
+            <Button variant='contained' component='span'>
+              Ανεβάστε Φωτογραφία
+            </Button>
+          </label>
+        </FormControl>
       </div>
-    </div>
+    </Box>
   )
 }
-
-export default NewCategory

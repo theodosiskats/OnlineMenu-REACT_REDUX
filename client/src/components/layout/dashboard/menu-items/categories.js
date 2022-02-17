@@ -1,6 +1,7 @@
 // assets
 import AutoStories from '@mui/icons-material/AutoStories'
-import Home from '@mui/icons-material/Home'
+import List from '@mui/icons-material/List'
+import Add from '@mui/icons-material/Add'
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
@@ -13,10 +14,17 @@ const categories = {
   children: [
     {
       id: 'index',
-      title: 'Κεντρική',
+      title: 'Λίστα κατηγοριών',
       type: 'item',
-      url: '/categories/',
-      icon: <Home/>,
+      url: '/dashboard/categories/',
+      icon: <List/>,
+    },
+    {
+      id: 'index',
+      title: 'Νέα κατηγορία',
+      type: 'item',
+      url: '/dashboard/categories/newcategory',
+      icon: <Add/>,
     }
   ],
 }

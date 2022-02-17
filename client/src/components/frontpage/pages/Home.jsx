@@ -8,6 +8,7 @@ function Home() {
     <>
     {/* TODO - fix alert and info button */}
       <CategoryList />
+      {/* <InfoButton/> */}
     </>
   )
 }

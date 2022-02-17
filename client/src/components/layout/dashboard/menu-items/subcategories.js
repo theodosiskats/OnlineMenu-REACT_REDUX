@@ -15,7 +15,7 @@ const subcategories = {
       id: 'index',
       title: 'Κεντρική',
       type: 'item',
-      url: '/subcategories/',
+      url: '/dashboard/subcategories/',
       icon: <Home/>,
     }
   ],

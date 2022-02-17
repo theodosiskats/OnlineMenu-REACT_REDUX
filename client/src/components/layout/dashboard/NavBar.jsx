@@ -68,22 +68,23 @@ function NavBar(props) {
   const drawer = (
     <div>
       <Toolbar>
-        <img
-          src={AuraLogo}
-          style={{
-            maxWidth: '60%',
-            maxHeight: '60%',
-            paddingTop: '10px',
-            paddingBottom: '10px',
-            margin: '0 auto',
-          }}
-        />
+          <img
+            as={Link}
+            src={AuraLogo}
+            style={{
+              maxWidth: '60%',
+              maxHeight: '60%',
+              paddingTop: '10px',
+              paddingBottom: '10px',
+              margin: '0 auto',
+            }}
+          />
       </Toolbar>
       <Divider />
-      {menuItems.items.map((item) => (
+      {menuItems.items.map(({id, icon, title, children}) => (
         <>
           <List
-            key={item.id}
+            key={id}
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
             component='nav'
             aria-labelledby='nested-list-subheader'
@@ -93,20 +94,22 @@ function NavBar(props) {
             //   </ListSubheader>
             // }
           >
-            <ListItemButton onClick={() => handleClick(item.id)}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.title} />
-              {open ? <ExpandLess /> : <ExpandMore />}
+            <ListItemButton onClick={() => handleClick(id)}>
+              <ListItemIcon>{icon}</ListItemIcon>
+              <ListItemText primary={title} />
+              {open[id] ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <Collapse in={open[item.id]} timeout='auto' unmountOnExit>
+            <Collapse in={open[id]} timeout='auto' unmountOnExit>
               <List component='div' disablePadding>
-                {item.children.map((children) => (
+                {children.map(({id, icon, title, url}) => (
                   <ListItemButton
+                    component={Link}
+                    to={`${url}`}
                     onClick={handleDrawerToggle}
-                    key={children.id}
-                    sx={{ pl: 4 }}>
-                    <ListItemIcon>{children.icon}</ListItemIcon>
-                    <ListItemText primary={children.title} />
+                    key={id+'CollapseListItem'}
+                    sx={{ pl: 3 }}>
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText primary={title} />
                   </ListItemButton>
                 ))}
               </List>

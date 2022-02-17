@@ -4,14 +4,10 @@ import { Link, useParams } from 'react-router-dom'
 import { listSubcategories } from '../../../redux/subcategories/subcategoriesActions'
 import { listProducts } from '../../../redux/products/productsActions'
 import CatalogueSubcategory from '../components/CatalogueSubcategory'
-import Spinner from 'react-bootstrap/Spinner'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import Avatar from '@mui/material/Avatar'
-import Typography from '@mui/material/Typography'
 
 function Catalogue() {
   const urlCategoryNameParams = useParams()

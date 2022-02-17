@@ -15,7 +15,7 @@ const other = {
       id: 'appifno',
       title: 'Πληροφορίες εφαρμογής',
       type: 'item',
-      url: '/info/',
+      url: '/dashboard/info/',
       icon: <Info/>,
     }
   ],

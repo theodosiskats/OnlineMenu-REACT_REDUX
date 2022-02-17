@@ -16,14 +16,14 @@ const categories = {
       id: 'authlist',
       title: 'Όλοι οι χρήστες',
       type: 'item',
-      url: '/categories/',
+      url: '/dashboard/users/',
       icon: <AdminPanelSettings/>,
     },
     {
       id: 'newuser',
       title: 'Νέος χρήστης',
       type: 'item',
-      url: '/categories/',
+      url: '/dashboard/users/newuser',
       icon: <GroupAdd/>,
     }
   ],
