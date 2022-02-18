@@ -8,6 +8,7 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
+import CircularProgress from '@mui/material/CircularProgress'
 
 function Catalogue() {
   const urlCategoryNameParams = useParams()
@@ -30,11 +31,9 @@ function Catalogue() {
   return (
     <>
       {loading || loadingSub ? (
-        <div className='spinner'>
-          <Spinner animation='border' role='status'>
-            <span className='visually-hidden'>Loading...</span>
-          </Spinner>
-        </div>
+        <Box sx={{ display: 'flex' }}>
+          <CircularProgress className='spinner' />
+        </Box>
       ) : error ? (
         <h4>{error}</h4>
       ) : (
@@ -42,22 +41,20 @@ function Catalogue() {
           <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
             {subcategories.map((subcategory) => (
               <>
-              <ListItem alignItems='flex-start' key={subcategory._id}>
-                <ListItemText
-                  primary={subcategory.name}
-                  secondary={
-                    <React.Fragment>
-                      {subcategory.description}
-                    </React.Fragment>
-                  }
-                />
-                <Divider variant='inset'/>
-                <Divider variant='inset'/>
-              </ListItem>
-                  <CatalogueSubcategory
-                    subcategory={subcategory}
-                    products={products}
+                <ListItem alignItems='flex-start' key={subcategory._id}>
+                  <ListItemText
+                    primary={subcategory.name}
+                    secondary={
+                      <React.Fragment>{subcategory.description}</React.Fragment>
+                    }
                   />
+                  <Divider variant='inset' />
+                  <Divider variant='inset' />
+                </ListItem>
+                <CatalogueSubcategory
+                  subcategory={subcategory}
+                  products={products}
+                />
               </>
             ))}
           </List>
