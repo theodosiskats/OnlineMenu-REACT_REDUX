@@ -29,6 +29,7 @@ import ArrowBackIosNew from '@mui/icons-material/ArrowBackIosNew'
 const drawerWidth = 240
 
 // TODO - fix the missing key on list error
+// TODO - fix duplicate keys error in components from MUI
 
 function NavBar(props) {
   const { window } = props
@@ -67,7 +68,7 @@ function NavBar(props) {
 
   const drawer = (
     <div>
-      <Toolbar>
+      <Toolbar key={'LogoToolbar'}>
           <img
             as={Link}
             src={AuraLogo}
@@ -84,7 +85,7 @@ function NavBar(props) {
       {menuItems.items.map(({id, icon, title, children}) => (
         <>
           <List
-            key={id}
+            key={id+'ParentList'}
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
             component='nav'
             aria-labelledby='nested-list-subheader'
@@ -94,13 +95,13 @@ function NavBar(props) {
             //   </ListSubheader>
             // }
           >
-            <ListItemButton onClick={() => handleClick(id)}>
+            <ListItemButton key={id+'listitembutton'} onClick={() => handleClick(id)}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={title} />
               {open[id] ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <Collapse in={open[id]} timeout='auto' unmountOnExit>
-              <List component='div' disablePadding>
+            <Collapse key={id+'collapse'} in={open[id]} timeout='auto' unmountOnExit>
+              <List key={id+'listchildren'} component='div' disablePadding>
                 {children.map(({id, icon, title, url}) => (
                   <ListItemButton
                     component={Link}
@@ -119,7 +120,7 @@ function NavBar(props) {
         </>
       ))}
       <Link style={{textDecoration: 'none', color: '#202020'}} to='/'>
-        <ListItemButton>
+        <ListItemButton key={'returnlistitembutton'}>
           <ListItemIcon><ArrowBackIosNew/></ListItemIcon>
           <ListItemText primary='Πίσω στους καταλόγους' />
         </ListItemButton>
