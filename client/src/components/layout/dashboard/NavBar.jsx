@@ -1,7 +1,7 @@
 //ASSETS
 import AuraLogo from '../../../assets/images/logo/aura.png'
 //REACT
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 //MenuItems
 import menuItems from '../dashboard/menu-items/index'
@@ -82,10 +82,10 @@ function NavBar(props) {
           />
       </Toolbar>
       <Divider />
-      {menuItems.items.map(({id, icon, title, children}) => (
-        <>
+      {menuItems.items.map(({id, icon, title, children}, idx) => (
+        <Fragment key={id+'Fragment'}>
           <List
-            key={id+'ParentList'}
+            key={idx}
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
             component='nav'
             aria-labelledby='nested-list-subheader'
@@ -100,14 +100,14 @@ function NavBar(props) {
               <ListItemText primary={title} />
               {open[id] ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <Collapse key={id+'collapse'} in={open[id]} timeout='auto' unmountOnExit>
-              <List key={id+'listchildren'} component='div' disablePadding>
-                {children.map(({id, icon, title, url}) => (
+            <Collapse in={open[id]} timeout='auto' unmountOnExit>
+              <List component='div' disablePadding>
+                {children.map(({id, icon, title, url}, subidx) => (
                   <ListItemButton
                     component={Link}
                     to={`${url}`}
                     onClick={handleDrawerToggle}
-                    key={id+'CollapseListItem'}
+                    key={subidx}
                     sx={{ pl: 3 }}>
                     <ListItemIcon>{icon}</ListItemIcon>
                     <ListItemText primary={title} />
@@ -117,7 +117,7 @@ function NavBar(props) {
             </Collapse>
           </List>
           <Divider />
-        </>
+        </Fragment>
       ))}
       <Link style={{textDecoration: 'none', color: '#202020'}} to='/'>
         <ListItemButton key={'returnlistitembutton'}>
