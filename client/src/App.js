@@ -19,3 +19,7 @@ function App() {
 }
 
 export default App
+
+
+// FUTURE ADDITIONS AND CHANGES
+// TODO - aftersalespro.gr API to connect with couriers ELTA,ACS etc etc 

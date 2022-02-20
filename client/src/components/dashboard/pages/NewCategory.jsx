@@ -81,7 +81,7 @@ export default function NewCategory() {
               </TextField>
             </Grid>
           </Grid>
-          <FormControl fullWitdh sx={{ mt: 2 }} variant='standard'>
+          <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
             <InputLabel htmlFor='standard-adornment-price'>
               Τιμή (Προαιρετικό)
             </InputLabel>
@@ -95,7 +95,7 @@ export default function NewCategory() {
             />
           </FormControl>
 
-          <FormControl fullWitdh sx={{ mt: 2 }} variant='standard'>
+          <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
             <TextField
               id='description'
               label='Περιγραφή (Προαιρετικό)'
