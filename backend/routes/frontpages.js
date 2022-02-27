@@ -19,6 +19,11 @@ router.get("/subcategories/:category", async (req, res) => {
   res.json(subcategories)
 })
 
+router.get("/subcategories/", async (req, res) => {
+  const subcategories = await SubCategoryMd.find({})
+  res.json(subcategories)
+})
+
 router.get("/products/:category", async (req, res) => {
   const category = req.params.category
   const subcategories = await ProductMd.find({ category: category })

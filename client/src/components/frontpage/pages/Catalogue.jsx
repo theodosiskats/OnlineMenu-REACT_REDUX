@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { listSubcategories } from '../../../redux/subcategories/subcategoriesActions'
+import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
 import { listProducts } from '../../../redux/products/productsActions'
 import CatalogueSubcategory from '../components/CatalogueSubcategory'
 import List from '@mui/material/List'
@@ -22,7 +22,7 @@ function Catalogue() {
   const { loading, error, products } = productsList
 
   useEffect(() => {
-    dispatch(listSubcategories(categoryName))
+    dispatch(listSubcategoriesByCategory(categoryName))
     dispatch(listProducts(categoryName))
   }, [dispatch])
 
@@ -41,22 +41,22 @@ function Catalogue() {
         <>
           <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
             {subcategories.map((subcategory) => (
-              <>
-                <ListItem alignItems='flex-start' key={subcategory._id}>
+              <div style={{backgroundColor: '#7d7d7d50'}}>
+                <ListItem alignItems='flex-start' key={subcategory._id} >
                   <ListItemText
                     primary={subcategory.name}
+                    
                     secondary={
                       <React.Fragment>{subcategory.description}</React.Fragment>
                     }
                   />
-                  <Divider variant='inset' />
                   <Divider variant='inset' />
                 </ListItem>
                 <CatalogueSubcategory
                   subcategory={subcategory}
                   products={products}
                 />
-              </>
+              </div>
             ))}
           </List>
           <div className='floatingButton'>

@@ -2,11 +2,12 @@ import { useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { DataGrid, GridToolbar, elGR } from '@mui/x-data-grid'
+import Button from '@mui/material/Button'
+import { Navigate, useNavigate } from "react-router-dom"
+//DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listCategories } from '../../../redux/categories/categoriesActions'
-import Button from '@mui/material/Button'
-import { Navigate, useNavigate } from "react-router-dom"
 
 const screenHeight = window.innerHeight - 0.15 * window.innerHeight
 

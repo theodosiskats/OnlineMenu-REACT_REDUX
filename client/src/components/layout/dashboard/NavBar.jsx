@@ -24,9 +24,10 @@ import ListSubheader from '@mui/material/ListSubheader'
 import ListItemButton from '@mui/material/ListItemButton'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
+import Home from '@mui/icons-material/Home'
 import ArrowBackIosNew from '@mui/icons-material/ArrowBackIosNew'
 
-const drawerWidth = 240
+const drawerWidth = 280
 
 // TODO - fix the missing key on list error
 // TODO - fix duplicate keys error in components from MUI
@@ -81,6 +82,13 @@ function NavBar(props) {
             }}
           />
       </Toolbar>
+      <Divider />
+      <Link style={{textDecoration: 'none', color: '#202020'}} to='/dashboard'>
+        <ListItemButton key={'dashboardmain'}>
+          <ListItemIcon><Home/></ListItemIcon>
+          <ListItemText primary='Αρχική' />
+        </ListItemButton>
+      </Link>
       <Divider />
       {menuItems.items.map(({id, icon, title, children}, idx) => (
         <Fragment key={id+'Fragment'}>

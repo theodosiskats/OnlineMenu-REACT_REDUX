@@ -17,7 +17,7 @@ function CategoryCard({ category }) {
           <Card sx={{ display: 'flex', height: '10rem' }}>
             <CardMedia
               component='img'
-              sx={{ width: 151 }}
+              sx={{ width: 125 }}
               image={category.Image[0] ? category.Image[0].url : ''}
               alt=''
             />

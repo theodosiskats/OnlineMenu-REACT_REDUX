@@ -8,7 +8,28 @@ import {
   SUBCATEGORIES_LIST_BY_CATEGORY_FAIL,
 } from './subcategoriesConstants'
 
-export const listSubcategories = (category) => async (dispatch) => {
+export const listSubcategories = () => async (dispatch) => {
+  try {
+    dispatch({ type: SUBCATEGORIES_LIST_REQUEST })
+
+    const { data } = await axios.get('/api/subcategories')
+
+    dispatch({
+      type: SUBCATEGORIES_LIST_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: SUBCATEGORIES_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const listSubcategoriesByCategory = (category) => async (dispatch) => {
   try {
     dispatch({ type: SUBCATEGORIES_LIST_BY_CATEGORY_REQUEST })
 
