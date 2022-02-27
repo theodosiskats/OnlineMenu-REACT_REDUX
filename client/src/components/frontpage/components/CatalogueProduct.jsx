@@ -25,7 +25,7 @@ function CatalogueProduct({ product }) {
           alt=''
         />
         : <></>}
-      <Box sx={{ display: 'flex', flexGrow: 1, flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexGrow: 1, alignSelf: 'center', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="subtitle2">
             {name}
@@ -35,11 +35,13 @@ function CatalogueProduct({ product }) {
           </Typography>
         </CardContent>
       </Box>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignSelf: 'center', flexGrow: 'end' }}>
-        <Typography variant="h6" color="text.secondary" component="div">
-            {price}€
-        </Typography>
-      </Box>
+      {price ? 
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignSelf: 'center', flexGrow: 'end', paddingRight: 3 }}>
+          <Typography variant="h6" color="text.secondary" component="div">
+              {price}€
+          </Typography>
+        </Box>
+      : <></>}
     </Card>
     </>
   )
