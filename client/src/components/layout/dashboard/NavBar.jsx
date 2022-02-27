@@ -48,8 +48,11 @@ function NavBar(props) {
     other: false,
   })
 
-  const handleClick = (id) => {
+  const handleClick = (id, itemTitle) => {
     setOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }))
+    setTitle(itemTitle)
+    console.log('title', itemTitle)
+    
   }
 
   // const handleClick = (id) => {
@@ -103,7 +106,7 @@ function NavBar(props) {
             //   </ListSubheader>
             // }
           >
-            <ListItemButton key={id+'listitembutton'} onClick={() => handleClick(id)}>
+            <ListItemButton key={id+'listitembutton'} onClick={() => handleClick(id, itemTitle)}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={title} />
               {open[id] ? <ExpandLess /> : <ExpandMore />}
@@ -158,7 +161,7 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div'>
-            Dashboard
+            {title}
             {/* TODO - add more functionallity to appbar */}
           </Typography>
         </Toolbar>

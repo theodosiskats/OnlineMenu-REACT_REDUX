@@ -16,7 +16,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { listCategories } from '../../../redux/categories/categoriesActions'
 import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
 
-export default function NewCategory() {
+//TODO - fix image loading to state
+
+export default function NewProduct() {
   const dispatch = useDispatch()
   const categoriesList = useSelector((state) => state.categoriesList)
   const subcategoriesList = useSelector((state) => state.subcategoriesList)
@@ -29,14 +31,26 @@ export default function NewCategory() {
   }, [dispatch])
 
   const [values, setValues] = useState({
+    category: '',
+    subcategory: '',
     name: '',
     description: '',
-    Image: {},
+    price: '',
+    Image: {}
   })
   
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value })
+    console.log(values)
   }
+
+  const handleChangeCategory = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value })
+    setBtnDisabled(false)
+    dispatch(listSubcategoriesByCategory(event.target.value))
+    console.log(values)
+  }
+
 
   return (
     <>
@@ -53,6 +67,43 @@ export default function NewCategory() {
           }}>
           <div>
             <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
+              <Grid container spacing={4}>
+                <Grid fullWidth item xs={6}>
+                  <TextField
+                    fullWidth
+                    id='category'
+                    select
+                    label='Κατηγορία'
+                    value={values.category}
+                    onChange={handleChangeCategory('category')}
+                    helperText='Επιλέξτε κατηγορία'
+                    variant='standard'>
+                    {categories.map((category) => (
+                      <MenuItem key={category._id} value={category.name}>
+                        {category.name}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField
+                    disabled={btnDisabled}
+                    fullWidth
+                    id='subcategory'
+                    select
+                    label='Υποκατηγορία'
+                    value={values.subcategory}
+                    onChange={handleChange('subcategory')}
+                    helperText='Επιλέξτε υποκατηγορία'
+                    variant='standard'>
+                    {subcategories.map((subcategory) => (
+                    <MenuItem key={subcategory._id} value={subcategory.name}>
+                      {subcategory.name}
+                    </MenuItem>
+                  ))}
+                  </TextField>
+                </Grid>
+              </Grid>
               <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
                 <InputLabel htmlFor='name'>
                   Ονομασία
@@ -61,6 +112,19 @@ export default function NewCategory() {
                   id='name'
                   value={values.price}
                   onChange={handleChange('name')}
+                />
+              </FormControl>
+              <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+                <InputLabel htmlFor='standard-adornment-price'>
+                  Τιμή (Προαιρετικό)
+                </InputLabel>
+                <Input
+                  id='standard-adornment-price'
+                  value={values.price}
+                  onChange={handleChange('price')}
+                  startAdornment={
+                    <InputAdornment position='start'>€</InputAdornment>
+                  }
                 />
               </FormControl>
 
