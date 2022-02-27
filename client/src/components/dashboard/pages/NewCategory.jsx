@@ -2,27 +2,18 @@ import { useState } from 'react'
 import Box from '@mui/material/Box'
 import Input from '@mui/material/Input'
 import InputLabel from '@mui/material/InputLabel'
-import InputAdornment from '@mui/material/InputAdornment'
 import FormHelperText from '@mui/material/FormHelperText'
 import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
-import MenuItem from '@mui/material/MenuItem'
-import Grid from '@mui/material/Grid'
 import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button'
 //DATA FETCHING
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { listCategories } from '../../../redux/categories/categoriesActions'
-import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
-
+//TODO - fix image to state upload
 export default function NewCategory() {
   const dispatch = useDispatch()
-  const categoriesList = useSelector((state) => state.categoriesList)
-  const subcategoriesList = useSelector((state) => state.subcategoriesList)
-  const [btnDisabled, setBtnDisabled] = useState(true)
-  const { loading, error, categories } = categoriesList
-  const { subcategories } = subcategoriesList
 
   useEffect(() => {
     dispatch(listCategories())
@@ -31,22 +22,16 @@ export default function NewCategory() {
   const [values, setValues] = useState({
     name: '',
     description: '',
-    Image: {},
+    Image: [],
   })
   
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value })
+    console.log('values', values)
   }
 
   return (
     <>
-      {loading ? (
-        <Box sx={{ display: 'flex' }}>
-          <CircularProgress className='spinner' />
-        </Box>
-      ) : error ? (
-        <h4>{error}</h4>
-      ) : (
         <Box
           sx={{
             m: 4,
@@ -92,7 +77,6 @@ export default function NewCategory() {
             </FormControl>
           </div>
         </Box>
-      )}
     </>
   )
 }
