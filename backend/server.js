@@ -73,7 +73,8 @@ const sessionConfig = {
 // Application Set & Use
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+// it was true the urlencoded and turned to false in order to check if the body parser from client works
+app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 app.use(session(sessionConfig))
 app.use(passport.initialize())

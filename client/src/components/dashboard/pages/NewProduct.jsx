@@ -13,18 +13,18 @@ import Button from '@mui/material/Button'
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listCategories } from '../../../redux/categories/categoriesActions'
-import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
+// import { listCategories } from '../../../redux/categories/categoriesActions'
+// import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
 
 //TODO - fix image loading to state
 
 export default function NewProduct() {
   const dispatch = useDispatch()
-  const categoriesList = useSelector((state) => state.categoriesList)
-  const subcategoriesList = useSelector((state) => state.subcategoriesList)
+  // const categoriesList = useSelector((state) => state.categoriesList)
+  // const subcategoriesList = useSelector((state) => state.subcategoriesList)
   const [btnDisabled, setBtnDisabled] = useState(true)
-  const { loading, error, categories } = categoriesList
-  const { subcategories } = subcategoriesList
+  // const { loading, error, categories } = categoriesList
+  // const { subcategories } = subcategoriesList
 
   useEffect(() => {
     dispatch(listCategories())

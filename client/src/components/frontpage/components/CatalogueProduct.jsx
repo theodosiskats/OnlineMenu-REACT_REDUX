@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 //TODO - add modal on image click
 
 function CatalogueProduct({ product }) {
-  const theme = useTheme();
+  // const theme = useTheme();
   const {name, description, price, Image} = product
 
   return (

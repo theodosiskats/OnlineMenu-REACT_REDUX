@@ -4,6 +4,18 @@ const SubcategoryMd = require('../models/subcategory');
 const { cloudinary } = require("../cloudinary");
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+module.exports.getProducts = async (req, res) => {
+    const products = await ProductMd.find({})
+    res.status(200).json(products)
+  }
+
+  module.exports.getProductsbyCategory = async (req, res) => {
+    const category = req.params.category
+    const products = await ProductMd.find({ category: category })
+    res.status(200).json(products)
+  }
+
+
 module.exports.newForm = async(req,res)=>{
     const categories = await CategoryMd.find({});
     const subcategories = await SubcategoryMd.find({});

@@ -5,22 +5,12 @@ const SubcategoryMd = require('../models/subcategory')
 
 // Categories Controllers
 
-module.exports.Ctg = async (req, res, next) => {
+module.exports.getCategories = async (req, res, next) => {
   const categories = await CategoryMd.find({})
-  res.json(categories)
+  res.status(200).json(categories)
 }
 
 module.exports.createNewCtg = async (req, res) => {
-  //   CategoryMd.create(req.body, (error, data) => {
-  //     if (error) {
-  //         return next(error)
-  //     } else {
-  //         console.log(data)
-  //         res.json(data)
-  //         console.log('New Category', req.body)
-  //     }
-  // })
-
   const { name, description } = req.body
 
   if (!name || !description) {

@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { listCategories } from '../../../redux/categories/categoriesActions'
-
 // MUI
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -26,8 +24,6 @@ import Stack from '@mui/material/Stack'
 function NavbarFront({ title }) {
   // Add context to retrieve categories for dropdown menu
   const dispatch = useDispatch()
-  const categoriesList = useSelector((state) => state.categoriesList)
-  const { categories } = categoriesList
 
   // Dropdown state
 
@@ -67,7 +63,7 @@ function NavbarFront({ title }) {
   // End Dropdown state
 
   useEffect(() => {
-    dispatch(listCategories())
+    // dispatch(listCategories())
   }, [])
 
   return (

@@ -7,10 +7,11 @@ const { storage } = require('../cloudinary')
 const upload = multer({ storage })
 
 // Routes Προϊόντων /////////////////////////////////////////////////////
-router.get('/', async (req, res) => {
-  const products = await ProductMd.find({ facility: 'Εστιατόριο' })
-  res.render('dashboard/products', { products })
-})
+router
+  .route('/')
+  .get(controller.getProducts)
+
+router.get('/:category', controller.getProductsbyCategory)
 
 router.post('/', upload.array('Image'), controller.createNew)
 

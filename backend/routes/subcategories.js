@@ -1,21 +1,23 @@
 const express = require('express')
 const router = express.Router()
-const subCtr = require('../controllers/subcategories')
+const controller = require('../controllers/subcategories')
 const multer = require('multer')
 const { storage } = require('../cloudinary')
 const upload = multer({ storage: storage })
 
 // Categories Routes
 
-router.get('/', subCtr.subctg)
+router.get('/', controller.getSubcategories)
+
+router.get('/:category', controller.getSubcategoriesbyCategory)
 
 router.route('/new')
-  .get(subCtr.newFormsubctg)
-  .post(upload.array('Image'), subCtr.createNewsubctg)
+  .get(controller.newFormsubctg)
+  .post(upload.array('Image'), controller.createNewsubctg)
 
 router.route('/edit/:id/')
-  .get(subCtr.editFormsubctg)
-  .put(upload.array('Image'), subCtr.updatesubctg)
-  .delete(subCtr.deletesubctg)
+  .get(controller.editFormsubctg)
+  .put(upload.array('Image'), controller.updatesubctg)
+  .delete(controller.deletesubctg)
 
 module.exports = router

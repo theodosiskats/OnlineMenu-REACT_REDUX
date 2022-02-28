@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createCategory } from '../../../redux/categories/categoriesActions'
+// import { createCategory } from '../../../redux/categories/categoriesActions'
 
 //TODO - fix image to state upload
 export default function NewCategory() {

@@ -9,7 +9,7 @@ const upload = multer({ storage })
 
 router
   .route('/')
-  .get(controller.Ctg)
+  .get(controller.getCategories)
   .post(upload.array('Image'), controller.createNewCtg)
 
 router

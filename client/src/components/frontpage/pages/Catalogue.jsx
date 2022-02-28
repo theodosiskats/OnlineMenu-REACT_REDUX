@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
-import { listProducts } from '../../../redux/products/productsActions'
 import CatalogueSubcategory from '../components/CatalogueSubcategory'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -11,38 +8,54 @@ import ListItemText from '@mui/material/ListItemText'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
 
-function Catalogue() {
-  const urlCategoryNameParams = useParams()
-  const categoryName = urlCategoryNameParams.category
+//REDUX
+import { useDispatch, useSelector } from 'react-redux'
+import { getSubcategoriesbyCategory, reset as resetSubcategories} from '../../../redux/subcategories/subcategoriesSlice'
+import { getProductsbyCategory, reset as resetProducts} from '../../../redux/products/productsSlice'
 
+function Catalogue() {
   const dispatch = useDispatch()
-  const subcategoriesList = useSelector((state) => state.subcategoriesList)
-  const productsList = useSelector((state) => state.productsList)
-  const { loadingSub, subcategories } = subcategoriesList
-  const { loading, error, products } = productsList
+  const category = useParams().category
+
+  const { subcategories, isLoading: isLoadingSubcategories, isSuccess: isSuccessSubcategories } = useSelector((state) => state.subcategories)
+  const { products, isLoading: isLoadingProducts, isSuccess: isSuccessProducts } = useSelector((state) => state.products)
+
+  //Need to find out why is this needed and when (maybe on create new product, it erases the previous state)
+  // useEffect(() => {
+  //   return () => {
+  //     if (isSuccessSubcategories && isSuccessProducts) {
+  //       dispatch(resetSubcategories())
+  //       dispatch(resetProducts())
+  //     }
+  //   }
+  // }, [dispatch, isSuccessSubcategories, isSuccessProducts])
 
   useEffect(() => {
-    dispatch(listSubcategoriesByCategory(categoryName))
-    dispatch(listProducts(categoryName))
+    dispatch(getSubcategoriesbyCategory(category))
+    dispatch(getProductsbyCategory(category))
   }, [dispatch])
+
+
 
   console.log('products', products)
   console.log('subcategories', subcategories)
+
+
+
+
   // TODO - fix spinner not playing in deployed appl
   return (
     <>
-      {loading || loadingSub ? (
+      {isLoadingSubcategories || isLoadingProducts ? (
         <Box sx={{ display: 'flex' }}>
           <CircularProgress className='spinner' />
         </Box>
-      ) : error ? (
-        <h4>{error}</h4>
       ) : (
         <>
           <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
             {subcategories.map((subcategory) => (
-              <div style={{backgroundColor: '#7d7d7d50'}}>
-                <ListItem alignItems='flex-start' key={subcategory._id} >
+              <div style={{backgroundColor: '#7d7d7d50'}} key={subcategory._id}>
+                <ListItem alignItems='flex-start'>
                   <ListItemText
                     primary={subcategory.name}
                     

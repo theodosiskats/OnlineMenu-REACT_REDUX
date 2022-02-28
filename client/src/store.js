@@ -1,20 +1,14 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { categoriesListReducer } from './redux/categories/categoriesReducers'
-import { productsListReducer } from './redux/products/productsReducer'
-import { subcategoriesListReducer } from './redux/subcategories/subcategoriesReducers'
+import { configureStore } from '@reduxjs/toolkit'
+import categoriesReducer from './redux/categories/categoriesSlice'
+import subcategoriesReducer from './redux/subcategories/subcategoriesSlice'
+import productsReducer from './redux/products/productsSlice'
 
-const reducer = combineReducers({ categoriesList: categoriesListReducer, subcategoriesList: subcategoriesListReducer, productsList: productsListReducer  })
-
-const initialState = {}
-
-const middleware = [thunk]
-
-const store = createStore(
-  reducer,
-  initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
-)
+const store = configureStore({
+  reducer: {
+    categories: categoriesReducer,
+    subcategories: subcategoriesReducer,
+    products: productsReducer,
+  },
+})
 
 export default store
