@@ -4,11 +4,9 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
+
+//TODO - add modal on image click
 
 function CatalogueProduct({ product }) {
   const theme = useTheme();
@@ -16,11 +14,11 @@ function CatalogueProduct({ product }) {
 
   return (
     <>
-    <Card sx={{ display: 'flex', border: 'solid', borderColor: '#7d7d7d35', borderWidth: '0.65px' }}>
+    <Card sx={{ display: 'flex', border: 'solid', borderColor: '#7d7d7d35', borderWidth: '0.65px', padding: '2px 3px' }}>
       {Image[0] ?
         <CardMedia
           component="img"
-          sx={{ width: 100, maxHeight: 100 }}
+          sx={{ width: 100, maxHeight: 100, borderRadius: 2 }}
           image={Image[0] ? Image[0].url : ''}
           alt=''
         />
@@ -30,13 +28,15 @@ function CatalogueProduct({ product }) {
           <Typography component="div" variant="subtitle2">
             {name}
           </Typography>
-          <Typography variant="caption" color="text.secondary" component="div">
-            {description}
-          </Typography>
+          {description ? 
+            <Typography variant="caption" color="text.secondary" component="div">
+              {description}
+            </Typography>
+          : <></>}
         </CardContent>
       </Box>
       {price ? 
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignSelf: 'center', flexGrow: 'end', paddingRight: 3 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignSelf: 'center', flexGrow: 'end', paddingRight: 1 }}>
           <Typography variant="h6" color="text.secondary" component="div">
               {price}€
           </Typography>

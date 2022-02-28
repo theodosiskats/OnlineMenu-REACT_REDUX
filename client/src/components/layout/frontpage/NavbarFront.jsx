@@ -129,18 +129,20 @@ function NavbarFront({ title }) {
                 </Popper>
               </div>
             </Stack>
-            <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-              <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-                {title}
-              </Typography>
-            </Link>
-            <Button
-              as={Link}
-              to='/dashboard'
-              color='inherit'
-              style={{ textDecoration: 'none' }}>
-              Dashboard
-            </Button>
+            <Box sx={{ display: 'flex', flexGrow: 1, alignSelf: 'center', justifyContent: 'space-between' }}>
+              <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+                <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+                  {title}
+                </Typography>
+              </Link>
+              <Button
+                as={Link}
+                to='/dashboard'
+                color='inherit'
+                style={{ textDecoration: 'none' }}>
+                Dashboard
+              </Button>
+            </Box>
           </Toolbar>
         </AppBar>
       </Box>

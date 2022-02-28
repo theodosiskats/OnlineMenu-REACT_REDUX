@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 import Box from '@mui/material/Box'
 import Input from '@mui/material/Input'
 import InputLabel from '@mui/material/InputLabel'
@@ -9,25 +10,44 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button'
 //DATA FETCHING
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { listCategories } from '../../../redux/categories/categoriesActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { createCategory } from '../../../redux/categories/categoriesActions'
+
 //TODO - fix image to state upload
 export default function NewCategory() {
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(listCategories())
-  }, [dispatch])
-
-  const [values, setValues] = useState({
-    name: '',
-    description: '',
-    Image: [],
-  })
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [image, setImage] = useState('')
+  const [uploading, setUploading] = useState(false)
   
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value })
-    console.log('values', values)
+  // TODO - IMAGE UPLOAD METHOD MAYBE?
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0]
+    const formData = new FormData()
+    formData.append('image', file)
+    setUploading(true)
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+
+      const { data } = await axios.post('/api/upload', formData, config)
+
+      setImage(data)
+      setUploading(false)
+    } catch (error) {
+      console.error(error)
+      setUploading(false)
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(createCategory({name, description}))
   }
 
   return (
@@ -44,8 +64,8 @@ export default function NewCategory() {
                 </InputLabel>
                 <Input
                   id='name'
-                  value={values.price}
-                  onChange={handleChange('name')}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </FormControl>
 
@@ -57,23 +77,30 @@ export default function NewCategory() {
                   rows={2}
                   defaultValue=''
                   variant='standard'
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </FormControl>
             </FormControl>
 
             <FormControl sx={{ mt: 5 }} variant='standard'>
-              <input
-                accept='image/png,.jpeg'
-                style={{ display: 'none' }}
-                id='upload-photo'
-                multiple
-                type='file'
-              />
-              <label htmlFor='upload-photo'>
-                <Button variant='contained' component='span'>
-                  Ανεβάστε Φωτογραφία
+              <Box sx={{ display: 'flex', flexGrow: 1, alignSelf: 'center', justifyContent: 'space-between'}}>
+                {/* TODO - Fix justifyContent space-between to spread buttons to the edges */}
+                <input
+                  accept='image/png,.jpeg'
+                  style={{ display: 'none' }}
+                  id='upload-photo'
+                  multiple
+                  type='file'
+                />
+                <label htmlFor='upload-photo'>
+                  <Button variant='contained' component='span' onChange={uploadFileHandler}>
+                    Ανεβάστε Φωτογραφία
+                  </Button>
+                </label>
+                <Button variant="contained" color="success" onClick={handleSubmit}>
+                  ΔΗΜΟΣΙΕΥΣΗ
                 </Button>
-              </label>
+              </Box>
             </FormControl>
           </div>
         </Box>
