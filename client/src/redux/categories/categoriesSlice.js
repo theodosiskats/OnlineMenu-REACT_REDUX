@@ -29,6 +29,25 @@ export const getCategories = createAsyncThunk(
   }
 )
 
+// Create new category
+export const createCategory = createAsyncThunk(
+  'categories/create',
+  async (categoryData, thunkAPI) => {
+    try {
+      return await categoriesService.createCategory(categoryData)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 
 //These are the new ACTIONS
 export const categoriesSlice = createSlice({
@@ -39,18 +58,22 @@ export const categoriesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(createCategory.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(createCategory.fulfilled, (state) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      // })
-      // .addCase(createCategory.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
+
+
+      .addCase(createCategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(createCategory.fulfilled, (state) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(createCategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+
+
       .addCase(getCategories.pending, (state) => {
         state.isLoading = true
       })
@@ -64,6 +87,8 @@ export const categoriesSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+
+
       // .addCase(getCategory.pending, (state) => {
       //   state.isLoading = true
       // })
@@ -77,6 +102,8 @@ export const categoriesSlice = createSlice({
       //   state.isError = true
       //   state.message = action.payload
       // })
+
+
       // .addCase(updateCategory.pending, (state) => {
       //   state.isLoading = true
       // })
@@ -90,6 +117,8 @@ export const categoriesSlice = createSlice({
       //   state.isError = true
       //   state.message = action.payload
       // })
+
+      
   },
 })
 export const { reset } = categoriesSlice.actions

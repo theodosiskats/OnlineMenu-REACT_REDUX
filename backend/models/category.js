@@ -5,7 +5,7 @@ const { cloudinary } = require("../cloudinary");
 const CategorySchema = new Schema({
     name: String,
     description: String,
-    Image: [{
+    image: [{
         url: String,
         filename: String
     }]
@@ -14,7 +14,7 @@ const CategorySchema = new Schema({
 CategorySchema.post('findOneAndDelete', async function(doc){
     if (doc) {
         // delete images
-        for (let img of doc.Image) {
+        for (let img of doc.image) {
             await cloudinary.uploader.destroy(img.filename);
         }
     }

@@ -24,7 +24,7 @@ module.exports.newFormsubctg = async (req, res) => {
 
 module.exports.createNewsubctg = async (req, res) => {
   const Subcategory = new SubcategoryMd(req.body.Subcategory)
-  Subcategory.Image = req.files.map((f) => ({
+  Subcategory.image = req.files.map((f) => ({
     url: f.path,
     filename: f.filename,
   }))
@@ -54,7 +54,7 @@ module.exports.updatesubctg = async (req, res) => {
     ...req.body.subcategory,
   })
   const img = req.files.map((f) => ({ url: f.path, filename: f.filename }))
-  subcategory.Image.push(...img)
+  subcategory.image.push(...img)
   await subcategory.save()
 
   //Update products
@@ -73,7 +73,7 @@ module.exports.updatesubctg = async (req, res) => {
       await cloudinary.uploader.destroy(filename)
     }
     await subcategory.updateOne({
-      $pull: { Image: { filename: { $in: req.body.deleteImages } } },
+      $pull: { image: { filename: { $in: req.body.deleteImages } } },
     })
   }
 

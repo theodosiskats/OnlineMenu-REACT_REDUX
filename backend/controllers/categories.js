@@ -5,9 +5,32 @@ const SubcategoryMd = require('../models/subcategory')
 
 // Categories Controllers
 
+// @desc    Get all categories
+// @route   GET /api/categories
+// @access  Public
 module.exports.getCategories = async (req, res, next) => {
   const categories = await CategoryMd.find({})
   res.status(200).json(categories)
+}
+
+// @desc    Create new category
+// @route   POST /api/categories
+// @access  Public
+module.exports.createCategory = async (req, res) => {
+  const { name, description } = req.body
+
+  if (!name || !description) {
+    res.status(400)
+    throw new Error('Please add a name and description')
+  }
+
+  const category = new CategoryMd(req.body)
+  category.image = req.files.map((f) => ({ url: f.path, filename: f.filename }))
+  await category.save()
+
+  console.log('New category:', category)
+
+  res.status(201).json(category)
 }
 
 module.exports.createNewCtg = async (req, res) => {
@@ -18,18 +41,13 @@ module.exports.createNewCtg = async (req, res) => {
     throw new Error('Please add a name and description')
   }
 
-  const category = await CategoryMd.create({
-    name,
-    description,
-  })
+  const category = new CategoryMd(req.body)
+  category.image = req.files.map((f) => ({ url: f.path, filename: f.filename }))
+  await category.save()
+
+  console.log('New category:', category)
 
   res.status(201).json(category)
-
-  //   const category = new CategoryMd(req.body)
-  //   console.log(req.body)
-  //   // category.Image = req.files.map((f) => ({ url: f.path, filename: f.filename }))
-  //   await category.save()
-  //   res.status(201).json(category);
 }
 
 module.exports.editFormCtg = async (req, res) => {

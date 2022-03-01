@@ -7,7 +7,10 @@ import { useNavigate } from "react-router-dom"
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import { listCategories } from '../../../redux/categories/categoriesActions'
+import { getCategories, reset } from '../../../redux/categories/categoriesSlice'
+
+
+
 
 const screenHeight = window.innerHeight - 0.15 * window.innerHeight
 
@@ -16,11 +19,18 @@ const theme = createTheme(elGR)
 function Categories() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  // const categoriesList = useSelector((state) => state.categoriesList)
-  const { loading, error, categories } = categoriesList
-  
+  const { categories, isLoading, isSuccess } = useSelector((state) => state.categories)
+
   useEffect(() => {
-    // dispatch(listCategories())
+    return () => {
+      if (isSuccess) {
+        dispatch(reset())
+      }
+    }
+  }, [dispatch, isSuccess])
+
+  useEffect(() => {
+    dispatch(getCategories())
   }, [dispatch])
 
   const rows = categories

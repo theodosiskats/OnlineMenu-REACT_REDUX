@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import { listCategories } from '../../../redux/categories/categoriesActions'
 import { getCategories, reset } from '../../../redux/categories/categoriesSlice'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'

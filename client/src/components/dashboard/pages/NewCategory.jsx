@@ -8,102 +8,143 @@ import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router'
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import { createCategory } from '../../../redux/categories/categoriesActions'
+import {
+  createCategory,
+  reset,
+} from '../../../redux/categories/categoriesSlice'
 
 //TODO - fix image to state upload
 export default function NewCategory() {
   const dispatch = useDispatch()
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [image, setImage] = useState('')
-  const [uploading, setUploading] = useState(false)
+  const navigate = useNavigate()
   
-  // TODO - IMAGE UPLOAD METHOD MAYBE?
-  const uploadFileHandler = async (e) => {
-    const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('image', file)
-    setUploading(true)
+  const [categoryData, setCategoryData] = useState({
+    name: '',
+    description: '',
+  })
+  const [image, setImage] = useState('')
+  const [imageName, setImageName] = useState('')
+  const [uploading, setUploading] = useState(false)
 
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.categories
+  )
 
-      const { data } = await axios.post('/api/upload', formData, config)
+  const { name, description } = categoryData 
 
-      setImage(data)
-      setUploading(false)
-    } catch (error) {
-      console.error(error)
-      setUploading(false)
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
     }
+
+    if (isSuccess) {
+      dispatch(reset())
+      // navigate('/dashboard/categories')
+    }
+
+    dispatch(reset())
+  }, [dispatch, isError, isSuccess, navigate, message])
+
+  const handleChange = (e) => {
+    setCategoryData({ ...categoryData, [e.target.name]: e.target.value });
+   };
+
+  // TODO - IMAGE UPLOAD METHOD MAYBE?
+  const onFileChange = (e) => {
+    setImage(e.target.files[0])
+    setImageName(e.target.files[0].name)
+    console.log('image', image, imageName)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(createCategory({name, description}))
+    const payload = new FormData()
+    payload.append('image', image)
+    payload.append('name', categoryData.name)
+    payload.append('description', categoryData.description)
+    console.log(payload)
+    dispatch(createCategory(payload))
   }
-
+  //TODO - need ot transform this to a form in order to pass encType='multipart/formdata
   return (
+    // <div>
+    //   <form onSubmit={handleSubmit}>
+    //     <input name='name' onChange={handleChange}/>
+    //     <input name='description' onChange={handleChange}/>
+    //     <input type="file" name="myImage" onChange= {onFileChange} />
+    //     <button type='submit'>POST</button>
+    //   </form>
+    // </div>
+
     <>
-        <Box
-          sx={{
-            m: 4,
-          }}>
-          <div>
-            <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
-              <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
-                <InputLabel htmlFor='name'>
-                  Ονομασία
-                </InputLabel>
-                <Input
-                  id='name'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </FormControl>
-
-              <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
-                <TextField
-                  id='description'
-                  label='Περιγραφή (Προαιρετικό)'
-                  multiline
-                  rows={2}
-                  defaultValue=''
-                  variant='standard'
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </FormControl>
+      <Box
+        sx={{
+          m: 4,
+        }}>
+        <form onSubmit={handleSubmit}>
+          <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
+            <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+              <InputLabel htmlFor='name'>Ονομασία</InputLabel>
+              <Input
+                id='name'
+                name='name'
+                onChange={handleChange}
+              />
             </FormControl>
 
-            <FormControl sx={{ mt: 5 }} variant='standard'>
-              <Box sx={{ display: 'flex', flexGrow: 1, alignSelf: 'center', justifyContent: 'space-between'}}>
-                {/* TODO - Fix justifyContent space-between to spread buttons to the edges */}
-                <input
-                  accept='image/png,.jpeg'
-                  style={{ display: 'none' }}
-                  id='upload-photo'
-                  multiple
-                  type='file'
-                />
-                <label htmlFor='upload-photo'>
-                  <Button variant='contained' component='span' onChange={uploadFileHandler}>
-                    Ανεβάστε Φωτογραφία
-                  </Button>
-                </label>
-                <Button variant="contained" color="success" onClick={handleSubmit}>
-                  ΔΗΜΟΣΙΕΥΣΗ
+            <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+              <TextField
+                id='description'
+                name='description'
+                label='Περιγραφή (Προαιρετικό)'
+                multiline
+                rows={2}
+                defaultValue=''
+                variant='standard'
+                onChange={handleChange}
+              />
+            </FormControl>
+          </FormControl>
+
+          <FormControl sx={{ mt: 5 }} variant='standard'>
+            <Box
+              sx={{
+                display: 'flex',
+                flexGrow: 1,
+                alignSelf: 'center',
+                justifyContent: 'space-between',
+              }}>
+              {/* TODO - Fix justifyContent space-between to spread buttons to the edges */}
+              <input
+                accept='image/png,.jpeg'
+                style={{ display: 'none' }}
+                id='image'
+                name='image'
+                multiple
+                type='file'
+                onChange={onFileChange}
+              />
+              <label htmlFor='image'>
+                <Button variant='contained' component='span'>
+                  Ανεβάστε Φωτογραφία
                 </Button>
-              </Box>
-            </FormControl>
-          </div>
-        </Box>
+              </label>
+              <Button
+                variant='contained'
+                color='success'
+                style={{textTransform: 'none'}}
+                onClick={handleSubmit}>
+                Δημοσίευση
+              </Button>
+            </Box>
+          </FormControl>
+        </form>
+      </Box>
     </>
   )
 }

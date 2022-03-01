@@ -18,7 +18,7 @@ function CategoryCard({ category }) {
             <CardMedia
               component='img'
               sx={{ width: 125 }}
-              image={category.Image[0] ? category.Image[0].url : ''}
+              image={category.image[0] ? category.image[0].url : ''}
               alt=''
             />
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -44,13 +44,13 @@ function CategoryCard({ category }) {
 CategoryCard.defaultProps = {
   name: 'no-name',
   description: '',
-  Image: '',
+  image: '',
 }
 
 CategoryCard.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
-  Image: PropTypes.string,
+  image: PropTypes.string,
 }
 
 export default CategoryCard

@@ -10,12 +10,12 @@ const upload = multer({ storage })
 router
   .route('/')
   .get(controller.getCategories)
-  .post(upload.array('Image'), controller.createNewCtg)
+  .post(upload.array('image'), controller.createCategory)
 
 router
   .route('/edit/:id/')
   .get(controller.editFormCtg)
-  .put(upload.array('Image'), controller.updateCtg)
+  .put(upload.array('image'), controller.updateCtg)
   .delete(controller.deleteCtg)
 
 module.exports = router
