@@ -22,7 +22,7 @@ import {
 export default function NewCategory() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  
+
   const [categoryData, setCategoryData] = useState({
     name: '',
     description: '',
@@ -35,24 +35,34 @@ export default function NewCategory() {
     (state) => state.categories
   )
 
-  const { name, description } = categoryData 
-
   useEffect(() => {
     if (isError) {
       toast.error(message)
     }
 
+    console.log(
+      'loading',
+      isLoading,
+      'error',
+      isError,
+      'success',
+      isSuccess,
+      'message',
+      message
+    )
+
     if (isSuccess) {
       dispatch(reset())
-      // navigate('/dashboard/categories')
+      toast('Η νέα κατηγορία δημιουργήθηκε επιτυχώς')
+      navigate('/dashboard/categories')
     }
 
     dispatch(reset())
   }, [dispatch, isError, isSuccess, navigate, message])
 
   const handleChange = (e) => {
-    setCategoryData({ ...categoryData, [e.target.name]: e.target.value });
-   };
+    setCategoryData({ ...categoryData, [e.target.name]: e.target.value })
+  }
 
   // TODO - IMAGE UPLOAD METHOD MAYBE?
   const onFileChange = (e) => {
@@ -70,18 +80,16 @@ export default function NewCategory() {
     console.log(payload)
     dispatch(createCategory(payload))
   }
-  //TODO - need ot transform this to a form in order to pass encType='multipart/formdata
-  return (
-    // <div>
-    //   <form onSubmit={handleSubmit}>
-    //     <input name='name' onChange={handleChange}/>
-    //     <input name='description' onChange={handleChange}/>
-    //     <input type="file" name="myImage" onChange= {onFileChange} />
-    //     <button type='submit'>POST</button>
-    //   </form>
-    // </div>
 
-    <>
+  if (isLoading)
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <CircularProgress className='spinner' />
+      </Box>
+    )
+
+  return (
+    <div>
       <Box
         sx={{
           m: 4,
@@ -90,11 +98,7 @@ export default function NewCategory() {
           <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
             <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
               <InputLabel htmlFor='name'>Ονομασία</InputLabel>
-              <Input
-                id='name'
-                name='name'
-                onChange={handleChange}
-              />
+              <Input id='name' name='name' onChange={handleChange} />
             </FormControl>
 
             <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
@@ -137,7 +141,7 @@ export default function NewCategory() {
               <Button
                 variant='contained'
                 color='success'
-                style={{textTransform: 'none'}}
+                style={{ textTransform: 'none' }}
                 onClick={handleSubmit}>
                 Δημοσίευση
               </Button>
@@ -145,6 +149,6 @@ export default function NewCategory() {
           </FormControl>
         </form>
       </Box>
-    </>
+    </div>
   )
 }

@@ -13,9 +13,9 @@ router
   .post(upload.array('image'), controller.createCategory)
 
 router
-  .route('/edit/:id/')
-  .get(controller.editFormCtg)
-  .put(upload.array('image'), controller.updateCtg)
-  .delete(controller.deleteCtg)
+  .route('/:id')
+  .get(controller.getCategory)
+  .put(upload.array('image'), controller.updateCategory)
+  .delete(controller.deleteCategory)
 
 module.exports = router

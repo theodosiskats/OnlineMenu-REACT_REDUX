@@ -10,16 +10,16 @@ import Typography from '@mui/material/Typography';
 
 function CatalogueProduct({ product }) {
   // const theme = useTheme();
-  const {name, description, price, Image} = product
+  const {name, description, price, image} = product
 
   return (
     <>
     <Card sx={{ display: 'flex', border: 'solid', borderColor: '#7d7d7d35', borderWidth: '0.65px', padding: '2px 3px' }}>
-      {Image[0] ?
+      {image[0] ?
         <CardMedia
           component="img"
           sx={{ width: 100, maxHeight: 100, borderRadius: 2 }}
-          image={Image[0] ? Image[0].url : ''}
+          image={image[0] ? image[0].url : ''}
           alt=''
         />
         : <></>}

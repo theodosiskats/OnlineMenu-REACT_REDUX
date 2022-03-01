@@ -13,54 +13,35 @@ module.exports.getCategories = async (req, res, next) => {
   res.status(200).json(categories)
 }
 
+// @desc    Get specific category
+// @route   GET /api/categories/:id
+// @access  Private
+module.exports.getCategory = async (req, res) => {
+  const { id } = req.params
+  const category = await CategoryMd.findById(id)
+  res.status(200).json(category)
+}
+
 // @desc    Create new category
 // @route   POST /api/categories
-// @access  Public
+// @access  Private
 module.exports.createCategory = async (req, res) => {
   const { name, description } = req.body
-
   if (!name || !description) {
     res.status(400)
     throw new Error('Please add a name and description')
   }
-
   const category = new CategoryMd(req.body)
   category.image = req.files.map((f) => ({ url: f.path, filename: f.filename }))
   await category.save()
-
   console.log('New category:', category)
-
   res.status(201).json(category)
 }
 
-module.exports.createNewCtg = async (req, res) => {
-  const { name, description } = req.body
-
-  if (!name || !description) {
-    res.status(400)
-    throw new Error('Please add a name and description')
-  }
-
-  const category = new CategoryMd(req.body)
-  category.image = req.files.map((f) => ({ url: f.path, filename: f.filename }))
-  await category.save()
-
-  console.log('New category:', category)
-
-  res.status(201).json(category)
-}
-
-module.exports.editFormCtg = async (req, res) => {
-  const categories = await CategoryMd.find({})
-  const category = await CategoryMd.findById(req.params.id)
-}
-
-module.exports.deleteCtg = async (req, res) => {
-  const { id } = req.params
-  await CategoryMd.findByIdAndDelete(id)
-}
-
-module.exports.updateCtg = async (req, res) => {
+// @desc    Update category
+// @route   POST /api/categories/:id
+// @access  Private
+module.exports.updateCategory = async (req, res) => {
   const { id } = req.params
   let category = await CategoryMd.findByIdAndUpdate(id, {
     ...req.body.category,
@@ -79,6 +60,16 @@ module.exports.updateCtg = async (req, res) => {
       })
     }
   }
+
+  res.status(200).json(category)
+}
+
+
+
+
+module.exports.deleteCategory = async (req, res) => {
+  const { id } = req.params
+  const category = await CategoryMd.findByIdAndDelete(id)
 
   //Update products
   const products = await ProductMd.find({})

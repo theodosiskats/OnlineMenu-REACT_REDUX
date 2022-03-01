@@ -29,6 +29,25 @@ export const getCategories = createAsyncThunk(
   }
 )
 
+// Get specific category
+export const getCategory = createAsyncThunk(
+  'categories/getCategory',
+  async (id, thunkAPI) => {
+    try {
+      return await categoriesService.getCategory(id)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 // Create new category
 export const createCategory = createAsyncThunk(
   'categories/create',
@@ -49,7 +68,7 @@ export const createCategory = createAsyncThunk(
 )
 
 
-//These are the new ACTIONS
+//ACTIONS
 export const categoriesSlice = createSlice({
   name: 'category',
   initialState,
@@ -58,7 +77,33 @@ export const categoriesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(getCategories.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getCategories.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.categories = action.payload
+      })
+      .addCase(getCategories.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
 
+      .addCase(getCategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getCategory.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.category = action.payload
+      })
+      .addCase(getCategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
 
       .addCase(createCategory.pending, (state) => {
         state.isLoading = true
@@ -74,34 +119,8 @@ export const categoriesSlice = createSlice({
       })
 
 
-      .addCase(getCategories.pending, (state) => {
-        state.isLoading = true
-      })
-      .addCase(getCategories.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.categories = action.payload
-      })
-      .addCase(getCategories.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-      })
 
 
-      // .addCase(getCategory.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(getCategory.fulfilled, (state, action) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      //   state.category = action.payload
-      // })
-      // .addCase(getCategory.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
 
 
       // .addCase(updateCategory.pending, (state) => {

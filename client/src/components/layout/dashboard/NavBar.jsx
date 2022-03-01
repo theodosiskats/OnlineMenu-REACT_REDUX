@@ -1,5 +1,6 @@
 //ASSETS
 import AuraLogo from '../../../assets/images/logo/aura.png'
+import AuraLogoSvg from '../../../assets/images/logo/Aura.svg'
 //REACT
 import { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -75,7 +76,7 @@ function NavBar(props) {
       <Toolbar key={'LogoToolbar'}>
           <img
             as={Link}
-            src={AuraLogo}
+            src={AuraLogoSvg}
             style={{
               maxWidth: '60%',
               maxHeight: '60%',

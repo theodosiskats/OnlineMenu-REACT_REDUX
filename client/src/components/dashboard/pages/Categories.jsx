@@ -2,15 +2,14 @@ import { useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { DataGrid, GridToolbar, elGR } from '@mui/x-data-grid'
+import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import CircularProgress from '@mui/material/CircularProgress'
 import { useNavigate } from "react-router-dom"
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategories, reset } from '../../../redux/categories/categoriesSlice'
-
-
-
 
 const screenHeight = window.innerHeight - 0.15 * window.innerHeight
 
@@ -38,8 +37,14 @@ function Categories() {
   console.log('categories', categories)
   
   const handleClick = (cellValues) => {
-    console.log(cellValues.row._id)
-    navigate(`${cellValues.row._id}`)
+  //   // dispatch(getCategory(cellValues._id))
+  navigate(`${cellValues.row._id}`)
+  //   setShowModal(true)
+  };
+
+  function handleShowModal () {
+    console.log('showModal', showModal)
+    setShowModal(!showModal)
   };
 
   const columns = [
@@ -63,6 +68,13 @@ function Categories() {
       },
     },
   ]
+
+  if (isLoading)
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <CircularProgress className='spinner' />
+      </Box>
+    )
 
   return (
     <div style={{ height: screenHeight, width: '100%' }}>
