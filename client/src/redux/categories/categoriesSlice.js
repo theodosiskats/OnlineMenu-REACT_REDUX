@@ -67,6 +67,25 @@ export const createCategory = createAsyncThunk(
   }
 )
 
+// Get specific category
+export const deleteCategory = createAsyncThunk(
+  'categories/deleteCategory',
+  async (id, thunkAPI) => {
+    try {
+      return await categoriesService.deleteCategory(id)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 
 //ACTIONS
 export const categoriesSlice = createSlice({
@@ -118,7 +137,19 @@ export const categoriesSlice = createSlice({
         state.message = action.payload
       })
 
-
+      .addCase(deleteCategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(deleteCategory.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.category = action.payload
+      })
+      .addCase(deleteCategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
 
 
 

@@ -18,6 +18,7 @@ const dbUrl = process.env.DB_URL
 const secret = process.env.SECRET
 const MongoStore = require('connect-mongo')
 const helmet = require('helmet')
+const { errorHandler } = require('./middleware/errorMiddleware')
 
 // Routes Dependencies
 
@@ -30,7 +31,6 @@ const dashRoutes = require('./routes/dashboard')
 const announcementsRoutes = require('./routes/announcements')
 const publicfileRoutes = require('./routes/publicfile')
 
-// Middleware
 
 // Database Config
 
@@ -144,6 +144,10 @@ app.use('/api/categories', ctgRoutes)
 app.use('/api/subcategories', subCtgRoutes)
 app.use('/api/announcements', announcementsRoutes)
 app.use('/api/publicfile', publicfileRoutes)
+
+// Middleware
+app.use(errorHandler)
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')))

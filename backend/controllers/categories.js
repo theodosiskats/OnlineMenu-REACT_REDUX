@@ -1,4 +1,5 @@
 const { cloudinary } = require('../cloudinary')
+const asyncHandler = require('express-async-handler')
 const ProductMd = require('../models/product')
 const CategoryMd = require('../models/category')
 const SubcategoryMd = require('../models/subcategory')
@@ -25,18 +26,18 @@ module.exports.getCategory = async (req, res) => {
 // @desc    Create new category
 // @route   POST /api/categories
 // @access  Private
-module.exports.createCategory = async (req, res) => {
+module.exports.createCategory = asyncHandler(async (req, res) => {
   const { name, description } = req.body
-  if (!name || !description) {
+  if (!name) {
     res.status(400)
-    throw new Error('Please add a name and description')
+    throw new Error('Παρακαλώ προσθέστε ένα όνομα κατηγορίας')
   }
   const category = new CategoryMd(req.body)
   category.image = req.files.map((f) => ({ url: f.path, filename: f.filename }))
   await category.save()
   console.log('New category:', category)
   res.status(201).json(category)
-}
+})
 
 // @desc    Update category
 // @route   POST /api/categories/:id
@@ -61,12 +62,14 @@ module.exports.updateCategory = async (req, res) => {
     }
   }
 
-  res.status(200).json(category)
+  const categories = await CategoryMd.find({})
+
+  res.status(410).json(categories)
 }
 
-
-
-
+// @desc    delete category
+// @route   DELETE /api/categories
+// @access  Private
 module.exports.deleteCategory = async (req, res) => {
   const { id } = req.params
   const category = await CategoryMd.findByIdAndDelete(id)
@@ -92,5 +95,4 @@ module.exports.deleteCategory = async (req, res) => {
     })
   }
 
-  category = await CategoryMd.findById(id)
 }

@@ -25,10 +25,17 @@ const createCategory = async (categoryData) => {
   return response.data
 }
 
+// Delete category
+const deleteCategory = async (id) => {
+  const response = await axios.delete(`${API_URL}/${id}`)
+  return response.data
+}
+
 /////////////////////////////////////////////
 const categoriesService = {
   getCategories,
   createCategory,
   getCategory,
+  deleteCategory,
 }
 export default categoriesService

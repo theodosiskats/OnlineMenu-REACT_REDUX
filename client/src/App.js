@@ -3,6 +3,7 @@ import Dashboard from './routes/Dashboard'
 import Frontpage from './routes/Frontpages'
 import { ToastContainer } from 'react-toastify'
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 //TODO - include suspence for lazy loading pages
 

@@ -35,26 +35,21 @@ export default function NewCategory() {
     (state) => state.categories
   )
 
+  const [isMounted, setIsMounted] = useState(true)
+
+
   useEffect(() => {
-    if (isError) {
-      toast.error(message)
-    }
-
-    console.log(
-      'loading',
-      isLoading,
-      'error',
-      isError,
-      'success',
-      isSuccess,
-      'message',
-      message
-    )
-
-    if (isSuccess) {
-      dispatch(reset())
-      toast('Η νέα κατηγορία δημιουργήθηκε επιτυχώς')
-      navigate('/dashboard/categories')
+    if(!isMounted){
+      if (isError) {
+        toast.error(message)
+      }
+  
+      if (isSuccess) {
+        setIsMounted(true)
+        toast.success(`Η κατηγορία: ${categoryData.name} δημιουργήθηκε επιτυχώς`)
+        dispatch(reset())
+        navigate('/dashboard/categories')
+      }
     }
 
     dispatch(reset())
@@ -64,7 +59,6 @@ export default function NewCategory() {
     setCategoryData({ ...categoryData, [e.target.name]: e.target.value })
   }
 
-  // TODO - IMAGE UPLOAD METHOD MAYBE?
   const onFileChange = (e) => {
     setImage(e.target.files[0])
     setImageName(e.target.files[0].name)
@@ -73,11 +67,11 @@ export default function NewCategory() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setIsMounted(false)
     const payload = new FormData()
     payload.append('image', image)
     payload.append('name', categoryData.name)
     payload.append('description', categoryData.description)
-    console.log(payload)
     dispatch(createCategory(payload))
   }
 
