@@ -23,6 +23,7 @@ function Categories() {
     (state) => state.categories
   )
   const [isDeleted, setIsDeleted] = useState(false)
+  const [isFirstLoad, setIsFirstLoad] = useState(true)
   const [deletedCategory, setDeletedCategory] = useState({})
 
   useEffect(() => {
@@ -56,6 +57,7 @@ function Categories() {
   }
 
   const handleDelete = (cellValues) => {
+    setIsFirstLoad(false)
     setIsDeleted(true)
     setDeletedCategory(cellValues.row)
     dispatch(deleteCategory(cellValues.row._id))
@@ -105,7 +107,7 @@ function Categories() {
     },
   ]
 
-  if (isLoading)
+  if (isLoading && isFirstLoad)
     return (
       <Box sx={{ display: 'flex' }}>
         <CircularProgress className='spinner' />

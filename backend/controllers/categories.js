@@ -1,8 +1,8 @@
 const { cloudinary } = require('../cloudinary')
 const asyncHandler = require('express-async-handler')
-const ProductMd = require('../models/product')
 const CategoryMd = require('../models/category')
 const SubcategoryMd = require('../models/subcategory')
+const ProductMd = require('../models/product')
 
 // Categories Controllers
 

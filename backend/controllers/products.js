@@ -33,7 +33,6 @@ module.exports.createNew = async (req,res) => {
 
 module.exports.updateProduct = async(req,res)=>{
     const {id} = req.params;
-    console.log(req.body);
     let product = await ProductMd.findByIdAndUpdate(id,{...req.body.product});
     const img = req.files.map(f => ({ url: f.path, filename: f.filename }));
     product.image.push(...img);
@@ -47,10 +46,6 @@ module.exports.updateProduct = async(req,res)=>{
     }
 
     product = await ProductMd.findById(req.params.id);
-    req.flash('success', 'Το προϊόν ενημερώθηκε επιτυχώς!');
-    const categories = await CategoryMd.find({});
-    const subcategories = await SubcategoryMd.find({});
-    res.render('dashboard/productsview', {product, categories, subcategories});
 }
 
 module.exports.deleteProduct = async(req,res) =>{
