@@ -29,7 +29,7 @@ import ArrowBackIosNew from '@mui/icons-material/ArrowBackIosNew'
 const drawerWidth = 240
 
 // TODO - fix the missing key on list error
-// TODO - fix duplicate keys error in components from MUI
+a// TODO - fix duplicate keys error in components from MUI
 
 function NavBar(props) {
   const { window } = props
