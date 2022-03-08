@@ -6,7 +6,7 @@ import InfoButton from '../../shared/InfoButton'
 function Home() {
   return (
     <>
-    {/* TODO - fix alert and info button */}
+    {/* FIXME - fix alert and info button */}
       <CategoryList />
       {/* <InfoButton/> */}
     </>

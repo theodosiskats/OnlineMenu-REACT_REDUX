@@ -83,7 +83,7 @@ app.use(mongoSanitize({ replaceWith: '_' }))
 // app.use(helmet())
 
 // Helmet Config
-//TODO - Do this via Client maybe or make it work in the backend -> Better in backend for safety
+//FIXME - Do this via Client maybe or make it work in the backend -> Better in backend for safety
 
 // const scriptSrcUrls = [
 //   'https://stackpath.bootstrapcdn.com/',

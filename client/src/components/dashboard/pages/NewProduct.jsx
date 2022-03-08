@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { listCategories } from '../../../redux/categories/categoriesActions'
 // import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
 
-//TODO - fix image loading to state
+//FIXME - fix image loading to state
 
 export default function NewProduct() {
   const dispatch = useDispatch()

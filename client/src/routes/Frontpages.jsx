@@ -12,7 +12,7 @@ function Frontpage() {
     <>
       <div className="flex flex-col justify-between h-screen w-screen">
         <Navbar />
-        {/* TODO - fix the blank screen on manual page reload - common problem with nested routes */}
+        {/* FIXME - fix the blank screen on manual page reload - common problem with nested routes */}
         <main className="container mx-auto px-3 pb-12">
           <Routes>
             <Route exact path="" element={<Home />} />

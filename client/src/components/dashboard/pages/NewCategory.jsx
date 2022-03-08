@@ -18,7 +18,7 @@ import {
   reset,
 } from '../../../redux/categories/categoriesSlice'
 
-//TODO - fix image to state upload
+//FIXME - fix image to state upload
 export default function NewCategory() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -117,7 +117,7 @@ export default function NewCategory() {
                 alignSelf: 'center',
                 justifyContent: 'space-between',
               }}>
-              {/* TODO - Fix justifyContent space-between to spread buttons to the edges */}
+              {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
               <input
                 accept='image/png,.jpeg'
                 style={{ display: 'none' }}

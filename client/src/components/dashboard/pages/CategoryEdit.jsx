@@ -203,7 +203,7 @@ export default function CategoryEdit() {
                     alignSelf: 'center',
                     justifyContent: 'space-between',
                   }}>
-                  {/* TODO - Fix justifyContent space-between to spread buttons to the edges */}
+                  {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
                   <Button
                     variant='contained'
                     color='success'
