@@ -37,7 +37,7 @@ function Categories() {
   useEffect(() => {
     if(isDeleted){
       if (isError) {
-        toast.error(message)
+        toast.error('Ουπς, κάτι πήγε στραβά, ο σέρβερ λέει: ' + message )
       }
 
       if (isSuccess) {

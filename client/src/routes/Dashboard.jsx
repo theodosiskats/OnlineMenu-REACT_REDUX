@@ -6,7 +6,7 @@ import NotFound from '../components/frontpage/pages/NotFound';
 import Categories from '../components/dashboard/pages/Categories';
 import NewCategory from '../components/dashboard/pages/NewCategory';
 import NewProduct from '../components/dashboard/pages/NewProduct';
-import CategoryEdit from '../components/dashboard/components/CategoryEdit'
+import CategoryEdit from '../components/dashboard/pages/CategoryEdit'
 
 function Dashboard() {
   return (

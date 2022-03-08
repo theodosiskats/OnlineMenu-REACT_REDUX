@@ -118,7 +118,7 @@ export default function CategoryEdit() {
 
   useEffect(() => {
     dispatch(getCategory(id))
-  }, [dispatch])
+}, [dispatch])
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -149,6 +149,7 @@ export default function CategoryEdit() {
       </div>
     )
   }
+
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -218,13 +219,14 @@ export default function CategoryEdit() {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <ImageList sx={{ width: maxWidth, height: maxHeight }} cols={4}>
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}>
+        {!image ? <></> : 
+          <ImageList sx={{ width: maxWidth, height: maxHeight }} cols={4}>
+          {image.map((img) => (
+            <ImageListItem key={img.filename}>
               <img
-                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
+                src={`${img.url}?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`${img.url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                alt={img.filename}
                 loading='lazy'
               />
               <ImageListItemBar
@@ -237,7 +239,7 @@ export default function CategoryEdit() {
                 actionIcon={
                   <IconButton
                     sx={{ color: 'white' }}
-                    aria-label={`star ${item.title}`}>
+                    aria-label={`star ${img.title}`}>
                     <ClearIcon
                       sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}
                       onClick={handleClickOpenDialog}
@@ -250,6 +252,9 @@ export default function CategoryEdit() {
             </ImageListItem>
           ))}
         </ImageList>
+        }
+        
+        
       </TabPanel>
 
       
@@ -260,7 +265,7 @@ export default function CategoryEdit() {
           PaperComponent={PaperComponent}
           aria-labelledby='draggable-dialog-title'>
           <DialogTitle style={{ cursor: 'move' }} id='draggable-dialog-title'>
-            Subscribe
+            Επιβεβαίωση
           </DialogTitle>
           <DialogContent>
             <DialogContentText>

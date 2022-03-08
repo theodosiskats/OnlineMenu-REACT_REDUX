@@ -41,13 +41,13 @@ export default function NewCategory() {
   useEffect(() => {
     if(!isMounted){
       if (isError) {
-        toast.error(message)
+        toast.error('Ουπς, κάτι πήγε στραβά, ο σέρβερ λέει: ' + message )
       }
   
       if (isSuccess) {
         setIsMounted(true)
-        toast.success(`Η κατηγορία: ${categoryData.name} δημιουργήθηκε επιτυχώς`)
         dispatch(reset())
+        toast.success(`Η κατηγορία: ${categoryData.name} δημιουργήθηκε επιτυχώς`)
         navigate('/dashboard/categories')
       }
     }
