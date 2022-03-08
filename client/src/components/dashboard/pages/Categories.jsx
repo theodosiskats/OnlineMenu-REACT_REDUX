@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategories, deleteCategory, reset } from '../../../redux/categories/categoriesSlice'
 
-const screenHeight = window.innerHeight - 0.15 * window.innerHeight
+const screenHeight = window.innerHeight - 0.18 * window.innerHeight
 
 const theme = createTheme(elGR)
 
