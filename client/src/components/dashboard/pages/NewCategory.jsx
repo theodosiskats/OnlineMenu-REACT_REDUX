@@ -1,127 +1,148 @@
 import { useState } from 'react'
+import axios from 'axios'
 import Box from '@mui/material/Box'
 import Input from '@mui/material/Input'
 import InputLabel from '@mui/material/InputLabel'
-import InputAdornment from '@mui/material/InputAdornment'
 import FormHelperText from '@mui/material/FormHelperText'
 import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
-import MenuItem from '@mui/material/MenuItem'
-import Grid from '@mui/material/Grid'
+import CircularProgress from '@mui/material/CircularProgress'
 import Button from '@mui/material/Button'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router'
+//DATA FETCHING
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  createCategory,
+  reset,
+} from '../../../redux/categories/categoriesSlice'
 
-{
-  /* TODO - load subcategories here from api */
-}
-{
-  /* {currencies.map((option) => (
-<option key={option.value} value={option.value}>
-  {option.label}
-</option>
-))} */
-}
-
+//TODO - fix image to state upload
 export default function NewCategory() {
-  const [values, setValues] = useState({
-    category: 'category1',
-    subcategory: 'subcategory1',
-    name: '',
-    price: '5',
-    password: '',
-    weight: '',
-    weightRange: '',
-  })
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value })
+  const [categoryData, setCategoryData] = useState({
+    name: '',
+    description: '',
+  })
+  const [image, setImage] = useState('')
+  const [imageName, setImageName] = useState('')
+  const [uploading, setUploading] = useState(false)
+
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.categories
+  )
+
+  const [isMounted, setIsMounted] = useState(true)
+
+
+  useEffect(() => {
+    if(!isMounted){
+      if (isError) {
+        toast.error('Ουπς, κάτι πήγε στραβά, ο σέρβερ λέει: ' + message )
+      }
+  
+      if (isSuccess) {
+        setIsMounted(true)
+        dispatch(reset())
+        toast.success(`Η κατηγορία: ${categoryData.name} δημιουργήθηκε επιτυχώς`)
+        navigate('/dashboard/categories')
+      }
+    }
+
+    dispatch(reset())
+  }, [dispatch, isError, isSuccess, navigate, message])
+
+  const handleChange = (e) => {
+    setCategoryData({ ...categoryData, [e.target.name]: e.target.value })
   }
 
+  const onFileChange = (e) => {
+    setImage(e.target.files[0])
+    setImageName(e.target.files[0].name)
+    console.log('image', image, imageName)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsMounted(false)
+    const payload = new FormData()
+    payload.append('image', image)
+    payload.append('name', categoryData.name)
+    payload.append('description', categoryData.description)
+    dispatch(createCategory(payload))
+  }
+
+  if (isLoading)
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <CircularProgress className='spinner' />
+      </Box>
+    )
+
   return (
-    <Box
-      sx={{
-        m: 4,
-      }}>
-      <div>
-        <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
-          <Grid container spacing={4}>
-            <Grid fullWidth item xs={6}>
+    <div>
+      <Box
+        sx={{
+          m: 4,
+        }}>
+        <form onSubmit={handleSubmit}>
+          <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
+            <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+              <InputLabel htmlFor='name'>Ονομασία</InputLabel>
+              <Input id='name' name='name' onChange={handleChange} />
+            </FormControl>
+
+            <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
               <TextField
-                fullWidth
-                id='category'
-                select
-                label='Κατηγορία'
-                value={values.category}
-                onChange={handleChange('category')}
-                helperText='Επιλέξτε κατηγορία'
-                variant='standard'>
-                <MenuItem key={'category1'} value={'category1'}>
-                  {'category1'}
-                </MenuItem>
-                <MenuItem key={'category2'} value={'category2'}>
-                  {'category2'}
-                </MenuItem>
-              </TextField>
-            </Grid>
-            <Grid item xs={6}>
-              <TextField
-                fullWidth
-                id='subcategory'
-                select
-                label='Υποκατηγορία'
-                value={values.subcategory}
-                onChange={handleChange('subcategory')}
-                helperText='Επιλέξτε υποκατηγορία'
-                variant='standard'>
-                <MenuItem key={'subcategory1'} value={'subcategory1'}>
-                  {'subcategory1'}
-                </MenuItem>
-                <MenuItem key={'subcategory2'} value={'subcategory2'}>
-                  {'subcategory2'}
-                </MenuItem>
-              </TextField>
-            </Grid>
-          </Grid>
-          <FormControl fullWitdh sx={{ mt: 2 }} variant='standard'>
-            <InputLabel htmlFor='standard-adornment-price'>
-              Τιμή (Προαιρετικό)
-            </InputLabel>
-            <Input
-              id='standard-adornment-price'
-              value={values.price}
-              onChange={handleChange('price')}
-              startAdornment={
-                <InputAdornment position='start'>€</InputAdornment>
-              }
-            />
+                id='description'
+                name='description'
+                label='Περιγραφή (Προαιρετικό)'
+                multiline
+                rows={2}
+                defaultValue=''
+                variant='standard'
+                onChange={handleChange}
+              />
+            </FormControl>
           </FormControl>
 
-          <FormControl fullWitdh sx={{ mt: 2 }} variant='standard'>
-            <TextField
-              id='description'
-              label='Περιγραφή (Προαιρετικό)'
-              multiline
-              rows={2}
-              defaultValue=''
-              variant='standard'
-            />
+          <FormControl sx={{ mt: 5 }} variant='standard'>
+            <Box
+              sx={{
+                display: 'flex',
+                flexGrow: 1,
+                alignSelf: 'center',
+                justifyContent: 'space-between',
+              }}>
+              {/* TODO - Fix justifyContent space-between to spread buttons to the edges */}
+              <input
+                accept='image/png,.jpeg'
+                style={{ display: 'none' }}
+                id='image'
+                name='image'
+                multiple
+                type='file'
+                onChange={onFileChange}
+              />
+              <label htmlFor='image'>
+                <Button variant='contained' component='span'>
+                  Ανεβάστε Φωτογραφία
+                </Button>
+              </label>
+              <Button
+                variant='contained'
+                color='success'
+                style={{ textTransform: 'none' }}
+                onClick={handleSubmit}>
+                Δημοσίευση
+              </Button>
+            </Box>
           </FormControl>
-        </FormControl>
-
-        <FormControl sx={{ mt: 5 }} variant='standard'>
-          <input
-            accept='image/*'
-            style={{ display: 'none' }}
-            id='upload-photo'
-            multiple
-            type='file'
-          />
-          <label htmlFor='upload-photo'>
-            <Button variant='contained' component='span'>
-              Ανεβάστε Φωτογραφία
-            </Button>
-          </label>
-        </FormControl>
-      </div>
-    </Box>
+        </form>
+      </Box>
+    </div>
   )
 }

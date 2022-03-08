@@ -1,22 +1,23 @@
-const express = require("express");
-const router = express.Router();
-const { isLoggedin } = require("../middleware");
-const subCatCtr = require('../controllers/subcategories');
-const multer = require("multer");
-const {storage} = require('../cloudinary');
-const upload = multer({ storage : storage });
+const express = require('express')
+const router = express.Router()
+const controller = require('../controllers/subcategories')
+const multer = require('multer')
+const { storage } = require('../cloudinary')
+const upload = multer({ storage: storage })
 
 // Categories Routes
 
-router.get("/", isLoggedin,  subCatCtr.subctg);
+router.get('/', controller.getSubcategories)
 
-router.route("/new")
-    .get(isLoggedin, subCatCtr.newFormsubctg)
-    .post(isLoggedin, upload.array('Image'), subCatCtr.createNewsubctg);
+router.get('/:category', controller.getSubcategoriesbyCategory)
+
+router.route('/new')
+  .get(controller.newFormsubctg)
+  .post(upload.array('Image'), controller.createNewsubctg)
 
 router.route('/edit/:id/')
-    .get(isLoggedin, subCatCtr.editFormsubctg)
-    .put(isLoggedin, upload.array('Image'), subCatCtr.updatesubctg)
-    .delete(isLoggedin, subCatCtr.deletesubctg);
+  .get(controller.editFormsubctg)
+  .put(upload.array('Image'), controller.updatesubctg)
+  .delete(controller.deletesubctg)
 
-module.exports = router;
+module.exports = router

@@ -1,30 +1,35 @@
-import CategoryCard from './CategoryCard'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { listCategories } from '../../../redux/categories/categoriesActions'
+import { getCategories, reset } from '../../../redux/categories/categoriesSlice'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
+import CategoryCard from './CategoryCard'
 
 function CategoryList() {
   const dispatch = useDispatch()
-  const categoriesList = useSelector((state) => state.categoriesList)
-  const { loading, error, categories } = categoriesList
+  const { categories, isLoading, isSuccess } = useSelector((state) => state.categories)
 
   useEffect(() => {
-    dispatch(listCategories())
+    return () => {
+      if (isSuccess) {
+        dispatch(reset())
+      }
+    }
+  }, [dispatch, isSuccess])
+
+  useEffect(() => {
+    dispatch(getCategories())
   }, [dispatch])
 
   return (
     <>
       {/* TODO - The breakpoint div class will be transfered to the CategoryList || I DONT REMEMBER WHY I SAID THAT????!! */}
 
-      {loading ? (
+      {isLoading ? (
         <Box sx={{ display: 'flex' }}>
           <CircularProgress className='spinner' />
         </Box>
-      ) : error ? (
-        <h3>{error}</h3>
       ) : (
         <div style={{ padding: '10px', paddingTop: '10px' }}>
           <Box sx={{ flexGrow: 1 }}>

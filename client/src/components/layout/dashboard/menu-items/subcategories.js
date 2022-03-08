@@ -1,6 +1,7 @@
 // assets
-import Class from '@mui/icons-material/Class'
-import Home from '@mui/icons-material/Home'
+import AlignVerticalTopTwoToneIcon from '@mui/icons-material/AlignVerticalTopTwoTone';
+import List from '@mui/icons-material/List'
+import Add from '@mui/icons-material/Add'
 
 // ==============================|| subcategories MENU ITEMS ||============================== //
 
@@ -8,16 +9,23 @@ const subcategories = {
   id: 'subcategories',
   title: 'Υποκατηγορίες',
   type: 'group',
-  icon: <Class/>,
+  icon: <AlignVerticalTopTwoToneIcon/>,
   subheader: 'Test',
   children: [
     {
-      id: 'index',
-      title: 'Κεντρική',
+      id: 'subcategories',
+      title: 'Λίστα Υποκατηγοριών',
       type: 'item',
       url: '/dashboard/subcategories/',
-      icon: <Home/>,
-    }
+      icon: <List/>,
+    },
+    {
+      id: 'newsubcategory',
+      title: 'Νέα υποκατηγορία',
+      type: 'item',
+      url: '/dashboard/subcategories/newsubcategory',
+      icon: <Add/>,
+    },
   ],
 }
 

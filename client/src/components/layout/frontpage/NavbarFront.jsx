@@ -4,9 +4,6 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { listCategories } from '../../../redux/categories/categoriesActions'
-
-
 // MUI
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
@@ -27,8 +24,6 @@ import Stack from '@mui/material/Stack'
 function NavbarFront({ title }) {
   // Add context to retrieve categories for dropdown menu
   const dispatch = useDispatch()
-  const categoriesList = useSelector((state) => state.categoriesList)
-  const { categories } = categoriesList
 
   // Dropdown state
 
@@ -68,7 +63,7 @@ function NavbarFront({ title }) {
   // End Dropdown state
 
   useEffect(() => {
-    dispatch(listCategories())
+    // dispatch(listCategories())
   }, [])
 
   return (
@@ -92,7 +87,7 @@ function NavbarFront({ title }) {
                   aria-expanded={open ? 'true' : undefined}
                   aria-haspopup='true'
                   onClick={handleToggle}>
-                  <MenuIcon style={{color: 'white'}}/>
+                  <MenuIcon style={{ color: 'white' }} />
                 </Button>
                 <Popper
                   open={open}
@@ -130,16 +125,20 @@ function NavbarFront({ title }) {
                 </Popper>
               </div>
             </Stack>
-            <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-              {title}
-            </Typography>
-            <Button
-              as={Link}
-              to='/dashboard'
-              color='inherit'
-              style={{ textDecoration: 'none' }}>
-              Dashboard
-            </Button>
+            <Box sx={{ display: 'flex', flexGrow: 1, alignSelf: 'center', justifyContent: 'space-between' }}>
+              <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+                <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+                  {title}
+                </Typography>
+              </Link>
+              <Button
+                as={Link}
+                to='/dashboard'
+                color='inherit'
+                style={{ textDecoration: 'none' }}>
+                Dashboard
+              </Button>
+            </Box>
           </Toolbar>
         </AppBar>
       </Box>

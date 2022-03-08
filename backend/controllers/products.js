@@ -4,6 +4,18 @@ const SubcategoryMd = require('../models/subcategory');
 const { cloudinary } = require("../cloudinary");
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+module.exports.getProducts = async (req, res) => {
+    const products = await ProductMd.find({})
+    res.status(200).json(products)
+  }
+
+  module.exports.getProductsbyCategory = async (req, res) => {
+    const category = req.params.category
+    const products = await ProductMd.find({ category: category })
+    res.status(200).json(products)
+  }
+
+
 module.exports.newForm = async(req,res)=>{
     const categories = await CategoryMd.find({});
     const subcategories = await SubcategoryMd.find({});
@@ -12,7 +24,7 @@ module.exports.newForm = async(req,res)=>{
 
 module.exports.createNew = async (req,res) => {
     const product = new ProductMd(req.body.product);
-    product.Image = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    product.image = req.files.map(f => ({ url: f.path, filename: f.filename }));
     console.log(product);
     await product.save();
     req.flash('success', 'Το προϊόν προστέθηκε επιτυχώς!');
@@ -24,14 +36,14 @@ module.exports.updateProduct = async(req,res)=>{
     console.log(req.body);
     let product = await ProductMd.findByIdAndUpdate(id,{...req.body.product});
     const img = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    product.Image.push(...img);
+    product.image.push(...img);
     await product.save();
 
     if (req.body.deleteImages) {
         for (let filename of req.body.deleteImages) {
             await cloudinary.uploader.destroy(filename);
         }
-        await product.updateOne({ $pull: { Image: { filename: { $in: req.body.deleteImages } } } })
+        await product.updateOne({ $pull: { image: { filename: { $in: req.body.deleteImages } } } })
     }
 
     product = await ProductMd.findById(req.params.id);

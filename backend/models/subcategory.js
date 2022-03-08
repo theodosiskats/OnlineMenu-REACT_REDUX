@@ -6,7 +6,7 @@ const SubcategorySchema = new Schema({
     category: String,
     name: String,
     description: String,
-    Image: [{
+    image: [{
         url: String,
         filename: String
     }]
@@ -15,7 +15,7 @@ const SubcategorySchema = new Schema({
 SubcategorySchema.post('findOneAndDelete', async function(doc){
     if (doc) {
         // delete images
-        for (let img of doc.Image) {
+        for (let img of doc.image) {
             await cloudinary.uploader.destroy(img.filename);
         }
     }

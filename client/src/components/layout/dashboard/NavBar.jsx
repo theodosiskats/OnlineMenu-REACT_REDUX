@@ -1,7 +1,8 @@
 //ASSETS
 import AuraLogo from '../../../assets/images/logo/aura.png'
+import AuraLogoSvg from '../../../assets/images/logo/Aura.svg'
 //REACT
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 //MenuItems
 import menuItems from '../dashboard/menu-items/index'
@@ -24,9 +25,10 @@ import ListSubheader from '@mui/material/ListSubheader'
 import ListItemButton from '@mui/material/ListItemButton'
 import ExpandLess from '@mui/icons-material/ExpandLess'
 import ExpandMore from '@mui/icons-material/ExpandMore'
+import Home from '@mui/icons-material/Home'
 import ArrowBackIosNew from '@mui/icons-material/ArrowBackIosNew'
 
-const drawerWidth = 240
+const drawerWidth = 280
 
 // TODO - fix the missing key on list error
 a// TODO - fix duplicate keys error in components from MUI
@@ -47,8 +49,11 @@ function NavBar(props) {
     other: false,
   })
 
-  const handleClick = (id) => {
+  const handleClick = (id, itemTitle) => {
     setOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }))
+    setTitle(itemTitle)
+    console.log('title', itemTitle)
+    
   }
 
   // const handleClick = (id) => {
@@ -71,7 +76,7 @@ function NavBar(props) {
       <Toolbar key={'LogoToolbar'}>
           <img
             as={Link}
-            src={AuraLogo}
+            src={AuraLogoSvg}
             style={{
               maxWidth: '60%',
               maxHeight: '60%',
@@ -82,10 +87,17 @@ function NavBar(props) {
           />
       </Toolbar>
       <Divider />
-      {menuItems.items.map(({id, icon, title, children}) => (
-        <>
+      <Link style={{textDecoration: 'none', color: '#202020'}} to='/dashboard'>
+        <ListItemButton key={'dashboardmain'}>
+          <ListItemIcon><Home/></ListItemIcon>
+          <ListItemText primary='Αρχική' />
+        </ListItemButton>
+      </Link>
+      <Divider />
+      {menuItems.items.map(({id, icon, title, children}, idx) => (
+        <Fragment key={id+'Fragment'}>
           <List
-            key={id+'ParentList'}
+            key={idx}
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
             component='nav'
             aria-labelledby='nested-list-subheader'
@@ -95,19 +107,19 @@ function NavBar(props) {
             //   </ListSubheader>
             // }
           >
-            <ListItemButton key={id+'listitembutton'} onClick={() => handleClick(id)}>
+            <ListItemButton key={id+'listitembutton'} onClick={() => handleClick(id, itemTitle)}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={title} />
               {open[id] ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <Collapse key={id+'collapse'} in={open[id]} timeout='auto' unmountOnExit>
-              <List key={id+'listchildren'} component='div' disablePadding>
-                {children.map(({id, icon, title, url}) => (
+            <Collapse in={open[id]} timeout='auto' unmountOnExit>
+              <List component='div' disablePadding>
+                {children.map(({id, icon, title, url}, subidx) => (
                   <ListItemButton
                     component={Link}
                     to={`${url}`}
                     onClick={handleDrawerToggle}
-                    key={id+'CollapseListItem'}
+                    key={subidx}
                     sx={{ pl: 3 }}>
                     <ListItemIcon>{icon}</ListItemIcon>
                     <ListItemText primary={title} />
@@ -117,7 +129,7 @@ function NavBar(props) {
             </Collapse>
           </List>
           <Divider />
-        </>
+        </Fragment>
       ))}
       <Link style={{textDecoration: 'none', color: '#202020'}} to='/'>
         <ListItemButton key={'returnlistitembutton'}>
@@ -150,7 +162,7 @@ function NavBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap component='div'>
-            Dashboard
+            {title}
             {/* TODO - add more functionallity to appbar */}
           </Typography>
         </Toolbar>
