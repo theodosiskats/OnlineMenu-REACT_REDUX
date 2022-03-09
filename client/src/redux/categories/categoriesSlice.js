@@ -50,7 +50,7 @@ export const getCategory = createAsyncThunk(
 
 // Create new category
 export const createCategory = createAsyncThunk(
-  'categories/create',
+  'categories/createCategory',
   async (categoryData, thunkAPI) => {
     try {
       return await categoriesService.createCategory(categoryData)
@@ -73,6 +73,25 @@ export const deleteCategory = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       return await categoriesService.deleteCategory(id)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+// Update category
+export const updateCategory = createAsyncThunk(
+  'categories/updateCategory',
+  async (categoryData, thunkAPI) => {
+    try {
+      return await categoriesService.updateCategory(categoryData)
     } catch (error) {
       const message =
         (error.response &&
@@ -151,22 +170,21 @@ export const categoriesSlice = createSlice({
         state.message = action.payload
       })
 
+      .addCase(updateCategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updateCategory.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(updateCategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
 
 
 
-      // .addCase(updateCategory.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(updateCategory.fulfilled, (state, action) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      //   state.category = action.payload
-      // })
-      // .addCase(updateCategory.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
 
       
   },

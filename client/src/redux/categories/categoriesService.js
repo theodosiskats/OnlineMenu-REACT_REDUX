@@ -31,11 +31,23 @@ const deleteCategory = async (id) => {
   return response.data
 }
 
+// Update categpry
+const updateCategory = async (categoryData, id) => {
+  const config = {
+    headers: {
+        'content-type': 'multipart/form-data'
+    }
+  }
+  const response = await axios.post(`${API_URL}/${id}`, categoryData, config)
+  return response.data
+}
+
 /////////////////////////////////////////////
 const categoriesService = {
   getCategories,
   createCategory,
   getCategory,
   deleteCategory,
+  updateCategory,
 }
 export default categoriesService

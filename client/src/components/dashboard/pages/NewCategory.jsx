@@ -13,10 +13,7 @@ import { useNavigate } from 'react-router'
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  createCategory,
-  reset,
-} from '../../../redux/categories/categoriesSlice'
+import { createCategory, reset } from '../../../redux/categories/categoriesSlice'
 
 //FIXME - fix image to state upload
 export default function NewCategory() {
@@ -31,19 +28,16 @@ export default function NewCategory() {
   const [imageName, setImageName] = useState('')
   const [uploading, setUploading] = useState(false)
 
-  const { isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.categories
-  )
+  const { isLoading, isError, isSuccess, message } = useSelector((state) => state.categories)
 
   const [isMounted, setIsMounted] = useState(true)
 
-
   useEffect(() => {
-    if(!isMounted){
+    if (!isMounted) {
       if (isError) {
-        toast.error('Ουπς, κάτι πήγε στραβά, ο σέρβερ λέει: ' + message )
+        toast.error('Ουπς, κάτι πήγε στραβά, ο server λέει: ' + message)
       }
-  
+
       if (isSuccess) {
         setIsMounted(true)
         dispatch(reset())
@@ -51,7 +45,6 @@ export default function NewCategory() {
         navigate('/dashboard/categories')
       }
     }
-
     dispatch(reset())
   }, [dispatch, isError, isSuccess, navigate, message])
 
@@ -132,11 +125,7 @@ export default function NewCategory() {
                   Ανεβάστε Φωτογραφία
                 </Button>
               </label>
-              <Button
-                variant='contained'
-                color='success'
-                style={{ textTransform: 'none' }}
-                onClick={handleSubmit}>
+              <Button variant='contained' color='success' style={{ textTransform: 'none' }} onClick={handleSubmit}>
                 Δημοσίευση
               </Button>
             </Box>

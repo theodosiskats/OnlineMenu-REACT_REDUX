@@ -16,12 +16,12 @@ const screenHeight = window.innerHeight - 0.18 * window.innerHeight
 
 const theme = createTheme(elGR)
 
+//TODO - add dialog to confirm delete
+
 function Categories() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { categories, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.categories
-  )
+  const { categories, isLoading, isError, isSuccess, message } = useSelector((state) => state.categories)
   const [isDeleted, setIsDeleted] = useState(false)
   const [isFirstLoad, setIsFirstLoad] = useState(true)
   const [deletedCategory, setDeletedCategory] = useState({})
@@ -36,9 +36,9 @@ function Categories() {
   }, [dispatch])
 
   useEffect(() => {
-    if(isDeleted){
+    if (isDeleted) {
       if (isError) {
-        toast.error('Ουπς, κάτι πήγε στραβά, ο σέρβερ λέει: ' + message )
+        toast.error('Ουπς, κάτι πήγε στραβά, ο σέρβερ λέει: ' + message)
       }
 
       if (isSuccess) {
@@ -47,7 +47,6 @@ function Categories() {
       }
     }
   }, [isDeleted])
-
 
   const rows = categories
 
@@ -72,7 +71,7 @@ function Categories() {
   const columns = [
     { field: 'name', headerName: 'Ονομασία', flex: 1 },
     { field: 'description', headerName: 'Περιγραφή', flex: 2.3 },
-    { field: '_id', headerName: 'ID', flex: 0.1, hide: true  },
+    { field: '_id', headerName: 'ID', flex: 0.1, hide: true },
     {
       field: 'Επεξεργασία',
       headerName: '',

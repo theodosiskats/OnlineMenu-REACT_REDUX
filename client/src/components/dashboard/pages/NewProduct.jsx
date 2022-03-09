@@ -13,18 +13,18 @@ import Button from '@mui/material/Button'
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import { listCategories } from '../../../redux/categories/categoriesActions'
-// import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesActions'
+// import { listCategories } from '../../../redux/categories/categoriesSlice'
+// import { listSubcategoriesByCategory } from '../../../redux/subcategories/subcategoriesService'
 
 //FIXME - fix image loading to state
 
 export default function NewProduct() {
   const dispatch = useDispatch()
-  // const categoriesList = useSelector((state) => state.categoriesList)
-  // const subcategoriesList = useSelector((state) => state.subcategoriesList)
+  const categoriesList = useSelector((state) => state.categoriesList)
+  const subcategoriesList = useSelector((state) => state.subcategoriesList)
   const [btnDisabled, setBtnDisabled] = useState(true)
-  // const { loading, error, categories } = categoriesList
-  // const { subcategories } = subcategoriesList
+  const { isLoading, isError, isSuccess, categories } = categoriesList
+  const { subcategories } = subcategoriesList
 
   useEffect(() => {
     dispatch(listCategories())
@@ -54,7 +54,7 @@ export default function NewProduct() {
 
   return (
     <>
-      {loading ? (
+      {isLoading ? (
         <Box sx={{ display: 'flex' }}>
           <CircularProgress className='spinner' />
         </Box>

@@ -34,7 +34,7 @@ import Draggable from 'react-draggable'
 
 //DATA FETCHING
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategory, reset } from '../../../redux/categories/categoriesSlice'
+import { getCategory, createCategory, updateCategory, reset } from '../../../redux/categories/categoriesSlice'
 import { maxHeight, maxWidth } from '@mui/system'
 
 //TabPanel Settings
@@ -42,12 +42,7 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props
 
   return (
-    <div
-      role='tabpanel'
-      hidden={value !== index}
-      id={`tabpanel-${index}`}
-      aria-labelledby={`tab-${index}`}
-      {...other}>
+    <div role='tabpanel' hidden={value !== index} id={`tabpanel-${index}`} aria-labelledby={`tab-${index}`} {...other}>
       {value === index && (
         <Box sx={{ p: 3 }}>
           <Typography>{children}</Typography>
@@ -74,9 +69,7 @@ function Props(index) {
 
 function PaperComponent(props) {
   return (
-    <Draggable
-      handle='#draggable-dialog-title'
-      cancel={'[class*="MuiDialogContent-root"]'}>
+    <Draggable handle='#draggable-dialog-title' cancel={'[class*="MuiDialogContent-root"]'}>
       <Paper {...props} />
     </Draggable>
   )
@@ -84,41 +77,57 @@ function PaperComponent(props) {
 
 export default function CategoryEdit() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const id = useParams().id
   const [value, setValue] = useState(0)
 
-  const { category, isLoading, isSuccess } = useSelector(
-    (state) => state.categories
-  )
+  const { category, isLoading, isSuccess, isError, message } = useSelector((state) => state.categories)
 
   const [categoryData, setCategoryData] = useState({
     name: ``,
     description: ``,
   })
+  const [image, setImage] = useState('')
 
+  const [imageFilenameToDelete, setImageFilenameToDelete] = useState('null')
+  const [isMounted, setIsMounted] = useState(true)
   const [openDialog, setOpenDialog] = useState(false)
 
-  const handleClickOpenDialog = () => {
-    setOpenDialog(true)
-  }
+  // const handleClickOpenDialog = (filename) => {
+  //   setOpenDialog(true)
+  //   // setImageFilenameToDelete(filename)
+  //   // console.log('filename', filename)
+  // }
 
   const handleCloseDialog = () => {
     setOpenDialog(false)
   }
 
-  const { name, description, image } = category
+  const { name, description, image: categoryImage } = category
+
+  useEffect(() => {}, [dispatch, isSuccess])
 
   useEffect(() => {
-    return () => {
+    if (isMounted) {
+      dispatch(getCategory(id))
       if (isSuccess) {
         dispatch(reset())
       }
     }
-  }, [dispatch, isSuccess])
 
-  useEffect(() => {
-    dispatch(getCategory(id))
-}, [dispatch])
+    if (!isMounted) {
+      if (isError) {
+        toast.error('Ουπς, κάτι πήγε στραβά, ο server λέει: ' + message)
+      }
+
+      if (isSuccess) {
+        setIsMounted(true)
+        dispatch(reset())
+        toast.success(`Η κατηγορία: ${categoryData.name} δημιουργήθηκε επιτυχώς`)
+      }
+    }
+    dispatch(reset())
+  }, [dispatch, isMounted])
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -130,16 +139,25 @@ export default function CategoryEdit() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setIsMounted(false)
     const payload = new FormData()
     payload.append('image', image)
     payload.append('name', categoryData.name)
     payload.append('description', categoryData.description)
     console.log(payload)
-    dispatch(createCategory(payload))
+    dispatch(updateCategory(payload, _id))
   }
 
   const deleteImage = (e) => {
     console.log('Image delete API dispatch request')
+  }
+
+  const handleDeleteIconClicked = (img) => {
+    return () => {
+      setOpenDialog(true)
+      setImageFilenameToDelete(img.filename)
+      console.log('img.filename', img.filename)
+    }
   }
 
   if (isLoading) {
@@ -150,137 +168,107 @@ export default function CategoryEdit() {
     )
   }
 
-
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label='basic tabs example'
-          centered>
-          <Tab label='Στοιχεία' {...Props(0)} />
-          <Tab label='Φωτογραφίες' {...Props(1)} />
-        </Tabs>
-      </Box>
+      <Tabs value={value} onChange={handleChange} aria-label='basic tabs example' centered>
+        <Tab label='Στοιχεία' {...Props(0)} />
+        <Tab label='Φωτογραφίες' {...Props(1)} />
+      </Tabs>
 
       <TabPanel value={value} index={0}>
-        <div>
-          <Box
-            sx={{
-              m: 4,
-            }}>
-            <form onSubmit={handleSubmit}>
-              <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
-                <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
-                  <InputLabel htmlFor='name'>Ονομασία</InputLabel>
-                  <Input
-                    focused
-                    id='name'
-                    name='name'
-                    onChange={handleInputChange}
-                    value={`${name}`}
-                  />
-                </FormControl>
+        <Box
+          sx={{
+            m: 4,
+          }}>
+          <form fullWidth sx={{ width: '100%' }} onSubmit={handleSubmit}>
+            <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
+              <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+                <InputLabel htmlFor='name'>Ονομασία</InputLabel>
+                <Input id='name' name='name' onChange={handleInputChange} value={`${name}`} />
+              </FormControl>
 
-                <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+              <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
                 <InputLabel htmlFor='description'>Περιγραφή (Προεραιτική)</InputLabel>
-                  <Input
-                    focused
-                    id='description'
-                    name='description'
-                    onChange={handleInputChange}
-                    value={`${description}`}
-                  />
-                </FormControl>
+                <Input id='description' name='description' onChange={handleInputChange} value={`${description}`} />
               </FormControl>
+            </FormControl>
 
-              <FormControl sx={{ mt: 5 }} variant='standard'>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexGrow: 1,
-                    alignSelf: 'center',
-                    justifyContent: 'space-between',
-                  }}>
-                  {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
-                  <Button
-                    variant='contained'
-                    color='success'
-                    style={{ textTransform: 'none' }}
-                    onClick={handleSubmit}>
-                    Αποθήκευση
-                  </Button>
-                </Box>
-              </FormControl>
-            </form>
-          </Box>
-        </div>
+            <FormControl sx={{ mt: 5 }} variant='standard'>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexGrow: 1,
+                  alignSelf: 'center',
+                  justifyContent: 'space-between',
+                }}>
+                {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
+                <Button variant='contained' color='success' style={{ textTransform: 'none' }} onClick={handleSubmit}>
+                  Αποθήκευση
+                </Button>
+              </Box>
+            </FormControl>
+          </form>
+        </Box>
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        {!image ? <></> : 
+        {!categoryImage ? (
+          <></>
+        ) : (
           <ImageList sx={{ width: maxWidth, height: maxHeight }} cols={4}>
-          {image.map((img) => (
-            <ImageListItem key={img.filename}>
-              <img
-                src={`${img.url}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${img.url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                alt={img.filename}
-                loading='lazy'
-              />
-              <ImageListItemBar
-                sx={{
-                  background:
-                    'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-                    'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-                }}
-                position='top'
-                actionIcon={
-                  <IconButton
-                    sx={{ color: 'white' }}
-                    aria-label={`star ${img.title}`}>
-                    <ClearIcon
-                      sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}
-                      onClick={handleClickOpenDialog}
-                    />
-                    {/* TODO - add onClick MUI confirmation dialog to delete image, then API request imagedelete */}
-                  </IconButton>
-                }
-                actionPosition='left'
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
-        }
-        
-        
+            {categoryImage.map((img) => (
+              <ImageListItem key={img.filename}>
+                <img
+                  src={`${img.url}?w=164&h=164&fit=crop&auto=format`}
+                  srcSet={`${img.url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                  alt={img.filename}
+                  loading='lazy'
+                />
+                <ImageListItemBar
+                  sx={{
+                    background:
+                      'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' + 'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                  }}
+                  position='top'
+                  actionIcon={
+                    <IconButton
+                      sx={{ color: 'white' }}
+                      onClick={handleDeleteIconClicked(img)}
+                      aria-label={`star ${img.title}`}>
+                      <ClearIcon sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }} />
+                      {/* TODO - add onClick MUI confirmation dialog to delete image, then API request imagedelete */}
+                    </IconButton>
+                  }
+                  actionPosition='left'
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        )}
       </TabPanel>
 
-      
-      <div>
-        <Dialog
-          open={openDialog}
-          onClose={handleCloseDialog}
-          PaperComponent={PaperComponent}
-          aria-labelledby='draggable-dialog-title'>
-          <DialogTitle style={{ cursor: 'move' }} id='draggable-dialog-title'>
-            Επιβεβαίωση
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Είσαι σίγουρος ότι θες να διαγράψης την επιλεγμένη φωτογραφία;{'/n'}
-              Η κίνηση αυτή είναι μη αντιστρέψιμη.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button autoFocus onClick={handleCloseDialog}>
-              Ακύρωση
-            </Button>
-            <Button color="error" onClick={deleteImage}>Διαγραφή</Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+      <Dialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        PaperComponent={PaperComponent}
+        aria-labelledby='draggable-dialog-title'>
+        <DialogTitle style={{ cursor: 'move' }} id='draggable-dialog-title'>
+          Επιβεβαίωση
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Είσαι σίγουρος ότι θες να διαγράψης την επιλεγμένη φωτογραφία;{'/n'}Η κίνηση αυτή είναι μη αντιστρέψιμη.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleCloseDialog}>
+            Ακύρωση
+          </Button>
+          <Button color='error' onClick={deleteImage}>
+            Διαγραφή
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   )
 }
