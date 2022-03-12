@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router'
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategories, deleteCategory, reset } from '../../../redux/categories/categoriesSlice'
+import { getCategories, deleteCategory, reset } from '../../../../redux/categories/categoriesSlice'
 
 const screenHeight = window.innerHeight - 0.18 * window.innerHeight
 

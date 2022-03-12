@@ -27,7 +27,7 @@ module.exports.getCategory = async (req, res) => {
 // @route   POST /api/categories
 // @access  Private
 module.exports.createCategory = asyncHandler(async (req, res) => {
-  const { name, description } = req.body
+  const { name } = req.body
   if (!name) {
     res.status(400)
     throw new Error('Παρακαλώ προσθέστε ένα όνομα κατηγορίας')
@@ -42,45 +42,24 @@ module.exports.createCategory = asyncHandler(async (req, res) => {
 // @desc    Update category
 // @route   POST /api/categories/:id
 // @access  Private
-module.exports.updateCategory = async (req, res) => {
-  const {id} = req.params;
-  let category = await CategoryMd.findByIdAndUpdate(id,{...req.body.category});
-  const img = req.files.map(f => ({ url: f.path, filename: f.filename }));
-  category.Image.push(...img);
-  await category.save();
+module.exports.updateCategory = asyncHandler(async (req, res) => {
+  const { id } = req.params
+  const category = await CategoryMd.findByIdAndUpdate(id, { ...req.body })
+  const img = req.files.map((f) => ({ url: f.path, filename: f.filename }))
+  category.image.push(...img)
+  await category.save()
 
-  //Update subcategories
-  const subcategories = await SubcategoryMd.find({});
-  for(let subcategory of subcategories){
-      if(subcategory.category === category.name){
-          subcategory.category = req.body.category.name;
-          await subcategory.save().then(() => {
-              console.log("Subcategory updated: " + subcategory.name);
-          });
-      }
-  }
-
-  //Update products
-  const products = await ProductMd.find({});
-  for(let product of products){
-      if(product.category === category.name){
-          product.category = req.body.category.name;
-          await product.save().then(() => {
-              console.log("Product updated: " + product.name);
-          });
-      }
-  }
+  UpdateChildren(category.name ,req.body.name)
 
   //Delete Selected Images
-  if (req.body.deleteImages) {
-      for (let filename of req.body.deleteImages) {
-          await cloudinary.uploader.destroy(filename);
-      }
-      await category.updateOne({ $pull: { Image: { filename: { $in: req.body.deleteImages } } } })
+  if (req.body.deleteImage) {
+    const filename = req.body.deleteImage
+    await cloudinary.uploader.destroy(filename)
+    console.log('req.body.deleteImage', req.body.deleteImage)
+    await category.updateOne({ $pull: { image: { filename: { $in: req.body.deleteImage } } } })
   }
-
-  res.status(410).json(categories)
-}
+  res.status(204)
+})
 
 // @desc    delete category
 // @route   DELETE /api/categories
@@ -109,5 +88,28 @@ module.exports.deleteCategory = async (req, res) => {
       $pull: { Image: { filename: { $in: req.body.deleteImages } } },
     })
   }
-
 }
+
+const UpdateChildren = asyncHandler(async (categoryName, newCategoryName) => {
+  //Find & Update subcategories
+  const subcategories = await SubcategoryMd.find({ category: categoryName })
+  for (let subcategory of subcategories) {
+    if (subcategory.category === categoryName) {
+      subcategory.category = newCategoryName
+      await subcategory.save().then(() => {
+        console.log('Subcategory updated: ' + subcategory.name)
+      })
+    }
+  }
+
+  //Find & Update products
+  const products = await ProductMd.find({ category: categoryName })
+  for (let product of products) {
+    if (product.category === categoryName) {
+      product.category = newCategoryName
+      await product.save().then(() => {
+        console.log('Product updated: ' + product.name)
+      })
+    }
+  }
+})

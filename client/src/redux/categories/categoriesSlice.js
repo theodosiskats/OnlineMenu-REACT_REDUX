@@ -89,9 +89,9 @@ export const deleteCategory = createAsyncThunk(
 // Update category
 export const updateCategory = createAsyncThunk(
   'categories/updateCategory',
-  async (categoryData, thunkAPI) => {
+  async (payload, thunkAPI) => {
     try {
-      return await categoriesService.updateCategory(categoryData)
+      return await categoriesService.updateCategory(payload)
     } catch (error) {
       const message =
         (error.response &&
@@ -182,11 +182,6 @@ export const categoriesSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-
-
-
-
-      
   },
 })
 export const { reset } = categoriesSlice.actions

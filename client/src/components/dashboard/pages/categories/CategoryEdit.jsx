@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import PropTypes from 'prop-types'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
@@ -8,22 +9,13 @@ import Box from '@mui/material/Box'
 import Input from '@mui/material/Input'
 import InputLabel from '@mui/material/InputLabel'
 import FormControl from '@mui/material/FormControl'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import ImageListItemBar from '@mui/material/ImageListItemBar'
 import IconButton from '@mui/material/IconButton'
-import StarBorderIcon from '@mui/icons-material/StarBorder'
 import ClearIcon from '@mui/icons-material/Clear'
-import Checkbox from '@mui/material/Checkbox'
 import Skeleton from '@mui/material/Skeleton'
-import CircularProgress from '@mui/material/CircularProgress'
-import CardMedia from '@mui/material/CardMedia'
-import FormHelperText from '@mui/material/FormHelperText'
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
@@ -34,8 +26,12 @@ import Draggable from 'react-draggable'
 
 //DATA FETCHING
 import { useDispatch, useSelector } from 'react-redux'
-import { getCategory, createCategory, updateCategory, reset } from '../../../redux/categories/categoriesSlice'
+import { getCategory, updateCategory, reset } from '../../../../redux/categories/categoriesSlice'
 import { maxHeight, maxWidth } from '@mui/system'
+
+// FIXME - Fix reloading and state updates on changing category
+// Κρατάει τη τελευταία κατηγορία που άνοιξες και χρειάζεται
+// refresh για να αδειάσει το state από τη προηγούμενη
 
 //TabPanel Settings
 function TabPanel(props) {
@@ -51,6 +47,8 @@ function TabPanel(props) {
     </div>
   )
 }
+
+const screenHeight = window.innerHeight - 0.18 * window.innerHeight
 
 TabPanel.propTypes = {
   children: PropTypes.node,
@@ -77,9 +75,10 @@ function PaperComponent(props) {
 
 export default function CategoryEdit() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const id = useParams().id
+  const { id } = useParams()
   const [value, setValue] = useState(0)
+  const [refreshData, setRefreshData] = useState(true)
+  console.log('check')
 
   const { category, isLoading, isSuccess, isError, message } = useSelector((state) => state.categories)
 
@@ -89,28 +88,23 @@ export default function CategoryEdit() {
   })
   const [image, setImage] = useState('')
 
-  const [imageFilenameToDelete, setImageFilenameToDelete] = useState('null')
+  const [deleteImage, setDeleteImage] = useState('')
   const [isMounted, setIsMounted] = useState(true)
   const [openDialog, setOpenDialog] = useState(false)
 
   // const handleClickOpenDialog = (filename) => {
   //   setOpenDialog(true)
-  //   // setImageFilenameToDelete(filename)
   //   // console.log('filename', filename)
   // }
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false)
-  }
-
-  const { name, description, image: categoryImage } = category
-
-  useEffect(() => {}, [dispatch, isSuccess])
+  const { name: InitialCategoryName, description: InitialCategoryDescription, image: categoryImage } = category
 
   useEffect(() => {
     if (isMounted) {
       dispatch(getCategory(id))
       if (isSuccess) {
+        setCategoryData({ ...categoryData, name: InitialCategoryName, description: InitialCategoryDescription })
+        setRefreshData(false)
         dispatch(reset())
       }
     }
@@ -123,11 +117,19 @@ export default function CategoryEdit() {
       if (isSuccess) {
         setIsMounted(true)
         dispatch(reset())
-        toast.success(`Η κατηγορία: ${categoryData.name} δημιουργήθηκε επιτυχώς`)
+        toast.success(`Η κατηγορία: ${categoryData.name} ενημερώθηκε επιτυχώς`)
       }
     }
     dispatch(reset())
-  }, [dispatch, isMounted])
+  }, [dispatch, isMounted, refreshData])
+
+  const onFileChange = (e) => {
+    setImage(e.target.files[0])
+  }
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false)
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -137,27 +139,42 @@ export default function CategoryEdit() {
     setCategoryData({ ...categoryData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsMounted(false)
-    const payload = new FormData()
-    payload.append('image', image)
-    payload.append('name', categoryData.name)
-    payload.append('description', categoryData.description)
-    console.log(payload)
-    dispatch(updateCategory(payload, _id))
-  }
-
-  const deleteImage = (e) => {
+  
+  const imageDelete = (e) => {
     console.log('Image delete API dispatch request')
   }
 
   const handleDeleteIconClicked = (img) => {
     return () => {
       setOpenDialog(true)
-      setImageFilenameToDelete(img.filename)
+      setDeleteImage(img.filename)
       console.log('img.filename', img.filename)
     }
+  }
+
+  const clearImageStates = () => {
+    setImage('')
+    setDeleteImage('')
+    setOpenDialog(false)
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsMounted(false)
+    const data = new FormData()
+    if(image !== ''){
+      data.append('image', image)
+    }
+    if(deleteImage !== ''){
+      data.append('deleteImage', deleteImage)
+    }
+    data.append('name', categoryData.name)
+    data.append('description', categoryData.description)
+    const payload = { id, data }
+    dispatch(updateCategory(payload))
+    if(image !== '' || deleteImage !== '')
+    clearImageStates()
+    setRefreshData(true)
   }
 
   if (isLoading) {
@@ -184,12 +201,17 @@ export default function CategoryEdit() {
             <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
               <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
                 <InputLabel htmlFor='name'>Ονομασία</InputLabel>
-                <Input id='name' name='name' onChange={handleInputChange} value={`${name}`} />
+                <Input id='name' name='name' onChange={handleInputChange} value={`${categoryData.name}`} />
               </FormControl>
 
               <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
                 <InputLabel htmlFor='description'>Περιγραφή (Προεραιτική)</InputLabel>
-                <Input id='description' name='description' onChange={handleInputChange} value={`${description}`} />
+                <Input
+                  id='description'
+                  name='description'
+                  onChange={handleInputChange}
+                  value={`${categoryData.description}`}
+                />
               </FormControl>
             </FormControl>
 
@@ -202,9 +224,36 @@ export default function CategoryEdit() {
                   justifyContent: 'space-between',
                 }}>
                 {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
-                <Button variant='contained' color='success' style={{ textTransform: 'none' }} onClick={handleSubmit}>
-                  Αποθήκευση
-                </Button>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexGrow: 1,
+                      alignSelf: 'center',
+                      justifyContent: 'space-between',
+                    }}>
+                    {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
+                    <input
+                      accept='image/png,.jpeg'
+                      style={{ display: 'none' }}
+                      id='image'
+                      name='image'
+                      multiple
+                      type='file'
+                      onChange={onFileChange}
+                    />
+                    <label htmlFor='image'>
+                      <Button variant='contained' component='span'>
+                        Ανεβάστε Φωτογραφία
+                      </Button>
+                    </label>
+                    <Button
+                      variant='contained'
+                      color='success'
+                      style={{ textTransform: 'none' }}
+                      onClick={handleSubmit}>
+                      Δημοσίευση
+                    </Button>
+                  </Box>
               </Box>
             </FormControl>
           </form>
@@ -264,7 +313,7 @@ export default function CategoryEdit() {
           <Button autoFocus onClick={handleCloseDialog}>
             Ακύρωση
           </Button>
-          <Button color='error' onClick={deleteImage}>
+          <Button color='error' onClick={handleSubmit}>
             Διαγραφή
           </Button>
         </DialogActions>

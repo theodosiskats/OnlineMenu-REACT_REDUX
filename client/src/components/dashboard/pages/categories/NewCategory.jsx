@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router'
 //DATA FETCHING
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createCategory, reset } from '../../../redux/categories/categoriesSlice'
+import { createCategory, reset } from '../../../../redux/categories/categoriesSlice'
 
 //FIXME - fix image to state upload
 export default function NewCategory() {
@@ -65,6 +65,7 @@ export default function NewCategory() {
     payload.append('image', image)
     payload.append('name', categoryData.name)
     payload.append('description', categoryData.description)
+    console.log(payload)
     dispatch(createCategory(payload))
   }
 

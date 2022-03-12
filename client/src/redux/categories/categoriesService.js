@@ -31,14 +31,16 @@ const deleteCategory = async (id) => {
   return response.data
 }
 
-// Update categpry
-const updateCategory = async (categoryData, id) => {
+// Update category
+const updateCategory = async (payload) => {
+  const {id, data} = payload
   const config = {
     headers: {
         'content-type': 'multipart/form-data'
     }
   }
-  const response = await axios.post(`${API_URL}/${id}`, categoryData, config)
+  console.log(payload)
+  const response = await axios.put(`${API_URL}/${id}`, data, config)
   return response.data
 }
 

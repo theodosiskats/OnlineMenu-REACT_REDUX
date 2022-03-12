@@ -9,7 +9,7 @@ const CategorySchema = new Schema({
         url: String,
         filename: String
     }]
-});
+})
 
 CategorySchema.post('findOneAndDelete', async function(doc){
     if (doc) {
