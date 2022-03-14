@@ -8,7 +8,7 @@ const getCategories = async () => {
   return response.data
 }
 
-// Get specific category
+// Get category
 const getCategory = async (id) => {
   const response = await axios.get(`${API_URL}/${id}`)
   return response.data
@@ -25,31 +25,30 @@ const createCategory = async (categoryData) => {
   return response.data
 }
 
+// Update category
+const updateCategory = async (payload) => {
+  const {id, data} = payload
+  const config = {
+    headers: {
+      'content-type': 'multipart/form-data'
+    }
+  }
+  const response = await axios.put(`${API_URL}/${id}`, data, config)
+  return response.data
+}
+
 // Delete category
 const deleteCategory = async (id) => {
   const response = await axios.delete(`${API_URL}/${id}`)
   return response.data
 }
 
-// Update category
-const updateCategory = async (payload) => {
-  const {id, data} = payload
-  const config = {
-    headers: {
-        'content-type': 'multipart/form-data'
-    }
-  }
-  console.log(payload)
-  const response = await axios.put(`${API_URL}/${id}`, data, config)
-  return response.data
-}
-
 /////////////////////////////////////////////
 const categoriesService = {
   getCategories,
-  createCategory,
   getCategory,
-  deleteCategory,
+  createCategory,
   updateCategory,
+  deleteCategory
 }
 export default categoriesService

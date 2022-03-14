@@ -1,63 +1,86 @@
-const ProductMd = require('../models/product');
-const CategoryMd = require('../models/category');
-const SubcategoryMd = require('../models/subcategory');
-const { cloudinary } = require("../cloudinary");
-const delay = ms => new Promise(res => setTimeout(res, ms));
+const { cloudinary } = require('../cloudinary')
+const asyncHandler = require('express-async-handler')
+const ProductMd = require('../models/product')
+const CategoryMd = require('../models/category')
+const SubcategoryMd = require('../models/subcategory')
 
+// @desc    Get all products
+// @route   GET /api/products
+// @access  Public
 module.exports.getProducts = async (req, res) => {
-    const products = await ProductMd.find({})
-    res.status(200).json(products)
-  }
-
-  module.exports.getProductsbyCategory = async (req, res) => {
-    const category = req.params.category
-    const products = await ProductMd.find({ category: category })
-    res.status(200).json(products)
-  }
-
-
-module.exports.newForm = async(req,res)=>{
-    const categories = await CategoryMd.find({});
-    const subcategories = await SubcategoryMd.find({});
-    res.render("dashboard/productsnew", {categories, subcategories});
+  const products = await ProductMd.find({})
+  res.status(200).json(products)
 }
 
-module.exports.createNew = async (req,res) => {
-    const product = new ProductMd(req.body.product);
-    product.image = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    console.log(product);
-    await product.save();
-    req.flash('success', 'Το προϊόν προστέθηκε επιτυχώς!');
-    res.redirect('products')
+// @desc    Get specific product
+// @route   GET /api/products/:id
+// @access  Private
+module.exports.getProduct = asyncHandler(async (req, res) => {
+  const { id } = req.params
+  const product = await CategoryMd.findById(id)
+  res.status(200).json(product)
+})
+
+// @desc    Get all products belonging to specific category
+// @route   GET /api/products/:category
+// @access  Public
+module.exports.getProductsbyCategory = async (req, res) => {
+  const category = req.params.category
+  const products = await ProductMd.find({ category: category })
+  res.status(200).json(products)
 }
 
-module.exports.updateProduct = async(req,res)=>{
-    const {id} = req.params;
-    let product = await ProductMd.findByIdAndUpdate(id,{...req.body.product});
-    const img = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    product.image.push(...img);
-    await product.save();
+// @desc    Create new product
+// @route   POST /api/products
+// @access  Private
+module.exports.createProduct = asyncHandler(async (req, res) => {
+  const { category, subcategory, name } = req.body
+  if (!category || !subcategory || !name) {
+    res.status(400)
+    throw new Error('Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία')
+  }
+  const product = new ProductMd(req.body)
+  product.image = req.files.map((f) => ({ url: f.path, filename: f.filename }))
+  await product.save()
+  console.log(product)
+  res.status(201).json(product)
+})
 
-    if (req.body.deleteImages) {
-        for (let filename of req.body.deleteImages) {
-            await cloudinary.uploader.destroy(filename);
-        }
-        await product.updateOne({ $pull: { image: { filename: { $in: req.body.deleteImages } } } })
+// @desc    Update product
+// @route   POST /api/categories/:id
+// @access  Private
+module.exports.updateProduct = asyncHandler(async (req, res) => {
+  const { id } = req.params
+  const product = await ProductMd.findByIdAndUpdate(id, { ...req.body })
+  const img = req.files.map((f) => ({ url: f.path, filename: f.filename }))
+  product.image.push(...img)
+  await product.save()
+
+  //Delete Selected Images
+  if (req.body.deleteImage) {
+    const filename = req.body.deleteImage
+    await cloudinary.uploader.destroy(filename)
+    console.log('req.body.deleteImage', req.body.deleteImage)
+    await product.updateOne({ $pull: { image: { filename: { $in: req.body.deleteImage } } } })
+  }
+  res.status(204)
+})
+
+// @desc    Delete product
+// @route   DELETE /api/categories
+// @access  Private
+module.exports.deleteProduct = asyncHandler(async (req, res) => {
+  const { id } = req.params
+  const product = await CategoryMd.findByIdAndDelete(id)
+
+  //Delete Selected Images
+  if (req.body.deleteImages) {
+    for (let filename of req.body.deleteImages) {
+      await cloudinary.uploader.destroy(filename)
     }
-
-    product = await ProductMd.findById(req.params.id);
-}
-
-module.exports.deleteProduct = async(req,res) =>{
-    const {id} = req.params;
-    await ProductMd.findByIdAndDelete(id);
-    req.flash('error', 'Επιτυχής διαγραφή προϊόντος!');
-    res.redirect("../products");
-}
-
-module.exports.showProduct = async(req,res) => {
-    const categories = await CategoryMd.find({});
-    const subcategories = await SubcategoryMd.find({});
-    const product = await ProductMd.findById(req.params.id);
-    res.render('dashboard/productsview', { product, categories, subcategories});
-}
+    await product.updateOne({
+      $pull: { Image: { filename: { $in: req.body.deleteImages } } },
+    })
+  }
+  res.status(204)
+})

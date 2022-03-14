@@ -1271,35 +1271,195 @@ export default function SelectTextFields() {
 
 ImageList
 
-<ImageList sx={{ width: maxWidth, height: maxHeight }} cols={4}>
-  {image.map((image) => (
-    <ImageListItem key={image.filename}>
-      <img
-        src={`${image.url}?w=164&h=164&fit=crop&auto=format`}
-        srcSet={`${image.url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-        alt={image.filename}
-        loading='lazy'
-      />
-      <ImageListItemBar
+import { useState } from 'react'
+import Box from '@mui/material/Box'
+import Input from '@mui/material/Input'
+import InputLabel from '@mui/material/InputLabel'
+import InputAdornment from '@mui/material/InputAdornment'
+import FormHelperText from '@mui/material/FormHelperText'
+import FormControl from '@mui/material/FormControl'
+import TextField from '@mui/material/TextField'
+import MenuItem from '@mui/material/MenuItem'
+import Grid from '@mui/material/Grid'
+import CircularProgress from '@mui/material/CircularProgress'
+import Button from '@mui/material/Button'
+//DATA FETCHING
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCategories } from '../../../../redux/categories/categoriesSlice'
+import { getSubcategoriesbyCategory } from '../../../../redux/subcategories/subcategoriesSlice'
+
+//TODO - create modal for new subcategory and category if not existing
+
+export default function NewProduct() {
+  const dispatch = useDispatch()
+  const [btnDisabled, setBtnDisabled] = useState(true)
+  const { categories, isLoading, isError, isSuccess, message } = useSelector((state) => state.categories)
+  const { subcategories } = useSelector((state) => state.subcategories)
+
+  useEffect(() => {
+    dispatch(getCategories())
+  }, [dispatch])
+
+  
+  const [values, setValues] = useState({
+    category: '',
+    subcategory: '',
+    name: '',
+    description: '',
+    price: '',
+  })
+  const [image, setImage] = useState('')
+
+  
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value })
+    console.log(values)
+  }
+  
+  const onFileChange = (e) => {
+    setImage(e.target.files[0])
+  }
+
+  const handleChangeCategory = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value })
+    setBtnDisabled(false)
+    dispatch(getSubcategoriesbyCategory(event.target.value))
+    console.log(values)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsMounted(false)
+    const data = new FormData()
+    if (image !== '') {
+      data.append('image', image)
+    }
+    if (deleteImage !== '') {
+      data.append('deleteImage', deleteImage)
+    }
+    data.append(...values)
+    const payload = { id, data }
+    dispatch(updateCategory(payload))
+    if (image !== '' || deleteImage !== '') clearImageStates()
+    setRefreshData(true)
+  }
+
+  return (
+    <>
+      <Box
         sx={{
-          background:
-            'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-            'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-        }}
-        position='top'
-        actionIcon={
-          <IconButton
-            sx={{ color: 'white' }}
-            aria-label={`star ${image.title}`}>
-            <ClearIcon
-              sx={{ '& .MuiSvgIcon-root': { fontSize: 28 } }}
-              onClick={handleClickOpenDialog}
-            />
-            {/* TODO - add onClick MUI confirmation dialog to delete image, then API request imagedelete */}
-          </IconButton>
-        }
-        actionPosition='left'
-      />
-    </ImageListItem>
-  ))}
-</ImageList>
+          m: 4,
+        }}>
+        <div>
+          <FormControl fullWidth sx={{ width: '100%' }} variant='standard'>
+            <Grid container spacing={4}>
+              <Grid fullWidth item xs={6}>
+                <TextField
+                  fullWidth
+                  id='category'
+                  select
+                  label='Κατηγορία'
+                  value={values.category}
+                  onChange={handleChangeCategory('category')}
+                  helperText='Επιλέξτε κατηγορία'
+                  variant='standard'>
+                  {categories.map((category) => (
+                    <MenuItem key={category._id} value={category.name}>
+                      {category.name}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  disabled={btnDisabled}
+                  fullWidth
+                  id='subcategory'
+                  select
+                  label='Υποκατηγορία'
+                  value={values.subcategory}
+                  onChange={handleChange('subcategory')}
+                  helperText='Επιλέξτε υποκατηγορία'
+                  variant='standard'>
+                  {subcategories &&
+                    subcategories.map((subcategory) => (
+                      <MenuItem key={subcategory._id} value={subcategory.name}>
+                        {subcategory.name}
+                      </MenuItem>
+                    ))}
+                </TextField>
+              </Grid>
+            </Grid>
+            <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+              <InputLabel htmlFor='name'>Ονομασία</InputLabel>
+              <Input id='name' value={values.price} onChange={handleChange('name')} />
+            </FormControl>
+            <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+              <InputLabel htmlFor='standard-adornment-price'>Τιμή (Προαιρετικό)</InputLabel>
+              <Input
+                id='standard-adornment-price'
+                value={values.price}
+                onChange={handleChange('price')}
+                startAdornment={<InputAdornment position='start'>€</InputAdornment>}
+              />
+            </FormControl>
+
+            <FormControl fullWidth sx={{ mt: 2 }} variant='standard'>
+              <TextField
+                id='description'
+                label='Περιγραφή (Προαιρετικό)'
+                multiline
+                rows={2}
+                defaultValue=''
+                variant='standard'
+              />
+            </FormControl>
+          </FormControl>
+
+            <Box
+              sx={{
+                display: 'flex',
+                flexGrow: 1,
+                alignSelf: 'center',
+                justifyContent: 'space-between',
+                marginTop: 4,
+              }}>
+              <input
+                accept='image/png,.jpeg'
+                style={{ display: 'none' }}
+                id='image'
+                name='image'
+                multiple
+                type='file'
+                onChange={onFileChange}
+              />
+              <label htmlFor='image'>
+                <Button variant='contained' component='span' style={{ textTransform: 'none' }}>
+                  Ανεβάστε Φωτογραφία
+                </Button>
+              </label>
+              <Button variant='contained' color='success' style={{ textTransform: 'none' }} onClick={handleSubmit}>
+                Αποθήκευση
+              </Button>
+            </Box>
+        </div>
+      </Box>
+    </>
+  )
+}
+
+
+.addCase(deleteTEXT.pending, (state) => {
+  state.isLoading = true
+})
+.addCase(deleteTEXT.fulfilled, (state, action) => {
+  state.isLoading = false
+  state.isSuccess = true
+  state.TEXT = action.payload
+})
+.addCase(deleteTEXT.rejected, (state, action) => {
+  state.isLoading = false
+  state.isError = true
+  state.message = action.payload
+})

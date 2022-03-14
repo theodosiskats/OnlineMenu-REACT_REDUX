@@ -5,19 +5,17 @@ const multer = require('multer')
 const { storage } = require('../cloudinary')
 const upload = multer({ storage: storage })
 
-// Categories Routes
+// Subcategories Routes
 
-router.get('/', controller.getSubcategories)
+router.route('/')
+.get(controller.getSubcategories)
+.post(upload.array('image'), controller.createSubcategory)
 
 router.get('/:category', controller.getSubcategoriesbyCategory)
 
-router.route('/new')
-  .get(controller.newFormsubctg)
-  .post(upload.array('Image'), controller.createNewsubctg)
-
-router.route('/edit/:id/')
-  .get(controller.editFormsubctg)
-  .put(upload.array('Image'), controller.updatesubctg)
-  .delete(controller.deletesubctg)
+.route('/:id')
+.get(controller.getSubcategory)
+.put(upload.array('image'), controller.updateSubcategory)
+.delete(controller.deleteSubcategory)
 
 module.exports = router

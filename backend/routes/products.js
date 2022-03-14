@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 const controller = require('../controllers/products')
-const ProductMd = require('../models/product')
 const { storage } = require('../cloudinary')
 const upload = multer({ storage })
 
@@ -10,14 +9,13 @@ const upload = multer({ storage })
 router
   .route('/')
   .get(controller.getProducts)
+  .post(upload.array('image'), controller.createProduct)
 
 router.get('/:category', controller.getProductsbyCategory)
 
-router.post('/', upload.array('Image'), controller.createNew)
-
 router.route('/:id')
-  .get(controller.showProduct)
-  .put(upload.array('Image'), controller.updateProduct)
+  .get(controller.getProduct)
+  .put(upload.array('image'), controller.updateProduct)
   .delete(controller.deleteProduct)
 
 module.exports = router

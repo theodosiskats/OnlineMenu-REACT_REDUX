@@ -9,19 +9,19 @@ const ProductMd = require('../models/product')
 // @desc    Get all categories
 // @route   GET /api/categories
 // @access  Public
-module.exports.getCategories = async (req, res, next) => {
+module.exports.getCategories = asyncHandler(async (req, res, next) => {
   const categories = await CategoryMd.find({})
   res.status(200).json(categories)
-}
+})
 
 // @desc    Get specific category
 // @route   GET /api/categories/:id
 // @access  Private
-module.exports.getCategory = async (req, res) => {
+module.exports.getCategory = asyncHandler(async (req, res) => {
   const { id } = req.params
   const category = await CategoryMd.findById(id)
   res.status(200).json(category)
-}
+})
 
 // @desc    Create new category
 // @route   POST /api/categories
@@ -55,29 +55,17 @@ module.exports.updateCategory = asyncHandler(async (req, res) => {
   if (req.body.deleteImage) {
     const filename = req.body.deleteImage
     await cloudinary.uploader.destroy(filename)
-    console.log('req.body.deleteImage', req.body.deleteImage)
     await category.updateOne({ $pull: { image: { filename: { $in: req.body.deleteImage } } } })
   }
   res.status(204)
 })
 
-// @desc    delete category
+// @desc    Delete category
 // @route   DELETE /api/categories
 // @access  Private
-module.exports.deleteCategory = async (req, res) => {
+module.exports.deleteCategory = asyncHandler(async (req, res) => {
   const { id } = req.params
   const category = await CategoryMd.findByIdAndDelete(id)
-
-  //Update products
-  const products = await ProductMd.find({})
-  for (let product of products) {
-    if (product.category === category.name) {
-      product.category = req.body.category.name
-      await product.save().then(() => {
-        console.log('Product updated: ' + product.name)
-      })
-    }
-  }
 
   //Delete Selected Images
   if (req.body.deleteImages) {
@@ -88,7 +76,9 @@ module.exports.deleteCategory = async (req, res) => {
       $pull: { Image: { filename: { $in: req.body.deleteImages } } },
     })
   }
-}
+
+  res.status(204)
+})
 
 const UpdateChildren = asyncHandler(async (categoryName, newCategoryName) => {
   //Find & Update subcategories

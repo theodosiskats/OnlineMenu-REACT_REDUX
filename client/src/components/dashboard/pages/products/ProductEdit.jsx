@@ -212,12 +212,13 @@ export default function CategoryEdit() {
               </FormControl>
             </FormControl>
 
+            <FormControl sx={{ mt: 5 }} variant='standard'>
               <Box
                 sx={{
                   display: 'flex',
                   flexGrow: 1,
                   alignSelf: 'center',
-                  marginTop: 4
+                  justifyContent: 'space-between',
                 }}>
                 {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
                 <Box
@@ -232,39 +233,17 @@ export default function CategoryEdit() {
                   </Button>
                 </Box>
               </Box>
+            </FormControl>
           </form>
         </Box>
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <Box
-          sx={{
-            display: 'flex',
-            flexGrow: 1,
-            alignSelf: 'center',
-            justifyContent: 'space-between',
-            marginBottom: 4,
-          }}>
-          <input
-            accept='image/png,.jpeg'
-            style={{ display: 'none' }}
-            id='image'
-            name='image'
-            multiple
-            type='file'
-            onChange={onFileChange}
-          />
-          <label htmlFor='image'>
-            <Button variant='contained' component='span' style={{ textTransform: 'none' }}>
-              Ανεβάστε Φωτογραφία
-            </Button>
-          </label>
-          <Button variant='contained' color='success' style={{ textTransform: 'none' }} onClick={handleSubmit}>
-            Αποθήκευση
-          </Button>
-        </Box>
+        {!categoryImage ? (
+          <></>
+        ) : (
           <ImageList sx={{ width: maxWidth, height: maxHeight }} cols={4}>
-            {categoryImage && categoryImage.map((img) => (
+            {categoryImage.map((img) => (
               <ImageListItem key={img.filename}>
                 <img
                   src={`${img.url}?w=164&h=164&fit=crop&auto=format`}
@@ -292,6 +271,29 @@ export default function CategoryEdit() {
               </ImageListItem>
             ))}
           </ImageList>
+        )}
+        <Box
+          sx={{
+            display: 'flex',
+            flexGrow: 1,
+            alignSelf: 'center',
+            justifyContent: 'space-between',
+          }}>
+          <input
+            accept='image/png,.jpeg'
+            style={{ display: 'none' }}
+            id='image'
+            name='image'
+            multiple
+            type='file'
+            onChange={onFileChange}
+          />
+          <label htmlFor='image'>
+            <Button variant='contained' style={{ textTransform: 'none' }}>
+              Ανεβάστε Φωτογραφία
+            </Button>
+          </label>
+        </Box>
       </TabPanel>
 
       <Dialog

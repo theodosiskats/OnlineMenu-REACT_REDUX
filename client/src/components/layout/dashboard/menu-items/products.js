@@ -14,14 +14,14 @@ const products = {
   children: [
     {
       id: 'listproducts',
-      title: 'Λίστα Προϊόντων',
+      title: 'Λίστα προϊόντων',
       type: 'item',
       url: '/dashboard/products/',
       icon: <List/>,
     },
     {
       id: 'newproduct',
-      title: 'Νέο Προϊόν',
+      title: 'Νέο προϊόν',
       type: 'item',
       url: '/dashboard/products/newproduct',
       icon: <Add/>,

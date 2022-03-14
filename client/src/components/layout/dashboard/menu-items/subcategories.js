@@ -14,7 +14,7 @@ const subcategories = {
   children: [
     {
       id: 'subcategories',
-      title: 'Λίστα Υποκατηγοριών',
+      title: 'Λίστα υποκατηγοριών',
       type: 'item',
       url: '/dashboard/subcategories/',
       icon: <List/>,

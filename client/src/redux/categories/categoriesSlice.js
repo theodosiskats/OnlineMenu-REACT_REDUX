@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import categoriesService from './categoriesService'
 
 const initialState = {
@@ -7,104 +7,68 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: ''
+  message: '',
 }
 
 // Get all categories
-export const getCategories = createAsyncThunk(
-  'categories/getAll',
-  async (_, thunkAPI) => {
-    try {
-      return await categoriesService.getCategories()
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+export const getCategories = createAsyncThunk('categories/getAll', async (_, thunkAPI) => {
+  try {
+    return await categoriesService.getCategories()
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
 
-      return thunkAPI.rejectWithValue(message)
-    }
+    return thunkAPI.rejectWithValue(message)
   }
-)
+})
 
 // Get specific category
-export const getCategory = createAsyncThunk(
-  'categories/getCategory',
-  async (id, thunkAPI) => {
-    try {
-      return await categoriesService.getCategory(id)
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+export const getCategory = createAsyncThunk('categories/getCategory', async (id, thunkAPI) => {
+  try {
+    return await categoriesService.getCategory(id)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
 
-      return thunkAPI.rejectWithValue(message)
-    }
+    return thunkAPI.rejectWithValue(message)
   }
-)
+})
 
 // Create new category
-export const createCategory = createAsyncThunk(
-  'categories/createCategory',
-  async (categoryData, thunkAPI) => {
-    try {
-      return await categoriesService.createCategory(categoryData)
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+export const createCategory = createAsyncThunk('categories/createCategory', async (categoryData, thunkAPI) => {
+  try {
+    return await categoriesService.createCategory(categoryData)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
 
-      return thunkAPI.rejectWithValue(message)
-    }
+    return thunkAPI.rejectWithValue(message)
   }
-)
-
-// Get specific category
-export const deleteCategory = createAsyncThunk(
-  'categories/deleteCategory',
-  async (id, thunkAPI) => {
-    try {
-      return await categoriesService.deleteCategory(id)
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
-
-      return thunkAPI.rejectWithValue(message)
-    }
-  }
-)
+})
 
 // Update category
-export const updateCategory = createAsyncThunk(
-  'categories/updateCategory',
-  async (payload, thunkAPI) => {
-    try {
-      return await categoriesService.updateCategory(payload)
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+export const updateCategory = createAsyncThunk('categories/updateCategory', async (payload, thunkAPI) => {
+  try {
+    return await categoriesService.updateCategory(payload)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
 
-      return thunkAPI.rejectWithValue(message)
-    }
+    return thunkAPI.rejectWithValue(message)
   }
-)
+})
 
+// Delete category
+export const deleteCategory = createAsyncThunk('categories/deleteCategory', async (id, thunkAPI) => {
+  try {
+    return await categoriesService.deleteCategory(id)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+
+    return thunkAPI.rejectWithValue(message)
+  }
+})
 
 //ACTIONS
 export const categoriesSlice = createSlice({
@@ -155,6 +119,19 @@ export const categoriesSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+      
+      .addCase(updateCategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updateCategory.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(updateCategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
 
       .addCase(deleteCategory.pending, (state) => {
         state.isLoading = true
@@ -165,19 +142,6 @@ export const categoriesSlice = createSlice({
         state.category = action.payload
       })
       .addCase(deleteCategory.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-      })
-
-      .addCase(updateCategory.pending, (state) => {
-        state.isLoading = true
-      })
-      .addCase(updateCategory.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-      })
-      .addCase(updateCategory.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

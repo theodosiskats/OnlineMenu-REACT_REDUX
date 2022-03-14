@@ -78,6 +78,7 @@ export default function CategoryEdit() {
   const { id } = useParams()
   const [value, setValue] = useState(0)
   const [refreshData, setRefreshData] = useState(true)
+  console.log('check')
 
   const { category, isLoading, isSuccess, isError, message } = useSelector((state) => state.categories)
 
@@ -138,6 +139,7 @@ export default function CategoryEdit() {
     setCategoryData({ ...categoryData, [e.target.name]: e.target.value })
   }
 
+  
   const imageDelete = (e) => {
     console.log('Image delete API dispatch request')
   }
@@ -155,22 +157,23 @@ export default function CategoryEdit() {
     setDeleteImage('')
     setOpenDialog(false)
   }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsMounted(false)
     const data = new FormData()
-    if (image !== '') {
+    if(image !== ''){
       data.append('image', image)
     }
-    if (deleteImage !== '') {
+    if(deleteImage !== ''){
       data.append('deleteImage', deleteImage)
     }
     data.append('name', categoryData.name)
     data.append('description', categoryData.description)
     const payload = { id, data }
     dispatch(updateCategory(payload))
-    if (image !== '' || deleteImage !== '') clearImageStates()
+    if(image !== '' || deleteImage !== '')
+    clearImageStates()
     setRefreshData(true)
   }
 
@@ -212,59 +215,57 @@ export default function CategoryEdit() {
               </FormControl>
             </FormControl>
 
+            <FormControl sx={{ mt: 5 }} variant='standard'>
               <Box
                 sx={{
                   display: 'flex',
                   flexGrow: 1,
                   alignSelf: 'center',
-                  marginTop: 4
+                  justifyContent: 'space-between',
                 }}>
                 {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexGrow: 1,
-                    alignSelf: 'center',
-                    justifyContent: 'space-between',
-                  }}>
-                  <Button variant='contained' color='success' style={{ textTransform: 'none' }} onClick={handleSubmit}>
-                    Αποθήκευση
-                  </Button>
-                </Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexGrow: 1,
+                      alignSelf: 'center',
+                      justifyContent: 'space-between',
+                    }}>
+                    {/* FIXME - Fix justifyContent space-between to spread buttons to the edges */}
+                    <input
+                      accept='image/png,.jpeg'
+                      style={{ display: 'none' }}
+                      id='image'
+                      name='image'
+                      multiple
+                      type='file'
+                      onChange={onFileChange}
+                    />
+                    <label htmlFor='image'>
+                      <Button variant='contained' component='span'>
+                        Ανεβάστε Φωτογραφία
+                      </Button>
+                    </label>
+                    <Button
+                      variant='contained'
+                      color='success'
+                      style={{ textTransform: 'none' }}
+                      onClick={handleSubmit}>
+                      Δημοσίευση
+                    </Button>
+                  </Box>
               </Box>
+            </FormControl>
           </form>
         </Box>
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        <Box
-          sx={{
-            display: 'flex',
-            flexGrow: 1,
-            alignSelf: 'center',
-            justifyContent: 'space-between',
-            marginBottom: 4,
-          }}>
-          <input
-            accept='image/png,.jpeg'
-            style={{ display: 'none' }}
-            id='image'
-            name='image'
-            multiple
-            type='file'
-            onChange={onFileChange}
-          />
-          <label htmlFor='image'>
-            <Button variant='contained' component='span' style={{ textTransform: 'none' }}>
-              Ανεβάστε Φωτογραφία
-            </Button>
-          </label>
-          <Button variant='contained' color='success' style={{ textTransform: 'none' }} onClick={handleSubmit}>
-            Αποθήκευση
-          </Button>
-        </Box>
+        {!categoryImage ? (
+          <></>
+        ) : (
           <ImageList sx={{ width: maxWidth, height: maxHeight }} cols={4}>
-            {categoryImage && categoryImage.map((img) => (
+            {categoryImage.map((img) => (
               <ImageListItem key={img.filename}>
                 <img
                   src={`${img.url}?w=164&h=164&fit=crop&auto=format`}
@@ -292,6 +293,7 @@ export default function CategoryEdit() {
               </ImageListItem>
             ))}
           </ImageList>
+        )}
       </TabPanel>
 
       <Dialog

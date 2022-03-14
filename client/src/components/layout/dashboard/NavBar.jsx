@@ -32,7 +32,7 @@ const drawerWidth = 280
 
 // FIXME - fix the missing key on list error
 // FIXME - fix duplicate keys error in components from MUI
-// FIXME - fix menu dropdowns not working
+// TODO - fixed menu dropdowns not working when passing itemTitle in the handleClick(id, itemTitle)
 
 function NavBar(props) {
   const { window } = props
@@ -50,10 +50,10 @@ function NavBar(props) {
     other: false,
   })
 
-  const handleClick = (id, itemTitle) => {
+  const handleClick = (id) => {
     setOpen((prevState) => ({ ...prevState, [id]: !prevState[id] }))
-    setTitle(itemTitle)
-    console.log('title', itemTitle)
+    // setTitle(itemTitle)
+    // console.log('title', itemTitle)
     
   }
 
@@ -108,7 +108,7 @@ function NavBar(props) {
             //   </ListSubheader>
             // }
           >
-            <ListItemButton key={id+'listitembutton'} onClick={() => handleClick(id, itemTitle)}>
+            <ListItemButton key={id} onClick={() => handleClick(id)}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={title} />
               {open[id] ? <ExpandLess /> : <ExpandMore />}

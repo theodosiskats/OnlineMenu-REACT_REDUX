@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import subcategoriesService from './subcategoriesService'
 
 const initialState = {
@@ -7,29 +7,34 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: ''
+  message: '',
 }
 
 // Get all subcategories
-export const getSubcategories = createAsyncThunk(
-  'subcategories/getAll',
-  async (_, thunkAPI) => {
-    try {
-      return await subcategoriesService.getSubcategories()
-    } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+export const getSubcategories = createAsyncThunk('subcategories/getAll', async (_, thunkAPI) => {
+  try {
+    return await subcategoriesService.getSubcategories()
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
 
-      return thunkAPI.rejectWithValue(message)
-    }
+    return thunkAPI.rejectWithValue(message)
   }
-)
+})
 
-// Get subcategories by categories for frontpage catalogue
+// Get subcategory
+export const getSubcategory = createAsyncThunk('subcategories/getSubcategory', async (id, thunkAPI) => {
+  try {
+    return await subcategoriesService.getSubcategory(id)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+
+    return thunkAPI.rejectWithValue(message)
+  }
+})
+
+// Get subcategories by category for frontpage catalogue
 export const getSubcategoriesbyCategory = createAsyncThunk(
   'subcategories/getSubcategoriesbyCategory',
   async (category, thunkAPI) => {
@@ -37,17 +42,51 @@ export const getSubcategoriesbyCategory = createAsyncThunk(
       return await subcategoriesService.getSubcategoriesbyCategory(category)
     } catch (error) {
       const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString()
+        (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
 
       return thunkAPI.rejectWithValue(message)
     }
   }
 )
 
+// Create new subcategory
+export const createSubcategory = createAsyncThunk(
+  'subcategories/createSubcategory',
+  async (subcategoryData, thunkAPI) => {
+    try {
+      return await subcategoriesService.createSubcategory(subcategoryData)
+    } catch (error) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+// Update subcategory
+export const updateSubcategory = createAsyncThunk('subcategories/updateSubcategory', async (payload, thunkAPI) => {
+  try {
+    return await subcategoriesService.updateSubcategory(payload)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+
+    return thunkAPI.rejectWithValue(message)
+  }
+})
+
+// Delete subcategory
+export const deleteSubcategory = createAsyncThunk('subcategories/deleteSubcategory', async (id, thunkAPI) => {
+  try {
+    return await subcategoriesService.deleteSubcategory(id)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+
+    return thunkAPI.rejectWithValue(message)
+  }
+})
 
 //These are the new ACTIONS
 export const subcategoriesSlice = createSlice({
@@ -58,31 +97,35 @@ export const subcategoriesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(createSubcategory.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(createSubcategory.fulfilled, (state) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      // })
-      // .addCase(createSubcategory.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
+
       .addCase(getSubcategories.pending, (state) => {
         state.isLoading = true
       })
       .addCase(getSubcategories.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.categories = action.payload
+        state.subcategories = action.payload
       })
       .addCase(getSubcategories.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
+
+      .addCase(getSubcategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getSubcategory.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.subcategory = action.payload
+      })
+      .addCase(getSubcategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+
       .addCase(getSubcategoriesbyCategory.pending, (state) => {
         state.isLoading = true
       })
@@ -96,32 +139,47 @@ export const subcategoriesSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-      // .addCase(getSubcategory.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(getSubcategory.fulfilled, (state, action) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      //   state.subcategory = action.payload
-      // })
-      // .addCase(getSubcategory.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
-      // .addCase(updateSubcategory.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(updateSubcategory.fulfilled, (state, action) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      //   state.subcategory = action.payload
-      // })
-      // .addCase(updateSubcategory.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
+
+      .addCase(createSubcategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(createSubcategory.fulfilled, (state) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(createSubcategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+
+      .addCase(updateSubcategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updateSubcategory.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.subcategory = action.payload
+      })
+      .addCase(updateSubcategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+
+      .addCase(deleteSubcategory.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(deleteSubcategory.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.subcategory = action.payload
+      })
+      .addCase(deleteSubcategory.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
   },
 })
 export const { reset } = subcategoriesSlice.actions
