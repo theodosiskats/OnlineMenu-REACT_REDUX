@@ -30,6 +30,7 @@ const subCtgRoutes = require('./routes/subcategories')
 const dashRoutes = require('./routes/dashboard')
 const announcementsRoutes = require('./routes/announcements')
 const publicfileRoutes = require('./routes/publicfile')
+const { createDefaultAdmin } = require('./middleware/addDefaultAdmin')
 
 
 // Database Config
@@ -80,54 +81,6 @@ app.use(session(sessionConfig))
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(mongoSanitize({ replaceWith: '_' }))
-// app.use(helmet())
-
-// Helmet Config
-//FIXME - Do this via Client maybe or make it work in the backend -> Better in backend for safety
-
-// const scriptSrcUrls = [
-//   'https://stackpath.bootstrapcdn.com/',
-//   'https://api.tiles.mapbox.com/',
-//   'https://api.mapbox.com/',
-//   'https://kit-pro.fontawesome.com/',
-//   'https://cdnjs.cloudflare.com/',
-//   'https://code.jquery.com/',
-//   'https://cdn.jsdelivr.net',
-//   'https://fonts.gstatic.com/',
-//   'https://maxcdn.bootstrapcdn.com/bootstrap/',
-// ]
-// const styleSrcUrls = [
-//   'https://kit-free.fontawesome.com/',
-//   'https://kit-pro.fontawesome.com/',
-//   'https://stackpath.bootstrapcdn.com/',
-//   'https://api.mapbox.com/',
-//   'https://api.tiles.mapbox.com/',
-//   'https://fonts.googleapis.com/',
-//   'https://use.fontawesome.com/',
-// ]
-
-// const fontSrcUrls = ['https://fonts.gstatic.com/']
-
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     directives: {
-//       defaultSrc: [],
-//       connectSrc: ["'self'"],
-//       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
-//       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-//       workerSrc: ["'self'", "blob:"],
-//       objectSrc: [],
-//       imgSrc: [
-//         "'self'",
-//         "blob:",
-//         "data:",
-//         "https://res.cloudinary.com/theodosisk/",
-//         "https://res.cloudinary.com/kaay/",
-//       ],
-//       fontSrc: ["'self'", ...fontSrcUrls],
-//     },
-//   })
-// )
 
 // Passport
 
@@ -147,6 +100,7 @@ app.use('/api/publicfile', publicfileRoutes)
 
 // Middleware
 app.use(errorHandler)
+createDefaultAdmin();
 
 
 if (process.env.NODE_ENV === 'production') {
