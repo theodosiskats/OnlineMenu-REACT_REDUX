@@ -4,3 +4,6 @@ node_modules
 /client/node_modules
 /.bcbk
 /.VSCodeCounter
+/storedcode
+/client/src/store old store.js
+/client/README.md
