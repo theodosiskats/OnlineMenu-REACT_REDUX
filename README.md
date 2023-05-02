@@ -31,10 +31,10 @@ Once the servers are running, navigate to `http://localhost:3000` in your web br
 ### Client UI Dependencies
 
 - Material UI
-- eact-toastify
-- react-spinners
-- eact-perfect-scrollbar
-- eact-icons
+- React-toastify
+- React-spinners
+- React-perfect-scrollbar
+- React-icons
 
 ## Server Dependencies
 
